@@ -6,10 +6,16 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UserService.DTO;
+using UserService.Mappers;
+using UserService.Model;
+using UserService.Repository;
+using UserService.Service;
 
 namespace UserService
 {
@@ -25,13 +31,18 @@ namespace UserService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
 
-            /*services.AddDbContext<UserContext>(optionsBuilder =>
+            // Add Swagger
+            services.AddSwaggerGen(c =>
             {
-                optionsBuilder.UseSqlServer("Data Source=mssql,1433;Initial Catalog=userDB;User ID=sa;Password=A&VeryComplex123Password");
-            });*/
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+            });
+
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, ServiceUser>();
+            services.AddScoped<IGenericMapper<User, UserDTO>, UserMapper>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,7 +53,12 @@ namespace UserService
                 app.UseDeveloperExceptionPage();
             }
 
-            //dataContext.Database.Migrate();
+            // Use Swagger
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
 
             app.UseHttpsRedirection();
 
