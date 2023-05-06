@@ -30,17 +30,12 @@ namespace UserService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
 
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, ServiceUser>();
             services.AddScoped<IGenericMapper<User, UserDTO>, UserMapper>();
 
-            /*services.AddDbContext<UserContext>(optionsBuilder =>
-            {
-                optionsBuilder.UseSqlServer("Data Source=mssql,1433;Initial Catalog=userDB;User ID=sa;Password=A&VeryComplex123Password");
-            });*/
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,8 +45,6 @@ namespace UserService
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            //dataContext.Database.Migrate();
 
             app.UseHttpsRedirection();
 
