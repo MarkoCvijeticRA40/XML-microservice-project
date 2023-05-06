@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dejana\\Desktop\\XML-microservice-project\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj": {}
+    "C:\\Users\\dejana\\Desktop\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dejana\\Desktop\\XML-microservice-project\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj": {
+    "C:\\Users\\dejana\\Desktop\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dejana\\Desktop\\XML-microservice-project\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj",
+        "projectUniqueName": "C:\\Users\\dejana\\Desktop\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj",
         "projectName": "AccommodationService",
-        "projectPath": "C:\\Users\\dejana\\Desktop\\XML-microservice-project\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj",
+        "projectPath": "C:\\Users\\dejana\\Desktop\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj",
         "packagesPath": "C:\\Users\\dejana\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dejana\\Desktop\\XML-microservice-project\\XML-microservice-project\\Backend\\AccommodationService\\obj\\",
+        "outputPath": "C:\\Users\\dejana\\Desktop\\XML-microservice-project\\Backend\\AccommodationService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

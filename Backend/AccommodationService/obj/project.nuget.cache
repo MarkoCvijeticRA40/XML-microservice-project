@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MVlxM2VG3J8Bg2+s8isoqyr1akJxQRS1YASbX2M007ucFD3v2PT9/YqtDyp3tb/YPpmgObo3qnCBPe3aABslvg==",
+  "dgSpecHash": "5XEe7n/L9e+s1tEXqjbuWMf0hc0zvVxzcxpTBvFyNDFEUtzs1P2/gydYOy+oMelP5N/jT4O12DEOZCRUC5GYpw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dejana\\Desktop\\XML-microservice-project\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj",
+  "projectFilePath": "C:\\Users\\dejana\\Desktop\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dejana\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\dejana\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
@@ -28,12 +28,5 @@
     "C:\\Users\\dejana\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
     "C:\\Users\\dejana\\.nuget\\packages\\zstdsharp.port\\0.6.2\\zstdsharp.port.0.6.2.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\dejana\\Desktop\\XML-microservice-project\\XML-microservice-project\\Backend\\AccommodationService\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
