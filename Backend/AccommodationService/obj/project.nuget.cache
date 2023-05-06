@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nkIn692MOL1tp22tUD/9nkuucUd3IiHNMzH81/S8CzQ1DC1Xy6V3qhjmeb5NHOIYdrMBfsoyKYiMaT4U+YgmUA==",
+  "dgSpecHash": "mGdt3MUt9ghjbE4zec3SMpBQayX3/EiAleaZ6GgmTIQnQLotANvGgBkvPTT052X7mV+idEIWuJCmtwVQqGCMyA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\Backend\\Gateway.csproj",
+  "projectFilePath": "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marko\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\marko\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

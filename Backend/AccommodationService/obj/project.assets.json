@@ -229,11 +229,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\Backend\\Gateway.csproj",
-      "projectName": "Gateway",
-      "projectPath": "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\Backend\\Gateway.csproj",
+      "projectUniqueName": "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj",
+      "projectName": "AccommodationService",
+      "projectPath": "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj",
       "packagesPath": "C:\\Users\\marko\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\Backend\\obj\\",
+      "outputPath": "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\AccommodationService\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\marko\\AppData\\Roaming\\NuGet\\NuGet.Config",
