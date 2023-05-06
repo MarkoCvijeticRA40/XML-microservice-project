@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj": {}
+    "C:\\Users\\dejana\\Desktop\\XML-microservice-project\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj": {
+    "C:\\Users\\dejana\\Desktop\\XML-microservice-project\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj",
+        "projectUniqueName": "C:\\Users\\dejana\\Desktop\\XML-microservice-project\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj",
         "projectName": "AccommodationService",
-        "projectPath": "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj",
-        "packagesPath": "C:\\Users\\marko\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\AccommodationService\\obj\\",
+        "projectPath": "C:\\Users\\dejana\\Desktop\\XML-microservice-project\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj",
+        "packagesPath": "C:\\Users\\dejana\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dejana\\Desktop\\XML-microservice-project\\XML-microservice-project\\Backend\\AccommodationService\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\marko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dejana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -51,8 +55,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -64,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
