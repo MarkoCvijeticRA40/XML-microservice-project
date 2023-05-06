@@ -1,6 +1,6 @@
-﻿using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi.Models;
 
-namespace UserService
+namespace AccommodationService
 {
     public class Startup
     {
@@ -24,7 +24,7 @@ namespace UserService
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env /*UserContext dataContext*/)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
