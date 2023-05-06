@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using UserService.DTO;
+using UserService.Mappers;
 using UserService.Model;
 using UserService.Repository;
 using UserService.Service;
