@@ -10,6 +10,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UserService.DTO;
+using UserService.Mappers;
+using UserService.Model;
+using UserService.Repository;
+using UserService.Service;
 
 namespace UserService
 {
@@ -27,6 +32,10 @@ namespace UserService
         {
 
             services.AddControllers();
+
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, ServiceUser>();
+            services.AddScoped<IGenericMapper<User, UserDTO>, UserMapper>();
 
             /*services.AddDbContext<UserContext>(optionsBuilder =>
             {

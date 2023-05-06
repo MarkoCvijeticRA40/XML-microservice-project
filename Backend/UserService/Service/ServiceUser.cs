@@ -4,13 +4,13 @@ using UserService.Repository;
 
 namespace UserService.Service
 {
-    public class UserService : IUserService
+    public class ServiceUser : IUserService
     {
 
         private readonly IUserRepository _userRepository;
         private readonly JwtGenerator _jwtGenerator;
 
-        public UserService(IUserRepository repository)
+        public ServiceUser(IUserRepository repository)
         {
             _userRepository = repository;
             _jwtGenerator = new JwtGenerator();
