@@ -3,11 +3,11 @@ using AccommodationService.Repository;
 
 namespace AccommodationService.Service
 {
-    public class AccommodationService : IAccommodationService
+    public class ServiceAccommodation : IAccommodationService
     {
         private readonly IAccommodationRepository _accommodationRepository;
 
-        public AccommodationService(IAccommodationRepository repository)
+        public ServiceAccommodation(IAccommodationRepository repository)
         {
             _accommodationRepository = repository;
         }

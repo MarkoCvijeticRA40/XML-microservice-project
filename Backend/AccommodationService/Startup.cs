@@ -1,3 +1,8 @@
+using AccommodationService.DTO;
+using AccommodationService.Mappers;
+using AccommodationService.Model;
+using AccommodationService.Repository;
+using AccommodationService.Service;
 using Microsoft.OpenApi.Models;
 
 namespace AccommodationService
@@ -15,6 +20,10 @@ namespace AccommodationService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddScoped<IAccommodationRepository, AccommodationRepository>();
+            services.AddScoped<IAccommodationService, ServiceAccommodation>();
+            services.AddScoped<IGenericMapper<Accommodation, AccommodationDTO>, AccommodationMapper>();
 
             // Add Swagger
             services.AddSwaggerGen(c =>
