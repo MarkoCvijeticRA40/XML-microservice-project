@@ -73,3 +73,16 @@ C:\Users\marko\Desktop\XML-microservice-project\Backend\AccommodationService\obj
 C:\Users\marko\Desktop\XML-microservice-project\Backend\AccommodationService\obj\Debug\net6.0\AccommodationService.genruntimeconfig.cache
 C:\Users\marko\Desktop\XML-microservice-project\Backend\AccommodationService\obj\Debug\net6.0\ref\AccommodationService.dll
 >>>>>>> main
+C:\Users\marko\Desktop\XML-microservice-project\Backend\AccommodationService\bin\Debug\net6.0\AWSSDK.Core.dll
+C:\Users\marko\Desktop\XML-microservice-project\Backend\AccommodationService\bin\Debug\net6.0\AWSSDK.SecurityToken.dll
+C:\Users\marko\Desktop\XML-microservice-project\Backend\AccommodationService\bin\Debug\net6.0\DnsClient.dll
+C:\Users\marko\Desktop\XML-microservice-project\Backend\AccommodationService\bin\Debug\net6.0\MongoDB.Bson.dll
+C:\Users\marko\Desktop\XML-microservice-project\Backend\AccommodationService\bin\Debug\net6.0\MongoDB.Driver.dll
+C:\Users\marko\Desktop\XML-microservice-project\Backend\AccommodationService\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+C:\Users\marko\Desktop\XML-microservice-project\Backend\AccommodationService\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+C:\Users\marko\Desktop\XML-microservice-project\Backend\AccommodationService\bin\Debug\net6.0\SharpCompress.dll
+C:\Users\marko\Desktop\XML-microservice-project\Backend\AccommodationService\bin\Debug\net6.0\Snappier.dll
+C:\Users\marko\Desktop\XML-microservice-project\Backend\AccommodationService\bin\Debug\net6.0\ZstdSharp.dll
+C:\Users\marko\Desktop\XML-microservice-project\Backend\AccommodationService\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\marko\Desktop\XML-microservice-project\Backend\AccommodationService\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\marko\Desktop\XML-microservice-project\Backend\AccommodationService\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
