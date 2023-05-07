@@ -15,8 +15,8 @@ namespace AccommodationService.Repository
             var mongoDatabase = client.GetDatabase("mydatabase");
             _accommodation = mongoDatabase.GetCollection<Accommodation>("myaccommodations");*/
 
-            var client = new MongoClient("mongodb://localhost:27018");
-            var mongoDatabase = client.GetDatabase("mydatabase");
+            var client = new MongoClient("mongodb://localhost:27017");
+            var mongoDatabase = client.GetDatabase("mydatabase1");
             _accommodation = mongoDatabase.GetCollection<Accommodation>("myaccommodations"); 
         }
 
