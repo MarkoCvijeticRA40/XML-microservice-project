@@ -22,19 +22,21 @@ export class RegisterComponent implements OnInit {
   }
 
   public registerUser() {
-    this.user.role = "OrdinaryUser";
+    this.user.id = '';
     if (this.isInputValid()) {
+      console.log(this.user)
       if (this.isPassConfirmed()) {
-        this.userService.registerUser(this.user).subscribe(res => {
-          alert("You have successfully registered!");
-        })
+        if (this.user.role === 'Host' || this.user.role === 'Guest') {
+          this.userService.registerUser(this.user).subscribe(res => {
+            alert("You have successfully registered!");
+          })
+        } else {
+          alert("Invalid role selection!")
+        }
+      } else {
+        alert("You did not confirm your password!");
       }
-      else
-      {
-      alert("You did not confirm your password!");
-      }
-    }
-    else {
+    } else {
       alert("You must fill in all fields!")
     }
   }
@@ -73,6 +75,11 @@ export class RegisterComponent implements OnInit {
   requiredUsernameControl = new FormControl('', [
     Validators.required,
   ]);
+
+  requiredRole = new FormControl('', [
+    Validators.required,
+  ]);
+  
 
   requiredPlaceOfLivingControl = new FormControl('', [
     Validators.required,
