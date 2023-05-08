@@ -3,6 +3,8 @@ using AccommodationService.Mappers;
 using AccommodationService.Model;
 using AccommodationService.Repository;
 using AccommodationService.Service;
+using Grpc.Core;
+using Microsoft.Extensions.Hosting.Internal;
 using Microsoft.OpenApi.Models;
 
 namespace AccommodationService
@@ -32,8 +34,10 @@ namespace AccommodationService
             });
         }
 
+        private Server server;
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IHostApplicationLifetime applicationLifetime)
         {
             if (env.IsDevelopment())
             {
@@ -51,13 +55,35 @@ namespace AccommodationService
 
             app.UseRouting();
 
-            //app.UseAuthorization();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
                 endpoints.MapGrpcService<AccommodationGrpcService>();
             });
+
+            server = new Server
+            {
+                Services = { AccommodationGrpc.BindService(new AccommodationGrpcService()) },
+                Ports = { new ServerPort("localhost", 4111, ServerCredentials.Insecure) }
+            };
+            server.Start();
+
+            applicationLifetime.ApplicationStopping.Register(OnShutdown);
+
         }
+
+        private void OnShutdown()
+        {
+            if (server != null)
+            {
+                server.ShutdownAsync().Wait();
+            }
+
+        }
+
+
+
     }
 }

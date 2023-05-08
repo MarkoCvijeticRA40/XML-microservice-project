@@ -2,15 +2,20 @@
 using AccommodationService.Model;
 using AccommodationService.Repository;
 using Grpc.Core;
+using Grpc.Net.Client;
 
 namespace AccommodationService.Service
 {
     public class AccommodationGrpcService : AccommodationGrpc.AccommodationGrpcBase
     {
 
-        //private readonly ProjectConfiguration projectConfiguration;
-
         private readonly IAccommodationRepository _accommodationRepository;
+
+        public AccommodationGrpcService()
+        {
+        
+        }
+
         public AccommodationGrpcService(IAccommodationRepository repository)
         {
             _accommodationRepository = repository;
@@ -43,8 +48,6 @@ namespace AccommodationService.Service
 
             return Task.FromResult(response);
         }
-
-
 
     }
 }

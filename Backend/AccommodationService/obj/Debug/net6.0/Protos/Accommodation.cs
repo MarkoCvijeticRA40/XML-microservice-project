@@ -25,20 +25,21 @@ namespace AccommodationService {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChpQcm90b3MvYWNjb21tb2RhdGlvbi5wcm90bxIUQWNjb21tb2RhdGlvblNl",
-            "cnZpY2UiIgoUQWNjb21tb2RhdGlvblJlcXVlc3QSCgoCSWQYASABKAkiuAEK",
+            "cnZpY2UiIgoUQWNjb21tb2RhdGlvblJlcXVlc3QSCgoCSWQYASABKAki3AEK",
             "FUFjY29tbW9kYXRpb25SZXNwb25zZRIMCgRuYW1lGAEgASgJEhAKCGxvY2F0",
             "aW9uGAIgASgJEhIKCmZhY2lsaXRpZXMYAyADKAkSDgoGcGhvdG9zGAQgASgJ",
-            "EhMKC21pbkNhcGFjaXR5GAUgASgFEhMKC21heENhcGFjaXR5GAYgASgFEg0K",
-            "BXByaWNlGAkgASgBEhMKC3Jlc2VydmF0aW9uGAogASgIEg0KBWdyYWRlGAsg",
-            "ASgBMoQBChFBY2NvbW1vZGF0aW9uR3JwYxJvChRHZXRBY2NvbW1vZGF0aW9u",
-            "SW5mbxIqLkFjY29tbW9kYXRpb25TZXJ2aWNlLkFjY29tbW9kYXRpb25SZXF1",
-            "ZXN0GisuQWNjb21tb2RhdGlvblNlcnZpY2UuQWNjb21tb2RhdGlvblJlc3Bv",
-            "bnNlYgZwcm90bzM="));
+            "EhMKC21pbkNhcGFjaXR5GAUgASgFEhMKC21heENhcGFjaXR5GAYgASgFEhEK",
+            "CXN0YXJ0RGF0ZRgHIAEoCRIPCgdlbmREYXRlGAggASgJEg0KBXByaWNlGAkg",
+            "ASgBEhMKC3Jlc2VydmF0aW9uGAogASgIEg0KBWdyYWRlGAsgASgBMoQBChFB",
+            "Y2NvbW1vZGF0aW9uR3JwYxJvChRHZXRBY2NvbW1vZGF0aW9uSW5mbxIqLkFj",
+            "Y29tbW9kYXRpb25TZXJ2aWNlLkFjY29tbW9kYXRpb25SZXF1ZXN0GisuQWNj",
+            "b21tb2RhdGlvblNlcnZpY2UuQWNjb21tb2RhdGlvblJlc3BvbnNlYgZwcm90",
+            "bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::AccommodationService.AccommodationRequest), global::AccommodationService.AccommodationRequest.Parser, new[]{ "Id" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::AccommodationService.AccommodationResponse), global::AccommodationService.AccommodationResponse.Parser, new[]{ "Name", "Location", "Facilities", "Photos", "MinCapacity", "MaxCapacity", "Price", "Reservation", "Grade" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::AccommodationService.AccommodationResponse), global::AccommodationService.AccommodationResponse.Parser, new[]{ "Name", "Location", "Facilities", "Photos", "MinCapacity", "MaxCapacity", "StartDate", "EndDate", "Price", "Reservation", "Grade" }, null, null, null, null)
           }));
     }
     #endregion
@@ -274,6 +275,8 @@ namespace AccommodationService {
       photos_ = other.photos_;
       minCapacity_ = other.minCapacity_;
       maxCapacity_ = other.maxCapacity_;
+      startDate_ = other.startDate_;
+      endDate_ = other.endDate_;
       price_ = other.price_;
       reservation_ = other.reservation_;
       grade_ = other.grade_;
@@ -357,13 +360,33 @@ namespace AccommodationService {
       }
     }
 
+    /// <summary>Field number for the "startDate" field.</summary>
+    public const int StartDateFieldNumber = 7;
+    private string startDate_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string StartDate {
+      get { return startDate_; }
+      set {
+        startDate_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "endDate" field.</summary>
+    public const int EndDateFieldNumber = 8;
+    private string endDate_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string EndDate {
+      get { return endDate_; }
+      set {
+        endDate_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     /// <summary>Field number for the "price" field.</summary>
     public const int PriceFieldNumber = 9;
     private double price_;
-    /// <summary>
-    ///google.type.Date startDate = 7;
-    ///google.type.Date endDate = 8;
-    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double Price {
@@ -418,6 +441,8 @@ namespace AccommodationService {
       if (Photos != other.Photos) return false;
       if (MinCapacity != other.MinCapacity) return false;
       if (MaxCapacity != other.MaxCapacity) return false;
+      if (StartDate != other.StartDate) return false;
+      if (EndDate != other.EndDate) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Price, other.Price)) return false;
       if (Reservation != other.Reservation) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Grade, other.Grade)) return false;
@@ -434,6 +459,8 @@ namespace AccommodationService {
       if (Photos.Length != 0) hash ^= Photos.GetHashCode();
       if (MinCapacity != 0) hash ^= MinCapacity.GetHashCode();
       if (MaxCapacity != 0) hash ^= MaxCapacity.GetHashCode();
+      if (StartDate.Length != 0) hash ^= StartDate.GetHashCode();
+      if (EndDate.Length != 0) hash ^= EndDate.GetHashCode();
       if (Price != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Price);
       if (Reservation != false) hash ^= Reservation.GetHashCode();
       if (Grade != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Grade);
@@ -475,6 +502,14 @@ namespace AccommodationService {
       if (MaxCapacity != 0) {
         output.WriteRawTag(48);
         output.WriteInt32(MaxCapacity);
+      }
+      if (StartDate.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(StartDate);
+      }
+      if (EndDate.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(EndDate);
       }
       if (Price != 0D) {
         output.WriteRawTag(73);
@@ -519,6 +554,14 @@ namespace AccommodationService {
         output.WriteRawTag(48);
         output.WriteInt32(MaxCapacity);
       }
+      if (StartDate.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(StartDate);
+      }
+      if (EndDate.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(EndDate);
+      }
       if (Price != 0D) {
         output.WriteRawTag(73);
         output.WriteDouble(Price);
@@ -557,6 +600,12 @@ namespace AccommodationService {
       if (MaxCapacity != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxCapacity);
       }
+      if (StartDate.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(StartDate);
+      }
+      if (EndDate.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(EndDate);
+      }
       if (Price != 0D) {
         size += 1 + 8;
       }
@@ -593,6 +642,12 @@ namespace AccommodationService {
       }
       if (other.MaxCapacity != 0) {
         MaxCapacity = other.MaxCapacity;
+      }
+      if (other.StartDate.Length != 0) {
+        StartDate = other.StartDate;
+      }
+      if (other.EndDate.Length != 0) {
+        EndDate = other.EndDate;
       }
       if (other.Price != 0D) {
         Price = other.Price;
@@ -640,6 +695,14 @@ namespace AccommodationService {
           }
           case 48: {
             MaxCapacity = input.ReadInt32();
+            break;
+          }
+          case 58: {
+            StartDate = input.ReadString();
+            break;
+          }
+          case 66: {
+            EndDate = input.ReadString();
             break;
           }
           case 73: {
@@ -691,6 +754,14 @@ namespace AccommodationService {
           }
           case 48: {
             MaxCapacity = input.ReadInt32();
+            break;
+          }
+          case 58: {
+            StartDate = input.ReadString();
+            break;
+          }
+          case 66: {
+            EndDate = input.ReadString();
             break;
           }
           case 73: {

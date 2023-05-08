@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "R25Of33VLZJPr+2PcnNIDZjOU4FTATJlc+DGfkfraUxtsSjHlwspBxhtwgZxQOrowbsB5ESDR6r6OyEWBZfx/Q==",
+  "dgSpecHash": "qdLK5NRSaZdd3M3/aB2tk6HtXm0+eZ4DDrXXbcLMBvxu+QDspA7HRcQVKselcYUHoVGZTekWQJQK/FHF+7dgtg==",
   "success": true,
   "projectFilePath": "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\AccommodationService\\AccommodationService.csproj",
   "expectedPackageFiles": [
@@ -16,6 +16,7 @@
     "C:\\Users\\marko\\.nuget\\packages\\grpc.aspnetcore\\2.53.0\\grpc.aspnetcore.2.53.0.nupkg.sha512",
     "C:\\Users\\marko\\.nuget\\packages\\grpc.aspnetcore.server\\2.53.0\\grpc.aspnetcore.server.2.53.0.nupkg.sha512",
     "C:\\Users\\marko\\.nuget\\packages\\grpc.aspnetcore.server.clientfactory\\2.53.0\\grpc.aspnetcore.server.clientfactory.2.53.0.nupkg.sha512",
+    "C:\\Users\\marko\\.nuget\\packages\\grpc.core\\2.46.6\\grpc.core.2.46.6.nupkg.sha512",
     "C:\\Users\\marko\\.nuget\\packages\\grpc.core.api\\2.53.0\\grpc.core.api.2.53.0.nupkg.sha512",
     "C:\\Users\\marko\\.nuget\\packages\\grpc.net.client\\2.53.0\\grpc.net.client.2.53.0.nupkg.sha512",
     "C:\\Users\\marko\\.nuget\\packages\\grpc.net.clientfactory\\2.53.0\\grpc.net.clientfactory.2.53.0.nupkg.sha512",

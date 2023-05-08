@@ -17,8 +17,8 @@ message AccommodationResponse {
 	string photos = 4;
 	int32 minCapacity = 5;
 	int32 maxCapacity = 6;
-	//google.type.Date startDate = 7;
-	//google.type.Date endDate = 8;
+	string startDate = 7;
+	string endDate = 8;
 	double price = 9;
 	bool reservation = 10;
 	double grade = 11;
