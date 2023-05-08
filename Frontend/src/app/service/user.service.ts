@@ -11,7 +11,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Rout
 })
 export class UserService {
 
-  apiHost: string = 'http://localhost:44309/';
+  apiHost: string = 'http://localhost:16177/';
   headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
   access_token  : any = '';
   decoded_token : any;

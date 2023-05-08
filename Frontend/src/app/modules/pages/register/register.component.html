@@ -52,6 +52,20 @@
             </mat-error>
           </mat-form-field><br>
 
+          <mat-form-field class="example-full-width" style="color: white;">
+            <mat-label>Role</mat-label>
+            <mat-select [(ngModel)]="user.role" name="role" name="role" [formControl]="requiredRole">
+              <mat-option value="Host">Host</mat-option>
+              <mat-option value="Guest">Guest</mat-option>
+            </mat-select>
+            <mat-error *ngIf="requiredRole.hasError('required')">
+              Role is <strong>required</strong>
+          </mat-error>
+          </mat-form-field><br>
+
+          
+          
+
           <button mat-stroked-button (click)="registerUser()"> 
             Submit
         </button>
