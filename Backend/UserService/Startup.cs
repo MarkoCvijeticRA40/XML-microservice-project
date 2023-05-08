@@ -42,7 +42,8 @@ namespace UserService
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, ServiceUser>();
             services.AddScoped<IGenericMapper<User, UserDTO>, UserMapper>();
-
+            services.AddScoped<IAccommodationService, AccommodationService>();
+            services.AddGrpc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
