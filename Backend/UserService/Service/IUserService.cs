@@ -10,5 +10,6 @@ namespace UserService.Service
         public AuthenticationToken Login(string username, string password);
         public User GetByEmail(String email);
         public User WhoIAm(string token);
+        public User Test();
     }
 }

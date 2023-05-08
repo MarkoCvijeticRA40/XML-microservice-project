@@ -1,4 +1,5 @@
 ﻿using AccommodationService.Model;
+using Grpc.Core;
 
 namespace AccommodationService.Service
 {

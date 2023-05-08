@@ -16,12 +16,14 @@ namespace UserService.Controller
         private readonly IUserService _userService;
         private readonly IUserRepository _userRepository;
         private readonly IGenericMapper<User, UserDTO> _mapper;
+        private readonly IAccommodationService _accommodationService;
 
-        public UserController(IUserRepository userRepository, IUserService userService, IGenericMapper<User, UserDTO> userMapper)
+        public UserController(IAccommodationService accommodationService,IUserRepository userRepository, IUserService userService, IGenericMapper<User, UserDTO> userMapper)
         {
             _userService = userService;
             _userRepository = userRepository;
             _mapper = userMapper;
+            _accommodationService = accommodationService;
         }
 
         [HttpGet]
@@ -64,6 +66,8 @@ namespace UserService.Controller
         [HttpPost("login")]
         public IActionResult Login([FromBody] UserDTO userLogin)
         {
+            var accommodation = _accommodationService.GetAccommodationById("string");
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

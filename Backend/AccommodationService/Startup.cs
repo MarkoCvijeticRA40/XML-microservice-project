@@ -24,7 +24,7 @@ namespace AccommodationService
             services.AddScoped<IAccommodationRepository, AccommodationRepository>();
             services.AddScoped<IAccommodationService, ServiceAccommodation>();
             services.AddScoped<IGenericMapper<Accommodation, AccommodationDTO>, AccommodationMapper>();
-
+            services.AddGrpc();
             // Add Swagger
             services.AddSwaggerGen(c =>
             {
@@ -51,11 +51,12 @@ namespace AccommodationService
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapGrpcService<AccommodationGrpcService>();
             });
         }
     }

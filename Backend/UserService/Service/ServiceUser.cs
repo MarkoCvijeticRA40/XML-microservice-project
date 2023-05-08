@@ -1,4 +1,6 @@
-﻿using System.Security.Cryptography;
+﻿using Grpc.Net.Client;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using UserService.Model;
 using UserService.Repository;
 
@@ -9,11 +11,13 @@ namespace UserService.Service
 
         private readonly IUserRepository _userRepository;
         private readonly JwtGenerator _jwtGenerator;
-
-        public ServiceUser(IUserRepository repository)
+        private readonly IAccommodationService _accommodationService;
+        
+        public ServiceUser(IUserRepository repository,IAccommodationService accommodationService)
         {
             _userRepository = repository;
             _jwtGenerator = new JwtGenerator();
+            _accommodationService = accommodationService;
         }
 
         public IEnumerable<User> GetAll()
@@ -64,6 +68,13 @@ namespace UserService.Service
         public User WhoIAm(string token)
         {
             return _userRepository.WhoIAm(token);
+        }
+
+        public User Test()
+        {
+            var accommodation = _accommodationService.GetAccommodationById("1");
+            User user = new User();
+            return user;
         }
     }
 }
