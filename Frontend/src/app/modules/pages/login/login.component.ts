@@ -25,20 +25,21 @@ export class LoginComponent implements OnInit {
   }
 
   public login() {
+    this.data.id = '';
+    this.data.username = '';
+    this.data.name = '';
+    this.data.lastname = '';
+    this.data.role = '';
+    this.data.placeOfLiving = '';
+    this.currentUser.email = this.data.Email;
+    this.currentUser.password = this.data.Password;
     this.userService.login(this.data).subscribe(res => {
       this.accessToken = res;
       this.userService.getCurrentUser().subscribe(user => {
           this.currentUser = user;
-
-            if (this.currentUser.role == 'Admin') {
-              this.router.navigate(['/admin/delete/flight']);
-            }
-
-            else if(this.currentUser.role == 'OrdinaryUser') {
-              this.router.navigate(['/host/buyingTickets/forFlight/:id']);
-            }
-            else {
-            }
+          console.log(this.currentUser);
+              this.router.navigate(['/register/user']);
+            
         });
     });
   }

@@ -32,6 +32,8 @@ namespace UserService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            //dodato
+            services.AddCors();
 
             // Add Swagger
             services.AddSwaggerGen(c =>
@@ -52,6 +54,12 @@ namespace UserService
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            //dodato
+            app.UseCors(builder => builder
+        .   AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
 
             // Use Swagger
             app.UseSwagger();
