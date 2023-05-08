@@ -1,6 +1,6 @@
 ﻿using AccommodationService.Model;
 using AccommodationService.Repository;
-using Grpc.Core;
+using Grpc.Net.Client;
 
 namespace AccommodationService.Service
 {
@@ -12,15 +12,6 @@ namespace AccommodationService.Service
         {
             _accommodationRepository = repository;
         }
-
-        /*private readonly ProjectConfiguration _configuration;
-
-        public AccommodationService(ProjectConfiguration projectConfiguration)
-        {
-            _configuration = projectConfiguration;
-
-        }*/
-
         public void Create(Accommodation accommodation)
         {
             _accommodationRepository.Create(accommodation);

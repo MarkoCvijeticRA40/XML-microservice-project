@@ -1,4 +1,5 @@
-﻿using Grpc.Net.Client;
+﻿using Grpc.Core;
+using Grpc.Net.Client;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using UserService.Model;
@@ -22,6 +23,14 @@ namespace UserService.Service
 
         public IEnumerable<User> GetAll()
         {
+            string id = "string";
+            var channel = new Channel("localhost", 4111, ChannelCredentials.Insecure);
+            var client = new AccommodationGrpc.AccommodationGrpcClient(channel);
+
+            var accommodation = client.GetAccommodationInfo(new AccommodationRequest { Id = id });
+
+
+
             return _userRepository.GetAll();
         }
 
@@ -68,13 +77,6 @@ namespace UserService.Service
         public User WhoIAm(string token)
         {
             return _userRepository.WhoIAm(token);
-        }
-
-        public User Test()
-        {
-            var accommodation = _accommodationService.GetAccommodationById("1");
-            User user = new User();
-            return user;
         }
     }
 }
