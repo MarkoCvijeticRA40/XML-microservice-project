@@ -93,5 +93,37 @@ namespace UserService.Controller
             return Ok(_userService.GetByEmail(token));
         }
 
+        // PUT api/user/2
+        [HttpPut("{id}")]
+        public ActionResult Update(string id, UserDTO userdto)
+        {
+
+            User user = _mapper.ToModel(userdto);
+            
+            user.Id = id;
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (id != user.Id)
+            {
+                return BadRequest();
+            }
+
+            try
+            {
+                _userService.Update(user);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+
+            return Ok(user);
+        }
+
+
     }
 }

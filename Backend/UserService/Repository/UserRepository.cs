@@ -144,5 +144,11 @@ namespace UserService.Repository
 
             return Iam;
         }
+
+        public void Update(User user)
+        {
+            var filter = Builders<User>.Filter.Eq(u => u.Id, user.Id);
+            _users.ReplaceOne(filter, user);
+        }
     }
 }

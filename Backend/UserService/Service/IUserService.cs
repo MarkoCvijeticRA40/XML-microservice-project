@@ -1,4 +1,5 @@
-﻿using UserService.Model;
+﻿using UserService.DTO;
+using UserService.Model;
 
 namespace UserService.Service
 {
@@ -10,5 +11,6 @@ namespace UserService.Service
         public AuthenticationToken Login(string username, string password);
         public User GetByEmail(String email);
         public User WhoIAm(string token);
+        public void Update(User user);
     }
 }
