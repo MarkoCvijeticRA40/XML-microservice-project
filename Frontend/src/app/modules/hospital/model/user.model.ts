@@ -3,7 +3,7 @@ export class User {
     id : string = '';
     username: string = '';
     name: string = '';
-    lastname: string = '';
+    lastName: string = '';
     role: any = null;
     password: string = '';
     email: string = ''; 
@@ -14,7 +14,7 @@ export class User {
             this.id = obj.id;
             this.username = obj.username;
             this.name = obj.name;
-            this.lastname = obj.lastname;
+            this.lastName = obj.lastName;
             this.role = obj.role;
             this.password = obj.password;
             this.email = obj.email;

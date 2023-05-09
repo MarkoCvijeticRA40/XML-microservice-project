@@ -23,6 +23,7 @@ import { BuyingTicketsComponent } from './buying-tickets/buying-tickets.componen
 import { TableAvailableFlightsComponent } from './table-available-flights/table-available-flights.component';
 import { TicketInformationComponent } from './ticket-information/ticket-information.component';
 import { TakenFlightsComponent } from './taken-flights/taken-flights.component';
+import { ProfileComponent } from '../pages/profile/profile.component';
 
 
 const routes: Routes = [

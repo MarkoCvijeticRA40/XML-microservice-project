@@ -78,5 +78,10 @@ namespace UserService.Service
         {
             return _userRepository.WhoIAm(token);
         }
+
+        public void Update(User user)
+        {
+            _userRepository.Update(user);
+        }
     }
 }
