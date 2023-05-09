@@ -1,4 +1,6 @@
-﻿namespace UserService.Service
+﻿using ProtoService;
+
+namespace UserService.Service
 {
     public interface IAccommodationService
     {
