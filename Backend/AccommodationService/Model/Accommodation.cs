@@ -5,7 +5,6 @@ namespace AccommodationService.Model
     public class Accommodation
     {
         public String Id { get; set; }
-        public Boolean Deleted { get; set; }
         public String Name { get; set; }
         public String Location { get; set; }
         public List<String> Facilities { get; set; }
