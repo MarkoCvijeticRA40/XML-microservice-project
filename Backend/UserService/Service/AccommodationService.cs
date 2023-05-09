@@ -1,4 +1,5 @@
 ﻿using Grpc.Net.Client;
+using ProtoService;
 
 namespace UserService.Service
 {

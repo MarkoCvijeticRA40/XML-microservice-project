@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace AccommodationService {
+namespace ProtoService {
 
   /// <summary>Holder for reflection information generated from Protos/accommodation.proto</summary>
   public static partial class AccommodationReflection {
@@ -24,22 +24,21 @@ namespace AccommodationService {
     static AccommodationReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChpQcm90b3MvYWNjb21tb2RhdGlvbi5wcm90bxIUQWNjb21tb2RhdGlvblNl",
-            "cnZpY2UiIgoUQWNjb21tb2RhdGlvblJlcXVlc3QSCgoCSWQYASABKAki3AEK",
-            "FUFjY29tbW9kYXRpb25SZXNwb25zZRIMCgRuYW1lGAEgASgJEhAKCGxvY2F0",
-            "aW9uGAIgASgJEhIKCmZhY2lsaXRpZXMYAyADKAkSDgoGcGhvdG9zGAQgASgJ",
-            "EhMKC21pbkNhcGFjaXR5GAUgASgFEhMKC21heENhcGFjaXR5GAYgASgFEhEK",
-            "CXN0YXJ0RGF0ZRgHIAEoCRIPCgdlbmREYXRlGAggASgJEg0KBXByaWNlGAkg",
-            "ASgBEhMKC3Jlc2VydmF0aW9uGAogASgIEg0KBWdyYWRlGAsgASgBMoQBChFB",
-            "Y2NvbW1vZGF0aW9uR3JwYxJvChRHZXRBY2NvbW1vZGF0aW9uSW5mbxIqLkFj",
-            "Y29tbW9kYXRpb25TZXJ2aWNlLkFjY29tbW9kYXRpb25SZXF1ZXN0GisuQWNj",
-            "b21tb2RhdGlvblNlcnZpY2UuQWNjb21tb2RhdGlvblJlc3BvbnNlYgZwcm90",
-            "bzM="));
+            "ChpQcm90b3MvYWNjb21tb2RhdGlvbi5wcm90bxIMUHJvdG9TZXJ2aWNlIiIK",
+            "FEFjY29tbW9kYXRpb25SZXF1ZXN0EgoKAklkGAEgASgJItwBChVBY2NvbW1v",
+            "ZGF0aW9uUmVzcG9uc2USDAoEbmFtZRgBIAEoCRIQCghsb2NhdGlvbhgCIAEo",
+            "CRISCgpmYWNpbGl0aWVzGAMgAygJEg4KBnBob3RvcxgEIAEoCRITCgttaW5D",
+            "YXBhY2l0eRgFIAEoBRITCgttYXhDYXBhY2l0eRgGIAEoBRIRCglzdGFydERh",
+            "dGUYByABKAkSDwoHZW5kRGF0ZRgIIAEoCRINCgVwcmljZRgJIAEoARITCgty",
+            "ZXNlcnZhdGlvbhgKIAEoCBINCgVncmFkZRgLIAEoATJ0ChFBY2NvbW1vZGF0",
+            "aW9uR3JwYxJfChRHZXRBY2NvbW1vZGF0aW9uSW5mbxIiLlByb3RvU2Vydmlj",
+            "ZS5BY2NvbW1vZGF0aW9uUmVxdWVzdBojLlByb3RvU2VydmljZS5BY2NvbW1v",
+            "ZGF0aW9uUmVzcG9uc2ViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::AccommodationService.AccommodationRequest), global::AccommodationService.AccommodationRequest.Parser, new[]{ "Id" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::AccommodationService.AccommodationResponse), global::AccommodationService.AccommodationResponse.Parser, new[]{ "Name", "Location", "Facilities", "Photos", "MinCapacity", "MaxCapacity", "StartDate", "EndDate", "Price", "Reservation", "Grade" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::ProtoService.AccommodationRequest), global::ProtoService.AccommodationRequest.Parser, new[]{ "Id" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ProtoService.AccommodationResponse), global::ProtoService.AccommodationResponse.Parser, new[]{ "Name", "Location", "Facilities", "Photos", "MinCapacity", "MaxCapacity", "StartDate", "EndDate", "Price", "Reservation", "Grade" }, null, null, null, null)
           }));
     }
     #endregion
@@ -60,7 +59,7 @@ namespace AccommodationService {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::AccommodationService.AccommodationReflection.Descriptor.MessageTypes[0]; }
+      get { return global::ProtoService.AccommodationReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -249,7 +248,7 @@ namespace AccommodationService {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::AccommodationService.AccommodationReflection.Descriptor.MessageTypes[1]; }
+      get { return global::ProtoService.AccommodationReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

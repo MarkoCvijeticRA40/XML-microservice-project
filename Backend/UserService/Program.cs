@@ -1,6 +1,7 @@
 using Grpc.Net.Client;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
+using ProtoService;
 using System;
 using System.Collections.Generic;
 using System.Linq;

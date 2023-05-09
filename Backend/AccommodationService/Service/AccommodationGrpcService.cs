@@ -3,13 +3,14 @@ using AccommodationService.Model;
 using AccommodationService.Repository;
 using Grpc.Core;
 using Grpc.Net.Client;
+using ProtoService;
 
 namespace AccommodationService.Service
 {
     public class AccommodationGrpcService : AccommodationGrpc.AccommodationGrpcBase
     {
 
-        private readonly IAccommodationRepository _accommodationRepository;
+        IAccommodationRepository accommodationRepository = new AccommodationRepository(); // replace with your implementation of IAccommodationRepository
 
         public AccommodationGrpcService()
         {
@@ -18,13 +19,14 @@ namespace AccommodationService.Service
 
         public AccommodationGrpcService(IAccommodationRepository repository)
         {
-            _accommodationRepository = repository;
+            accommodationRepository = repository;
         }
 
         public override Task<AccommodationResponse> GetAccommodationInfo(AccommodationRequest request, ServerCallContext context)
         {
             // Retrieve the accommodation from the database using the ID
-            Accommodation accommodation = _accommodationRepository.GetById(request.Id);
+            Accommodation accommodation = new Accommodation();
+            accommodation = accommodationRepository.GetById(request.Id);
 
             // If the accommodation is not found, return an error
             if (accommodation == null)
