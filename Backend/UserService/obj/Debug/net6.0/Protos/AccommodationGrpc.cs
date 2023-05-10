@@ -7,10 +7,10 @@
 
 using grpc = global::Grpc.Core;
 
-namespace UserService {
+namespace ProtoService {
   public static partial class AccommodationGrpc
   {
-    static readonly string __ServiceName = "UserService.AccommodationGrpc";
+    static readonly string __ServiceName = "ProtoService.AccommodationGrpc";
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
@@ -46,22 +46,22 @@ namespace UserService {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::UserService.AccommodationRequest> __Marshaller_UserService_AccommodationRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::UserService.AccommodationRequest.Parser));
+    static readonly grpc::Marshaller<global::ProtoService.AccommodationRequest> __Marshaller_ProtoService_AccommodationRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ProtoService.AccommodationRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::UserService.AccommodationResponse> __Marshaller_UserService_AccommodationResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::UserService.AccommodationResponse.Parser));
+    static readonly grpc::Marshaller<global::ProtoService.AccommodationResponse> __Marshaller_ProtoService_AccommodationResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ProtoService.AccommodationResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::UserService.AccommodationRequest, global::UserService.AccommodationResponse> __Method_GetAccommodationInfo = new grpc::Method<global::UserService.AccommodationRequest, global::UserService.AccommodationResponse>(
+    static readonly grpc::Method<global::ProtoService.AccommodationRequest, global::ProtoService.AccommodationResponse> __Method_GetAccommodationInfo = new grpc::Method<global::ProtoService.AccommodationRequest, global::ProtoService.AccommodationResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetAccommodationInfo",
-        __Marshaller_UserService_AccommodationRequest,
-        __Marshaller_UserService_AccommodationResponse);
+        __Marshaller_ProtoService_AccommodationRequest,
+        __Marshaller_ProtoService_AccommodationResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::UserService.AccommodationReflection.Descriptor.Services[0]; }
+      get { return global::ProtoService.AccommodationReflection.Descriptor.Services[0]; }
     }
 
     /// <summary>Client for AccommodationGrpc</summary>
@@ -92,22 +92,22 @@ namespace UserService {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::UserService.AccommodationResponse GetAccommodationInfo(global::UserService.AccommodationRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::ProtoService.AccommodationResponse GetAccommodationInfo(global::ProtoService.AccommodationRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetAccommodationInfo(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::UserService.AccommodationResponse GetAccommodationInfo(global::UserService.AccommodationRequest request, grpc::CallOptions options)
+      public virtual global::ProtoService.AccommodationResponse GetAccommodationInfo(global::ProtoService.AccommodationRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetAccommodationInfo, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::UserService.AccommodationResponse> GetAccommodationInfoAsync(global::UserService.AccommodationRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::ProtoService.AccommodationResponse> GetAccommodationInfoAsync(global::ProtoService.AccommodationRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetAccommodationInfoAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::UserService.AccommodationResponse> GetAccommodationInfoAsync(global::UserService.AccommodationRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::ProtoService.AccommodationResponse> GetAccommodationInfoAsync(global::ProtoService.AccommodationRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetAccommodationInfo, null, options, request);
       }

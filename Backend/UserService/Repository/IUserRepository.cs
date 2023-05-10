@@ -13,6 +13,7 @@ namespace UserService.Repository
         public User Login(string username, string password);
         public User GetByEmail(String email);
         public User WhoIAm(string token);
+        void Update(User user);
     }
 }
 

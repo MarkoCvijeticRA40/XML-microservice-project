@@ -6,6 +6,7 @@ using AccommodationService.Service;
 using Grpc.Core;
 using Microsoft.Extensions.Hosting.Internal;
 using Microsoft.OpenApi.Models;
+using ProtoService;
 
 namespace AccommodationService
 {

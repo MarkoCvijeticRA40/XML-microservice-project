@@ -1,6 +1,6 @@
 ﻿syntax = "proto3";
 
-package AccommodationService;
+package ProtoService;
 
 service AccommodationGrpc {
 	rpc GetAccommodationInfo(AccommodationRequest) returns (AccommodationResponse);

@@ -1,34 +1,50 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { UserService } from 'src/app/service/user.service';
 import { User } from '../../hospital/model/user.model';
+import { UserService } from 'src/app/service/user.service';
+import { Router } from '@angular/router';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class ProfileComponent implements OnInit {
 
   public confirmationPass: string = '';
 
   public user: User = new User();
+  public user2: User = new User();
+  
 
   constructor(private userService: UserService, private router: Router) { }
 
-  ngOnInit(): void {
+
+
+  ngOnInit() {
+    this.loadUserData();
   }
 
-  public registerUser() {
-    this.user.id = '';
+  loadUserData() {
+    this.userService.getCurrentUser().subscribe(user => {
+    
+     this.user = user;
+     console.log(this.user);
+     this.user.lastName = user.lastName
+     this.user.password = '';
+     
+     
+    });
+  }
+
+  public editProfile() {
     if (this.isInputValid()) {
       console.log(this.user)
       if (this.isPassConfirmed()) {
-        if (this.user.role === 'Host' || this.user.role === 'Guest') {
-          this.userService.registerUser(this.user).subscribe(res => {
-            alert("You have successfully registered!");
+        if (this.user.role === "Host" || this.user.role === "Guest") {
+          console.log(this.user)
+          this.userService.updateUser(this.user).subscribe(res => {
+            alert("You have successfully updated!");
           })
         } else {
           alert("Invalid role selection!")
@@ -39,6 +55,7 @@ export class RegisterComponent implements OnInit {
     } else {
       alert("You must fill in all fields!")
     }
+  
   }
 
   private isInputValid(): boolean {
@@ -84,4 +101,5 @@ export class RegisterComponent implements OnInit {
   requiredPlaceOfLivingControl = new FormControl('', [
     Validators.required,
   ]);
+
 }

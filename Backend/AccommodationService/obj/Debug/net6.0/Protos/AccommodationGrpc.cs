@@ -7,10 +7,10 @@
 
 using grpc = global::Grpc.Core;
 
-namespace AccommodationService {
+namespace ProtoService {
   public static partial class AccommodationGrpc
   {
-    static readonly string __ServiceName = "AccommodationService.AccommodationGrpc";
+    static readonly string __ServiceName = "ProtoService.AccommodationGrpc";
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
@@ -46,22 +46,22 @@ namespace AccommodationService {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::AccommodationService.AccommodationRequest> __Marshaller_AccommodationService_AccommodationRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::AccommodationService.AccommodationRequest.Parser));
+    static readonly grpc::Marshaller<global::ProtoService.AccommodationRequest> __Marshaller_ProtoService_AccommodationRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ProtoService.AccommodationRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::AccommodationService.AccommodationResponse> __Marshaller_AccommodationService_AccommodationResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::AccommodationService.AccommodationResponse.Parser));
+    static readonly grpc::Marshaller<global::ProtoService.AccommodationResponse> __Marshaller_ProtoService_AccommodationResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ProtoService.AccommodationResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::AccommodationService.AccommodationRequest, global::AccommodationService.AccommodationResponse> __Method_GetAccommodationInfo = new grpc::Method<global::AccommodationService.AccommodationRequest, global::AccommodationService.AccommodationResponse>(
+    static readonly grpc::Method<global::ProtoService.AccommodationRequest, global::ProtoService.AccommodationResponse> __Method_GetAccommodationInfo = new grpc::Method<global::ProtoService.AccommodationRequest, global::ProtoService.AccommodationResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetAccommodationInfo",
-        __Marshaller_AccommodationService_AccommodationRequest,
-        __Marshaller_AccommodationService_AccommodationResponse);
+        __Marshaller_ProtoService_AccommodationRequest,
+        __Marshaller_ProtoService_AccommodationResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::AccommodationService.AccommodationReflection.Descriptor.Services[0]; }
+      get { return global::ProtoService.AccommodationReflection.Descriptor.Services[0]; }
     }
 
     /// <summary>Base class for server-side implementations of AccommodationGrpc</summary>
@@ -69,7 +69,7 @@ namespace AccommodationService {
     public abstract partial class AccommodationGrpcBase
     {
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::AccommodationService.AccommodationResponse> GetAccommodationInfo(global::AccommodationService.AccommodationRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::ProtoService.AccommodationResponse> GetAccommodationInfo(global::ProtoService.AccommodationRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -92,7 +92,7 @@ namespace AccommodationService {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     public static void BindService(grpc::ServiceBinderBase serviceBinder, AccommodationGrpcBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_GetAccommodationInfo, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::AccommodationService.AccommodationRequest, global::AccommodationService.AccommodationResponse>(serviceImpl.GetAccommodationInfo));
+      serviceBinder.AddMethod(__Method_GetAccommodationInfo, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ProtoService.AccommodationRequest, global::ProtoService.AccommodationResponse>(serviceImpl.GetAccommodationInfo));
     }
 
   }
