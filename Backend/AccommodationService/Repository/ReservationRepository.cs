@@ -30,6 +30,19 @@ namespace AccommodationService.Repository
             return _reservations.Find(_ => true).ToList();
         }
 
+        public Reservation GetById(string id)
+        {
+            var filter = Builders<Reservation>.Filter.Eq(a => a.Id, id);
+            var reservation = _reservations.Find(filter).FirstOrDefault();
+
+
+            if (reservation != null)
+            {
+                return reservation;
+            }
+            return null;
+        }
+
         public void Update(Model.Reservation reservation)
         {
             var filter = Builders<Reservation>.Filter.Eq(u => u.Id, reservation.Id);
