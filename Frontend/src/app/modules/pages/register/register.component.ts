@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
 
   private isInputValid(): boolean {
     return this.user.username != ''
-         && this.user.name != '' && this.user.lastname != '' && this.user.password != ''
+         && this.user.name != '' && this.user.lastName != '' && this.user.password != ''
          && this.user.email != '' && this.user.placeOfLiving != ''
   }
 

@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Hosting.Internal;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using ProtoService;
 using System;
 using System.Collections.Generic;
 using System.Linq;

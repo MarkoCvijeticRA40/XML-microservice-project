@@ -27,6 +27,10 @@ export class UserService {
     return this.http.get<any>(this.apiHost + "api/User/" + Id, { headers : this.headers});
   }
 
+  updateUser(user: any): Observable<any> {
+    return this.http.put<any>(this.apiHost + 'api/User/' + user.id , user, {headers: this.headers});
+  }
+
   login(data: any): Observable<any> {
     return this.http.post<any>(this.apiHost + 'api/User/login', data, {headers: this.headers})
     .pipe(map((res) => {
