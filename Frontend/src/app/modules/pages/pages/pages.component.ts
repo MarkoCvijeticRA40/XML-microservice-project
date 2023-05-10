@@ -12,7 +12,7 @@ export class PagesComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.router.navigate(['/unauthorized']);
+    this.router.navigate(['/accommodations']);
   }
 
   public home(){

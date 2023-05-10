@@ -8,5 +8,6 @@ namespace AccommodationService.Service
         IEnumerable<Accommodation> GetAll();
         public void Create(Accommodation accommodation);
         public Accommodation GetById(string id);
+
     }
 }
