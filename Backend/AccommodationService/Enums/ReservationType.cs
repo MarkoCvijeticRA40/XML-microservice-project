@@ -1,6 +1,6 @@
 ﻿namespace AccommodationService.Enums
 {
-    public enum Reservation
+    public enum ReservationType
     {
         Autoautomatically,
         WithApproval

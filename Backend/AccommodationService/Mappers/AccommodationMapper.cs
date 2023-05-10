@@ -22,11 +22,11 @@ namespace AccommodationService.Mappers
             accommodationDTO.Price = accommodation.Price;
             accommodationDTO.Grade = accommodation.Grade;
 
-            if (accommodation.ReservationType == Reservation.Autoautomatically)
+            if (accommodation.ReservationType == ReservationType.Autoautomatically)
             {
                 accommodationDTO.ReservationType = "Automatically";
             }
-            if (accommodation.ReservationType == Reservation.WithApproval)
+            if (accommodation.ReservationType == ReservationType.WithApproval)
             {
                 accommodationDTO.ReservationType = "WithApproval";
             }
@@ -55,11 +55,11 @@ namespace AccommodationService.Mappers
                 accommodationDTO.Price = accommodation.Price;
                 accommodationDTO.Grade = accommodation.Grade;
 
-                if (accommodation.ReservationType == Reservation.Autoautomatically)
+                if (accommodation.ReservationType == ReservationType.Autoautomatically)
                 {
                     accommodationDTO.ReservationType = "Automatically";
                 }
-                if (accommodation.ReservationType == Reservation.WithApproval)
+                if (accommodation.ReservationType == ReservationType.WithApproval)
                 {
                     accommodationDTO.ReservationType = "WithApproval";
                 }
@@ -87,11 +87,11 @@ namespace AccommodationService.Mappers
 
             if (accommodationDTO.ReservationType.Equals("Automatically"))
             {
-                accommodation.ReservationType = Reservation.Autoautomatically;
+                accommodation.ReservationType = ReservationType.Autoautomatically;
             }
             if (accommodationDTO.ReservationType.Equals("WithApproval"))
             {
-                accommodation.ReservationType = Reservation.Autoautomatically;
+                accommodation.ReservationType = ReservationType.Autoautomatically;
             }
 
             return accommodation;
@@ -118,11 +118,11 @@ namespace AccommodationService.Mappers
                 accommodation.Grade = accommodationDTO.Grade;
                 if (accommodationDTO.ReservationType.Equals("Automatically"))
                 {
-                    accommodation.ReservationType = Reservation.Autoautomatically;
+                    accommodation.ReservationType = ReservationType.Autoautomatically;
                 }
                 if (accommodationDTO.ReservationType.Equals("WithApproval"))
                 {
-                    accommodation.ReservationType = Reservation.Autoautomatically;
+                    accommodation.ReservationType = ReservationType.Autoautomatically;
                 }
                 accommodations.Add(accommodation);
             }
