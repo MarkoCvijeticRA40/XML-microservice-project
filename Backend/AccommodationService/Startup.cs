@@ -28,6 +28,13 @@ namespace AccommodationService
             services.AddScoped<IAccommodationService, ServiceAccommodation>();
             services.AddScoped<IGenericMapper<Accommodation, AccommodationDTO>, AccommodationMapper>();
             services.AddGrpc();
+
+            services.AddScoped<IReservationRepository, ReservationRepository>();
+            services.AddScoped<IReservationService, ServiceReservation>();
+            services.AddScoped<IGenericMapper<Reservation, ReservationDTO>, ReservationMapper>();
+         
+
+
             // Add Swagger
             services.AddSwaggerGen(c =>
             {

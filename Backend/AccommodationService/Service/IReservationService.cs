@@ -1,10 +1,9 @@
 ﻿using AccommodationService.Model;
 
-namespace AccommodationService.Repository
+namespace AccommodationService.Service
 {
-    public interface IReservationRepository
+    public interface IReservationService
     {
-
         IEnumerable<Reservation> GetAll();
         void Create(Reservation reservation);
         void Update(Reservation reservation);
