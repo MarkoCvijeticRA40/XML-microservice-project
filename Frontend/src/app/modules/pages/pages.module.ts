@@ -21,6 +21,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { UnauthorComponent } from './unauthor/unauthor.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AccommodationComponent } from './accommodation/accommodation.component';
+import { CreateAccommodationComponent } from './create-accommodation/create-accommodation.component';
 
 const routes: Routes = [
   {
@@ -30,6 +32,8 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent},
       { path: 'unauthorized', component: UnauthorComponent},
       { path: 'profile', component: ProfileComponent},
+      { path: 'accommodations', component: AccommodationComponent},
+      { path: 'createAccommodation', component: CreateAccommodationComponent},
 
     ]
   }
@@ -43,6 +47,9 @@ const routes: Routes = [
     PagesComponent,
     UnauthorComponent,
     ProfileComponent
+    UnauthorComponent,
+    AccommodationComponent,
+    CreateAccommodationComponent
 
   ],
   imports: [

@@ -24,16 +24,8 @@ namespace AccommodationService.Repository
 
         public void Create(Accommodation accommodation)
         {
+            _accommodation.InsertOne(accommodation);
 
-
-            if (IsAccommodationExist(accommodation.Id) == false)
-            {
-                _accommodation.InsertOne(accommodation);
-            }
-            else
-            {
-                return;
-            }
         }
 
         public IEnumerable<Accommodation> GetAll()
