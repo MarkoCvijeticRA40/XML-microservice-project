@@ -32,6 +32,18 @@ namespace AccommodationService
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
+
+            //
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.WithOrigins("http://localhost:4200")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
+
         }
 
         private Server server;
@@ -53,6 +65,8 @@ namespace AccommodationService
 
             app.UseHttpsRedirection();
 
+            app.UseCors();
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -72,6 +86,7 @@ namespace AccommodationService
 
             applicationLifetime.ApplicationStopping.Register(OnShutdown);
 
+            
         }
 
         private void OnShutdown()

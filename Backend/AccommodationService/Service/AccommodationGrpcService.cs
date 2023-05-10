@@ -38,7 +38,7 @@ namespace AccommodationService.Service
                 Name = accommodation.Name,
                 Location = accommodation.Location,
                 //Facilities = { accommodation.Facilities.Split(',', StringSplitOptions.RemoveEmptyEntries) },
-                Photos = accommodation.Photos,
+                //Photos = accommodation.Photos,
                 MinCapacity = accommodation.MinCapacity,
                 MaxCapacity = accommodation.MaxCapacity,
                 Price = accommodation.Price,

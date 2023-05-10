@@ -1,4 +1,5 @@
-﻿using AccommodationService.DTO;
+﻿using System.Text.RegularExpressions;
+using AccommodationService.DTO;
 using AccommodationService.Mappers;
 using AccommodationService.Model;
 using AccommodationService.Repository;
@@ -24,7 +25,7 @@ namespace AccommodationService.Controllers
         }
 
         [HttpGet]
-        public ActionResult GetAllUsers()
+        public ActionResult GetAllAccommodations()
         {
             return Ok(_mapper.ToDTO(_accommodationService.GetAll().ToList()));
         }
@@ -38,19 +39,19 @@ namespace AccommodationService.Controllers
         [HttpPost]
         public ActionResult Create(AccommodationDTO accommodationDTO)
         {
+
             Accommodation accommodation = _mapper.ToModel(accommodationDTO);
+
 
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
-            }
+    }
 
-            if (_accommodationRepository.IsAccommodationExist(accommodationDTO.Id) == false)
-            {
-                _accommodationService.Create(accommodation);
-                return CreatedAtAction("GetById", new { id = accommodation.Id }, accommodation);
-            }
-            return BadRequest();
+            _accommodationService.Create(accommodation);
+            return CreatedAtAction("GetById", new { id = accommodation.Id }, accommodation);
+
+   
         }
     }
 }
