@@ -48,10 +48,10 @@ namespace AccommodationService.Service
 
             // Check if the Reservation property exists in the accommodation object
             var reservationProperty = accommodation.GetType().GetProperty("Reservation");
-            if (reservationProperty != null && reservationProperty.PropertyType == typeof(Reservation))
+            if (reservationProperty != null && reservationProperty.PropertyType == typeof(ProtoService.Reservation))
             {
                 // Get the Reservation value from the property
-                var reservationValue = (Reservation)reservationProperty.GetValue(accommodation);
+                var reservationValue = (ProtoService.Reservation)reservationProperty.GetValue(accommodation);
                 response.ReservationType = reservationValue;
             }
 
