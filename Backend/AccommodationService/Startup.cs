@@ -29,11 +29,30 @@ namespace AccommodationService
             services.AddScoped<IGenericMapper<Accommodation, AccommodationDTO>, AccommodationMapper>();
             services.AddScoped<IUserService, UserService>();
             services.AddGrpc();
+
+            services.AddScoped<IReservationRepository, ReservationRepository>();
+            services.AddScoped<IReservationService, ServiceReservation>();
+            services.AddScoped<IGenericMapper<Model.Reservation, ReservationDTO>, ReservationMapper>();
+         
+
+
             // Add Swagger
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
+
+            //
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.WithOrigins("http://localhost:4200")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
+
         }
 
         private Server server;
@@ -55,6 +74,8 @@ namespace AccommodationService
 
             app.UseHttpsRedirection();
 
+            app.UseCors();
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -74,6 +95,7 @@ namespace AccommodationService
 
             applicationLifetime.ApplicationStopping.Register(OnShutdown);
 
+            
         }
 
         private void OnShutdown()
