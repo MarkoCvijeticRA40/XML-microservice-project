@@ -25,6 +25,19 @@ namespace AccommodationService.Repository
             _reservations.InsertOne(reservation);   
         }
 
+        public void Delete(Reservation reservation)
+        {
+            var filter = Builders<Reservation>.Filter.Eq(u => u.Id, reservation.Id);
+            _reservations.DeleteOne(filter);
+        }
+
+        public void DeleteById(string id)
+        {
+            var filter = Builders<Reservation>.Filter.Eq(u => u.Id, id);
+            _reservations.DeleteOne(filter);
+        }
+
+        
         public IEnumerable<Model.Reservation> GetAll()
         {
             return _reservations.Find(_ => true).ToList();
@@ -48,5 +61,9 @@ namespace AccommodationService.Repository
             var filter = Builders<Reservation>.Filter.Eq(u => u.Id, reservation.Id);
             _reservations.ReplaceOne(filter, reservation);
         }
+
+       
+
+
     }
 }

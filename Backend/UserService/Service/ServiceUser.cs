@@ -25,11 +25,13 @@ namespace UserService.Service
         public IEnumerable<User> GetAll()
         {
             //Nema veze ovaj deo sa get methodom ali isprobavam mikro servis jer se lagano pogodi iz swaggera
+           /*
             string id = "string";
             var channel = new Channel("localhost", 4111, ChannelCredentials.Insecure);
             var client = new AccommodationGrpc.AccommodationGrpcClient(channel);
             var accommodation = client.GetAccommodationInfo(new AccommodationRequest { Id = id });
             //
+            */
             return _userRepository.GetAll();
         }
 

@@ -30,6 +30,15 @@ namespace AccommodationService.Controllers
         }
 
 
+        [HttpGet("guest/{id}")]
+        public ActionResult GetAllGuestReservations(string id)
+        {
+
+            return Ok(_mapper.ToDTO(_reservationService.getAllGuestReservations(id).ToList()));
+        }
+
+
+
 
         [HttpPost]
         public ActionResult Create(ReservationDTO reservationDTO)
@@ -53,6 +62,65 @@ namespace AccommodationService.Controllers
         {
             return Ok(_mapper.ToDTO(_reservationService.GetById(id)));
         }
+
+
+        [HttpDelete("cancel/{id}")]
+        public ActionResult CancelReservation(string id)
+        {
+
+            try
+            {
+                _reservationService.CancelReservation(id);
+                return NoContent();
+            }
+            catch
+            {
+                return NotFound();
+
+            }
+        }
+
+
+
+        [HttpPut("approve/{id}")]
+        public ActionResult ApproveReservation(string id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }            
+            try
+            {
+                Reservation reservation = _reservationService.ApproveReservation(id);
+                return Ok(reservation);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+
+        }
+
+        [HttpPut("disapprove/{id}")]
+        public ActionResult DisapproveReservation(string id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                _reservationService.DisapproveReservation(id);
+                return NoContent();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+
+        }
+
+
 
 
     }

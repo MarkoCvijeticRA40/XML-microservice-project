@@ -14,8 +14,12 @@ namespace AccommodationService.Mappers
             reservationDTO.StartDate = reservation.StartDate;
             reservationDTO.EndDate = reservation.EndDate;
             reservationDTO.Approved = reservation.Approved;
-            reservationDTO.PendingApproval = reservation.PendingApproval;
+            reservationDTO.Deleted = reservation.Deleted;
             reservationDTO.AccomodationId = reservation.AccomodationId;
+            reservationDTO.GuestId = reservation.GuestId;
+            reservationDTO.NumberOfCancelation = reservation.NumberOfCancelation;
+
+
 
             return reservationDTO;
 
@@ -35,8 +39,11 @@ namespace AccommodationService.Mappers
                 reservationDTO.StartDate = reservation.StartDate;
                 reservationDTO.EndDate = reservation.EndDate;
                 reservationDTO.Approved = reservation.Approved;
-                reservationDTO.PendingApproval = reservation.PendingApproval;
+                reservationDTO.Deleted = reservation.Deleted;
                 reservationDTO.AccomodationId = reservation.AccomodationId;
+                reservationDTO.GuestId = reservation.GuestId;
+                reservationDTO.NumberOfCancelation = reservation.NumberOfCancelation;
+
 
                 reservationDTOs.Add(reservationDTO);    
 
@@ -55,8 +62,10 @@ namespace AccommodationService.Mappers
             reservation.StartDate = reservationDTO.StartDate;
             reservation.EndDate = reservationDTO.EndDate;
             reservation.Approved = reservationDTO.Approved;
-            reservation.PendingApproval = reservationDTO.PendingApproval;
+            reservation.Deleted = reservationDTO.Deleted;
             reservation.AccomodationId = reservationDTO.AccomodationId;
+            reservation.GuestId = reservationDTO.GuestId;
+            reservation.NumberOfCancelation = reservationDTO.NumberOfCancelation;
 
             return reservation;
         }
@@ -75,8 +84,11 @@ namespace AccommodationService.Mappers
                 reservation.StartDate = reservationDTO.StartDate;
                 reservation.EndDate = reservationDTO.EndDate;
                 reservation.Approved = reservationDTO.Approved;
-                reservation.PendingApproval = reservationDTO.PendingApproval;
+                reservation.Deleted = reservationDTO.Deleted;
                 reservation.AccomodationId = reservationDTO.AccomodationId;
+                reservation.GuestId = reservationDTO.GuestId;
+                reservation.NumberOfCancelation = reservationDTO.NumberOfCancelation;
+
 
                 reservations.Add(reservation);
 

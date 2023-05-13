@@ -25,6 +25,7 @@ export class AccommodationComponent implements OnInit {
 
   public loadAccommodations(){
     this.accommodationService.getAccommodations().subscribe(res => {
+      alert(1);
       this.dataSource.data = res
       this.accommodations = res
     })
