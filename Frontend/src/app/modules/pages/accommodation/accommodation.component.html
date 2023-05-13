@@ -1,6 +1,22 @@
 
 <div class="container">
 
+  <form (submit)="onSearch()" class="search-form">
+    <label for="date">Start date:</label>
+    <input type="date" name="date" [(ngModel)]="startDate">
+
+    <label for="date1">End date:</label>
+    <input type="date" name="date1" [(ngModel)]="endDate">
+  
+    <label for="departure">Departure location:</label>
+    <input type="text" name="location" [(ngModel)]="location">
+  
+    <label for="numPassengers">Number of guests:</label>
+    <input type="number" name="numPassengers" [(ngModel)]="guests">
+  
+    <button type="submit" class="searchButton">Search</button>
+</form>
+
   <div class="table-header">
     <h2>Accommodations: </h2>
 
@@ -34,6 +50,10 @@
             <td>* Min capacity: {{ accommodation.minCapacity }}, Max capacity: {{ accommodation.maxCapacity }}</td>
           </div>
           <br>
+
+          <div *ngIf="searchPerformed" class="ostalo">
+            <td>* Total price: {{ accommodation.price * guests}}, Price per person: {{ accommodation.price }}</td>
+          </div>
 
           <div class="photo-container">
             <ng-container *ngFor="let photo of accommodation.photos; let i=index">
