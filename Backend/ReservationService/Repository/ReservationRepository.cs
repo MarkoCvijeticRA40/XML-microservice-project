@@ -14,7 +14,7 @@ namespace ReservationService.Repository
        
             
             var client = new MongoClient("mongodb://localhost:27017");
-            var mongoDatabase = client.GetDatabase("mydatabase1");
+            var mongoDatabase = client.GetDatabase("mydatabase2");
             _reservations = mongoDatabase.GetCollection<Model.Reservation>("myreservations");
 
 
