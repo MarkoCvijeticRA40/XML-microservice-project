@@ -38,6 +38,13 @@ namespace ReservationService.Controllers
         }
 
 
+        [HttpGet("undealeted/guest/{id}")]
+        public ActionResult GetAllUndealetedGuestReservedReservations(string id)
+        {
+            return Ok(_mapper.ToDTO(_reservationService.getAllUndealitedGuestReservedReservationsInFuture(id).ToList()));
+        }
+
+
 
 
         [HttpPost]

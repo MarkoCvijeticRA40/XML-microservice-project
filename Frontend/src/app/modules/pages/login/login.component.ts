@@ -38,8 +38,10 @@ export class LoginComponent implements OnInit {
       this.userService.getCurrentUser().subscribe(user => {
           this.currentUser = user;
           console.log(this.currentUser);
-              this.router.navigate(['/register/user']);
-            
+         
+          if (this.currentUser.role === "Guest") {
+            this.router.navigate(['/reservations']);
+          }
         });
     });
   }
