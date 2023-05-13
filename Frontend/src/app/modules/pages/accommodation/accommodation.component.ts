@@ -36,10 +36,6 @@ export class AccommodationComponent implements OnInit {
 
   }
 
-  public addAccommodation() {
-    this.router.navigate(['/createAccommodation']);
-  }
-
   private isInputValid(): boolean {
     return this.location != ''  &&  this.guests  > 0;
   }

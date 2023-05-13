@@ -17,6 +17,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ReserveAccommodationComponent } from './reserve-accommodation/reserve-accommodation.component';
+import { ProfileComponent } from '../pages/profile/profile.component';
+import { AccommodationComponent } from '../pages/accommodation/accommodation.component';
 
 
 
@@ -24,7 +26,10 @@ const routes: Routes = [
   {
     path: '', component: GuestComponent, children: [
       { path: 'reservations', component: ReservationsComponent},
-      
+      { path: 'guestProfil', component: ProfileComponent },
+      { path: 'accommodation', component: AccommodationComponent},
+
+
     ]
   }
 ];
