@@ -1,8 +1,6 @@
-﻿using AccommodationService.Core;
-using AccommodationService.Model;
+﻿using AccommodationService.Model;
 using AccommodationService.Repository;
 using Grpc.Core;
-using Grpc.Net.Client;
 using ProtoService;
 
 namespace AccommodationService.Service
@@ -25,8 +23,7 @@ namespace AccommodationService.Service
         public override Task<AccommodationResponse> GetAccommodationInfo(AccommodationRequest request, ServerCallContext context)
         {
             // Retrieve the accommodation from the database using the ID
-            Accommodation accommodation = new Accommodation();
-            accommodation = accommodationRepository.GetById(request.Id);
+            Accommodation accommodation = accommodationRepository.GetById(request.Id);
 
             // If the accommodation is not found, return an error
             if (accommodation == null)
@@ -39,17 +36,26 @@ namespace AccommodationService.Service
             {
                 Name = accommodation.Name,
                 Location = accommodation.Location,
-                //Facilities = { accommodation.Facilities.Split(',', StringSplitOptions.RemoveEmptyEntries) },
+                Facilities = { accommodation.Facilities },
                 //Photos = accommodation.Photos,
                 MinCapacity = accommodation.MinCapacity,
                 MaxCapacity = accommodation.MaxCapacity,
+                StartDate = Google.Protobuf.WellKnownTypes.Timestamp.FromDateTime(accommodation.StartDate),
+                EndDate = Google.Protobuf.WellKnownTypes.Timestamp.FromDateTime(accommodation.EndDate),
                 Price = accommodation.Price,
-                //Reservation = accommodation.Reservation,
                 Grade = accommodation.Grade
             };
 
+            // Check if the Reservation property exists in the accommodation object
+            var reservationProperty = accommodation.GetType().GetProperty("Reservation");
+            if (reservationProperty != null && reservationProperty.PropertyType == typeof(ProtoService.Reservation))
+            {
+                // Get the Reservation value from the property
+                var reservationValue = (ProtoService.Reservation)reservationProperty.GetValue(accommodation);
+                response.ReservationType = reservationValue;
+            }
+
             return Task.FromResult(response);
         }
-
     }
 }

@@ -14,7 +14,14 @@ namespace UserService.Service
         private readonly IUserRepository _userRepository;
         private readonly JwtGenerator _jwtGenerator;
         private readonly IAccommodationService _accommodationService;
-        
+
+        /*Ovako se dobavlja accommodation iz Accommodation mikroservisa
+        string id = "12";
+        var channel = new Channel("localhost", 4111, ChannelCredentials.Insecure);
+        var client = new AccommodationGrpc.AccommodationGrpcClient(channel);
+        var accommodation = client.GetAccommodationInfo(new AccommodationRequest { Id = id });   
+        */
+
         public ServiceUser(IUserRepository repository,IAccommodationService accommodationService)
         {
             _userRepository = repository;
@@ -24,14 +31,6 @@ namespace UserService.Service
 
         public IEnumerable<User> GetAll()
         {
-            //Nema veze ovaj deo sa get methodom ali isprobavam mikro servis jer se lagano pogodi iz swaggera
-           /*
-            string id = "string";
-            var channel = new Channel("localhost", 4111, ChannelCredentials.Insecure);
-            var client = new AccommodationGrpc.AccommodationGrpcClient(channel);
-            var accommodation = client.GetAccommodationInfo(new AccommodationRequest { Id = id });
-            //
-            */
             return _userRepository.GetAll();
         }
 

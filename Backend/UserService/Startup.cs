@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting.Internal;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using ProtoService;
+using ProtoService1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,6 +57,8 @@ namespace UserService
             services.AddScoped<IAccommodationService, AccommodationService>();
         }
 
+        private Server server;
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env,IHostApplicationLifetime applicationLifetime)
         {
@@ -91,8 +94,17 @@ namespace UserService
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                
+                endpoints.MapGrpcService<UserGrpcService>();
+
             });
+
+            server = new Server
+            {
+                Services = { UserGrpc.BindService(new UserGrpcService()) },
+                Ports = { new ServerPort("localhost", 4112, ServerCredentials.Insecure) }
+            };
+            server.Start();
+
         }
     }
 }
