@@ -2,6 +2,13 @@
 
 package ProtoService;
 
+import "google/protobuf/timestamp.proto";
+
+enum Reservation {
+  AUTO_AUTOMATICALLY = 0;
+  WITH_APPROVAL = 1;
+}
+
 service AccommodationGrpc {
 	rpc GetAccommodationInfo(AccommodationRequest) returns (AccommodationResponse);
 }
@@ -11,16 +18,18 @@ message AccommodationRequest {
 }
 
 message AccommodationResponse {
-	string name = 1;
-	string location = 2;
-	repeated string facilities = 3;
-	string photos = 4;
-	int32 minCapacity = 5;
-	int32 maxCapacity = 6;
-	string startDate = 7;
-	string endDate = 8;
-	double price = 9;
-	bool reservation = 10;
-	double grade = 11;
-}
+  
+  bool deleted = 1;
+  string name = 2;
+  string location = 3;
+  repeated string facilities = 4;
+  string photos = 5;
+  int32 min_capacity = 6;
+  int32 max_capacity = 7;
+  google.protobuf.Timestamp start_date = 8;
+  google.protobuf.Timestamp end_date = 9;
+  double price = 10;
+  Reservation reservation_type = 11;
+  double grade = 12;
 
+}

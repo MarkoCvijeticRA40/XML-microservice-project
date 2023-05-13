@@ -9,5 +9,8 @@ namespace AccommodationService.Service
         public void Create(Accommodation accommodation);
         public Accommodation GetById(string id);
 
+        List<Accommodation> GetAllAccommodationsBySearch(string location, int guests, DateTime startDate, DateTime endDate);
+
+
     }
 }

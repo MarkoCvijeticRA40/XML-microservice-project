@@ -11,10 +11,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from "@angular/material/table";
 import { HostModule } from "./modules/host/host.module";
 import { FormsModule } from '@angular/forms';
+import { GuestModule } from './modules/guest/guest.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -28,6 +30,7 @@ import { FormsModule } from '@angular/forms';
     HostModule,
     MatTableModule,
     FormsModule,
+    GuestModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

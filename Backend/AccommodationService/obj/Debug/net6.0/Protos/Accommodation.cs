@@ -24,26 +24,38 @@ namespace ProtoService {
     static AccommodationReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChpQcm90b3MvYWNjb21tb2RhdGlvbi5wcm90bxIMUHJvdG9TZXJ2aWNlIiIK",
-            "FEFjY29tbW9kYXRpb25SZXF1ZXN0EgoKAklkGAEgASgJItwBChVBY2NvbW1v",
-            "ZGF0aW9uUmVzcG9uc2USDAoEbmFtZRgBIAEoCRIQCghsb2NhdGlvbhgCIAEo",
-            "CRISCgpmYWNpbGl0aWVzGAMgAygJEg4KBnBob3RvcxgEIAEoCRITCgttaW5D",
-            "YXBhY2l0eRgFIAEoBRITCgttYXhDYXBhY2l0eRgGIAEoBRIRCglzdGFydERh",
-            "dGUYByABKAkSDwoHZW5kRGF0ZRgIIAEoCRINCgVwcmljZRgJIAEoARITCgty",
-            "ZXNlcnZhdGlvbhgKIAEoCBINCgVncmFkZRgLIAEoATJ0ChFBY2NvbW1vZGF0",
-            "aW9uR3JwYxJfChRHZXRBY2NvbW1vZGF0aW9uSW5mbxIiLlByb3RvU2Vydmlj",
-            "ZS5BY2NvbW1vZGF0aW9uUmVxdWVzdBojLlByb3RvU2VydmljZS5BY2NvbW1v",
-            "ZGF0aW9uUmVzcG9uc2ViBnByb3RvMw=="));
+            "ChpQcm90b3MvYWNjb21tb2RhdGlvbi5wcm90bxIMUHJvdG9TZXJ2aWNlGh9n",
+            "b29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIiIKFEFjY29tbW9kYXRp",
+            "b25SZXF1ZXN0EgoKAklkGAEgASgJIskCChVBY2NvbW1vZGF0aW9uUmVzcG9u",
+            "c2USDwoHZGVsZXRlZBgBIAEoCBIMCgRuYW1lGAIgASgJEhAKCGxvY2F0aW9u",
+            "GAMgASgJEhIKCmZhY2lsaXRpZXMYBCADKAkSDgoGcGhvdG9zGAUgASgJEhQK",
+            "DG1pbl9jYXBhY2l0eRgGIAEoBRIUCgxtYXhfY2FwYWNpdHkYByABKAUSLgoK",
+            "c3RhcnRfZGF0ZRgIIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAS",
+            "LAoIZW5kX2RhdGUYCSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1w",
+            "Eg0KBXByaWNlGAogASgBEjMKEHJlc2VydmF0aW9uX3R5cGUYCyABKA4yGS5Q",
+            "cm90b1NlcnZpY2UuUmVzZXJ2YXRpb24SDQoFZ3JhZGUYDCABKAEqOAoLUmVz",
+            "ZXJ2YXRpb24SFgoSQVVUT19BVVRPTUFUSUNBTExZEAASEQoNV0lUSF9BUFBS",
+            "T1ZBTBABMnQKEUFjY29tbW9kYXRpb25HcnBjEl8KFEdldEFjY29tbW9kYXRp",
+            "b25JbmZvEiIuUHJvdG9TZXJ2aWNlLkFjY29tbW9kYXRpb25SZXF1ZXN0GiMu",
+            "UHJvdG9TZXJ2aWNlLkFjY29tbW9kYXRpb25SZXNwb25zZWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ProtoService.Reservation), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ProtoService.AccommodationRequest), global::ProtoService.AccommodationRequest.Parser, new[]{ "Id" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ProtoService.AccommodationResponse), global::ProtoService.AccommodationResponse.Parser, new[]{ "Name", "Location", "Facilities", "Photos", "MinCapacity", "MaxCapacity", "StartDate", "EndDate", "Price", "Reservation", "Grade" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::ProtoService.AccommodationResponse), global::ProtoService.AccommodationResponse.Parser, new[]{ "Deleted", "Name", "Location", "Facilities", "Photos", "MinCapacity", "MaxCapacity", "StartDate", "EndDate", "Price", "ReservationType", "Grade" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
+  #region Enums
+  public enum Reservation {
+    [pbr::OriginalName("AUTO_AUTOMATICALLY")] AutoAutomatically = 0,
+    [pbr::OriginalName("WITH_APPROVAL")] WithApproval = 1,
+  }
+
+  #endregion
+
   #region Messages
   public sealed partial class AccommodationRequest : pb::IMessage<AccommodationRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -268,16 +280,17 @@ namespace ProtoService {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public AccommodationResponse(AccommodationResponse other) : this() {
+      deleted_ = other.deleted_;
       name_ = other.name_;
       location_ = other.location_;
       facilities_ = other.facilities_.Clone();
       photos_ = other.photos_;
       minCapacity_ = other.minCapacity_;
       maxCapacity_ = other.maxCapacity_;
-      startDate_ = other.startDate_;
-      endDate_ = other.endDate_;
+      startDate_ = other.startDate_ != null ? other.startDate_.Clone() : null;
+      endDate_ = other.endDate_ != null ? other.endDate_.Clone() : null;
       price_ = other.price_;
-      reservation_ = other.reservation_;
+      reservationType_ = other.reservationType_;
       grade_ = other.grade_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -288,8 +301,20 @@ namespace ProtoService {
       return new AccommodationResponse(this);
     }
 
+    /// <summary>Field number for the "deleted" field.</summary>
+    public const int DeletedFieldNumber = 1;
+    private bool deleted_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Deleted {
+      get { return deleted_; }
+      set {
+        deleted_ = value;
+      }
+    }
+
     /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 1;
+    public const int NameFieldNumber = 2;
     private string name_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -301,7 +326,7 @@ namespace ProtoService {
     }
 
     /// <summary>Field number for the "location" field.</summary>
-    public const int LocationFieldNumber = 2;
+    public const int LocationFieldNumber = 3;
     private string location_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -313,9 +338,9 @@ namespace ProtoService {
     }
 
     /// <summary>Field number for the "facilities" field.</summary>
-    public const int FacilitiesFieldNumber = 3;
+    public const int FacilitiesFieldNumber = 4;
     private static readonly pb::FieldCodec<string> _repeated_facilities_codec
-        = pb::FieldCodec.ForString(26);
+        = pb::FieldCodec.ForString(34);
     private readonly pbc::RepeatedField<string> facilities_ = new pbc::RepeatedField<string>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -324,7 +349,7 @@ namespace ProtoService {
     }
 
     /// <summary>Field number for the "photos" field.</summary>
-    public const int PhotosFieldNumber = 4;
+    public const int PhotosFieldNumber = 5;
     private string photos_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -335,8 +360,8 @@ namespace ProtoService {
       }
     }
 
-    /// <summary>Field number for the "minCapacity" field.</summary>
-    public const int MinCapacityFieldNumber = 5;
+    /// <summary>Field number for the "min_capacity" field.</summary>
+    public const int MinCapacityFieldNumber = 6;
     private int minCapacity_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -347,8 +372,8 @@ namespace ProtoService {
       }
     }
 
-    /// <summary>Field number for the "maxCapacity" field.</summary>
-    public const int MaxCapacityFieldNumber = 6;
+    /// <summary>Field number for the "max_capacity" field.</summary>
+    public const int MaxCapacityFieldNumber = 7;
     private int maxCapacity_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -359,32 +384,32 @@ namespace ProtoService {
       }
     }
 
-    /// <summary>Field number for the "startDate" field.</summary>
-    public const int StartDateFieldNumber = 7;
-    private string startDate_ = "";
+    /// <summary>Field number for the "start_date" field.</summary>
+    public const int StartDateFieldNumber = 8;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp startDate_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string StartDate {
+    public global::Google.Protobuf.WellKnownTypes.Timestamp StartDate {
       get { return startDate_; }
       set {
-        startDate_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        startDate_ = value;
       }
     }
 
-    /// <summary>Field number for the "endDate" field.</summary>
-    public const int EndDateFieldNumber = 8;
-    private string endDate_ = "";
+    /// <summary>Field number for the "end_date" field.</summary>
+    public const int EndDateFieldNumber = 9;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp endDate_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string EndDate {
+    public global::Google.Protobuf.WellKnownTypes.Timestamp EndDate {
       get { return endDate_; }
       set {
-        endDate_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        endDate_ = value;
       }
     }
 
     /// <summary>Field number for the "price" field.</summary>
-    public const int PriceFieldNumber = 9;
+    public const int PriceFieldNumber = 10;
     private double price_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -395,20 +420,20 @@ namespace ProtoService {
       }
     }
 
-    /// <summary>Field number for the "reservation" field.</summary>
-    public const int ReservationFieldNumber = 10;
-    private bool reservation_;
+    /// <summary>Field number for the "reservation_type" field.</summary>
+    public const int ReservationTypeFieldNumber = 11;
+    private global::ProtoService.Reservation reservationType_ = global::ProtoService.Reservation.AutoAutomatically;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Reservation {
-      get { return reservation_; }
+    public global::ProtoService.Reservation ReservationType {
+      get { return reservationType_; }
       set {
-        reservation_ = value;
+        reservationType_ = value;
       }
     }
 
     /// <summary>Field number for the "grade" field.</summary>
-    public const int GradeFieldNumber = 11;
+    public const int GradeFieldNumber = 12;
     private double grade_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -434,16 +459,17 @@ namespace ProtoService {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (Deleted != other.Deleted) return false;
       if (Name != other.Name) return false;
       if (Location != other.Location) return false;
       if(!facilities_.Equals(other.facilities_)) return false;
       if (Photos != other.Photos) return false;
       if (MinCapacity != other.MinCapacity) return false;
       if (MaxCapacity != other.MaxCapacity) return false;
-      if (StartDate != other.StartDate) return false;
-      if (EndDate != other.EndDate) return false;
+      if (!object.Equals(StartDate, other.StartDate)) return false;
+      if (!object.Equals(EndDate, other.EndDate)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Price, other.Price)) return false;
-      if (Reservation != other.Reservation) return false;
+      if (ReservationType != other.ReservationType) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Grade, other.Grade)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -452,16 +478,17 @@ namespace ProtoService {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (Deleted != false) hash ^= Deleted.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Location.Length != 0) hash ^= Location.GetHashCode();
       hash ^= facilities_.GetHashCode();
       if (Photos.Length != 0) hash ^= Photos.GetHashCode();
       if (MinCapacity != 0) hash ^= MinCapacity.GetHashCode();
       if (MaxCapacity != 0) hash ^= MaxCapacity.GetHashCode();
-      if (StartDate.Length != 0) hash ^= StartDate.GetHashCode();
-      if (EndDate.Length != 0) hash ^= EndDate.GetHashCode();
+      if (startDate_ != null) hash ^= StartDate.GetHashCode();
+      if (endDate_ != null) hash ^= EndDate.GetHashCode();
       if (Price != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Price);
-      if (Reservation != false) hash ^= Reservation.GetHashCode();
+      if (ReservationType != global::ProtoService.Reservation.AutoAutomatically) hash ^= ReservationType.GetHashCode();
       if (Grade != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Grade);
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -481,45 +508,49 @@ namespace ProtoService {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (Deleted != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Deleted);
+      }
       if (Name.Length != 0) {
-        output.WriteRawTag(10);
+        output.WriteRawTag(18);
         output.WriteString(Name);
       }
       if (Location.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteString(Location);
       }
       facilities_.WriteTo(output, _repeated_facilities_codec);
       if (Photos.Length != 0) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(42);
         output.WriteString(Photos);
       }
       if (MinCapacity != 0) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(48);
         output.WriteInt32(MinCapacity);
       }
       if (MaxCapacity != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(56);
         output.WriteInt32(MaxCapacity);
       }
-      if (StartDate.Length != 0) {
-        output.WriteRawTag(58);
-        output.WriteString(StartDate);
-      }
-      if (EndDate.Length != 0) {
+      if (startDate_ != null) {
         output.WriteRawTag(66);
-        output.WriteString(EndDate);
+        output.WriteMessage(StartDate);
+      }
+      if (endDate_ != null) {
+        output.WriteRawTag(74);
+        output.WriteMessage(EndDate);
       }
       if (Price != 0D) {
-        output.WriteRawTag(73);
+        output.WriteRawTag(81);
         output.WriteDouble(Price);
       }
-      if (Reservation != false) {
-        output.WriteRawTag(80);
-        output.WriteBool(Reservation);
+      if (ReservationType != global::ProtoService.Reservation.AutoAutomatically) {
+        output.WriteRawTag(88);
+        output.WriteEnum((int) ReservationType);
       }
       if (Grade != 0D) {
-        output.WriteRawTag(89);
+        output.WriteRawTag(97);
         output.WriteDouble(Grade);
       }
       if (_unknownFields != null) {
@@ -532,45 +563,49 @@ namespace ProtoService {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Deleted != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Deleted);
+      }
       if (Name.Length != 0) {
-        output.WriteRawTag(10);
+        output.WriteRawTag(18);
         output.WriteString(Name);
       }
       if (Location.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteString(Location);
       }
       facilities_.WriteTo(ref output, _repeated_facilities_codec);
       if (Photos.Length != 0) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(42);
         output.WriteString(Photos);
       }
       if (MinCapacity != 0) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(48);
         output.WriteInt32(MinCapacity);
       }
       if (MaxCapacity != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(56);
         output.WriteInt32(MaxCapacity);
       }
-      if (StartDate.Length != 0) {
-        output.WriteRawTag(58);
-        output.WriteString(StartDate);
-      }
-      if (EndDate.Length != 0) {
+      if (startDate_ != null) {
         output.WriteRawTag(66);
-        output.WriteString(EndDate);
+        output.WriteMessage(StartDate);
+      }
+      if (endDate_ != null) {
+        output.WriteRawTag(74);
+        output.WriteMessage(EndDate);
       }
       if (Price != 0D) {
-        output.WriteRawTag(73);
+        output.WriteRawTag(81);
         output.WriteDouble(Price);
       }
-      if (Reservation != false) {
-        output.WriteRawTag(80);
-        output.WriteBool(Reservation);
+      if (ReservationType != global::ProtoService.Reservation.AutoAutomatically) {
+        output.WriteRawTag(88);
+        output.WriteEnum((int) ReservationType);
       }
       if (Grade != 0D) {
-        output.WriteRawTag(89);
+        output.WriteRawTag(97);
         output.WriteDouble(Grade);
       }
       if (_unknownFields != null) {
@@ -583,6 +618,9 @@ namespace ProtoService {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (Deleted != false) {
+        size += 1 + 1;
+      }
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
@@ -599,17 +637,17 @@ namespace ProtoService {
       if (MaxCapacity != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxCapacity);
       }
-      if (StartDate.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(StartDate);
+      if (startDate_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(StartDate);
       }
-      if (EndDate.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(EndDate);
+      if (endDate_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(EndDate);
       }
       if (Price != 0D) {
         size += 1 + 8;
       }
-      if (Reservation != false) {
-        size += 1 + 1;
+      if (ReservationType != global::ProtoService.Reservation.AutoAutomatically) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ReservationType);
       }
       if (Grade != 0D) {
         size += 1 + 8;
@@ -625,6 +663,9 @@ namespace ProtoService {
     public void MergeFrom(AccommodationResponse other) {
       if (other == null) {
         return;
+      }
+      if (other.Deleted != false) {
+        Deleted = other.Deleted;
       }
       if (other.Name.Length != 0) {
         Name = other.Name;
@@ -642,17 +683,23 @@ namespace ProtoService {
       if (other.MaxCapacity != 0) {
         MaxCapacity = other.MaxCapacity;
       }
-      if (other.StartDate.Length != 0) {
-        StartDate = other.StartDate;
+      if (other.startDate_ != null) {
+        if (startDate_ == null) {
+          StartDate = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        StartDate.MergeFrom(other.StartDate);
       }
-      if (other.EndDate.Length != 0) {
-        EndDate = other.EndDate;
+      if (other.endDate_ != null) {
+        if (endDate_ == null) {
+          EndDate = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        EndDate.MergeFrom(other.EndDate);
       }
       if (other.Price != 0D) {
         Price = other.Price;
       }
-      if (other.Reservation != false) {
-        Reservation = other.Reservation;
+      if (other.ReservationType != global::ProtoService.Reservation.AutoAutomatically) {
+        ReservationType = other.ReservationType;
       }
       if (other.Grade != 0D) {
         Grade = other.Grade;
@@ -672,47 +719,57 @@ namespace ProtoService {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Name = input.ReadString();
+          case 8: {
+            Deleted = input.ReadBool();
             break;
           }
           case 18: {
-            Location = input.ReadString();
+            Name = input.ReadString();
             break;
           }
           case 26: {
-            facilities_.AddEntriesFrom(input, _repeated_facilities_codec);
+            Location = input.ReadString();
             break;
           }
           case 34: {
+            facilities_.AddEntriesFrom(input, _repeated_facilities_codec);
+            break;
+          }
+          case 42: {
             Photos = input.ReadString();
             break;
           }
-          case 40: {
+          case 48: {
             MinCapacity = input.ReadInt32();
             break;
           }
-          case 48: {
+          case 56: {
             MaxCapacity = input.ReadInt32();
             break;
           }
-          case 58: {
-            StartDate = input.ReadString();
-            break;
-          }
           case 66: {
-            EndDate = input.ReadString();
+            if (startDate_ == null) {
+              StartDate = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(StartDate);
             break;
           }
-          case 73: {
+          case 74: {
+            if (endDate_ == null) {
+              EndDate = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(EndDate);
+            break;
+          }
+          case 81: {
             Price = input.ReadDouble();
             break;
           }
-          case 80: {
-            Reservation = input.ReadBool();
+          case 88: {
+            ReservationType = (global::ProtoService.Reservation) input.ReadEnum();
             break;
           }
-          case 89: {
+          case 97: {
             Grade = input.ReadDouble();
             break;
           }
@@ -731,47 +788,57 @@ namespace ProtoService {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            Name = input.ReadString();
+          case 8: {
+            Deleted = input.ReadBool();
             break;
           }
           case 18: {
-            Location = input.ReadString();
+            Name = input.ReadString();
             break;
           }
           case 26: {
-            facilities_.AddEntriesFrom(ref input, _repeated_facilities_codec);
+            Location = input.ReadString();
             break;
           }
           case 34: {
+            facilities_.AddEntriesFrom(ref input, _repeated_facilities_codec);
+            break;
+          }
+          case 42: {
             Photos = input.ReadString();
             break;
           }
-          case 40: {
+          case 48: {
             MinCapacity = input.ReadInt32();
             break;
           }
-          case 48: {
+          case 56: {
             MaxCapacity = input.ReadInt32();
             break;
           }
-          case 58: {
-            StartDate = input.ReadString();
-            break;
-          }
           case 66: {
-            EndDate = input.ReadString();
+            if (startDate_ == null) {
+              StartDate = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(StartDate);
             break;
           }
-          case 73: {
+          case 74: {
+            if (endDate_ == null) {
+              EndDate = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(EndDate);
+            break;
+          }
+          case 81: {
             Price = input.ReadDouble();
             break;
           }
-          case 80: {
-            Reservation = input.ReadBool();
+          case 88: {
+            ReservationType = (global::ProtoService.Reservation) input.ReadEnum();
             break;
           }
-          case 89: {
+          case 97: {
             Grade = input.ReadDouble();
             break;
           }
