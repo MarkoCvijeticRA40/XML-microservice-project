@@ -32,4 +32,9 @@ export class AccommodationService {
   updateAccommodation(accommodation: any): Observable<any> {
     return this.http.put<any>(this.apiHost + 'api/accommodation/' + accommodation.id, accommodation, {headers: this.headers});
   }
+
+  getAllAccommodationsBySearch(location: string, guests: number, startDate: Date, endDate: Date): Observable<any> {
+    return this.http.get<Accommodation[]>(this.apiHost + 'api/accommodation/' + location + '/' + guests + '/' 
+    + startDate + '/' + endDate , {headers: this.headers});
+    }
 }

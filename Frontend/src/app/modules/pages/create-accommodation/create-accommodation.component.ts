@@ -16,15 +16,14 @@ export class CreateAccommodationComponent implements OnInit {
   constructor(private accommodationService: AccommodationService, private router: Router) { }
 
   public accommodation: Accommodation = new Accommodation();
-
   public currentDate: Date = new Date();
   public tomorrowDate : Date = new Date();
+  public currentDate1: Date = new Date();
+  public tomorrowDate1 : Date = new Date();
   hour : number = 0 ;
   hour1 : number = 0 ;
-
   minute : number = 0;
   minute1 : number = 0;
-
 
   hours = [
     {value: 0, viewValue: '00'},
@@ -52,7 +51,6 @@ export class CreateAccommodationComponent implements OnInit {
     {value: 22, viewValue: '22'},
     {value: 23, viewValue: '23'},
     {value: 24, viewValue: '00'},
-
   ];
 
 
@@ -81,10 +79,7 @@ export class CreateAccommodationComponent implements OnInit {
       this.accommodationService.createAccommodation(this.accommodation).subscribe(res => {
         alert("You have successfully created accommodation !");
       })
-      }else{
-      alert("You must fill in all fields!")
     }
-
   }
 
 
@@ -94,11 +89,30 @@ export class CreateAccommodationComponent implements OnInit {
     this.accommodation.startDate.setMilliseconds(0);
     this.accommodation.startDate.setHours(this.hour);
     this.accommodation.startDate.setMinutes(this.minute);
+
+    this.accommodation.endDate.setHours(0);
+    this.accommodation.endDate.setSeconds(0);
+    this.accommodation.endDate.setMilliseconds(0);
+    this.accommodation.endDate.setHours(this.hour);
+    this.accommodation.endDate.setMinutes(this.minute);
   }
   private isInputValid(): boolean {
-    return this.accommodation.name != ''  &&  this.accommodation.location != '' &&  this.accommodation.minCapacity  > 0 
-    &&  this.accommodation.maxCapacity  > 0  && this.accommodation.price  > 0 ;
 
+    if(this.accommodation.name == ''  &&  this.accommodation.location == '' &&  this.accommodation.minCapacity  <= 0 
+    &&  this.accommodation.maxCapacity  <= 0  && this.accommodation.price  <= 0 ){
+      alert("You must fill in all fields!")
+      return false;
+    }
+    if(this.accommodation.minCapacity >= this.accommodation.maxCapacity){
+      alert("Min Capacity must be less than the Max Capacity!")
+      return false;
+    }
+    if(this.accommodation.endDate <= this.accommodation.startDate){
+      alert("Start Date must be less than the End Date!")
+      return false;
+    }
+
+    return true;
   }
 
   requiredNameControl = new FormControl('', [
@@ -121,6 +135,10 @@ export class CreateAccommodationComponent implements OnInit {
     Validators.required,
   ]);
 
+  requiredEndDateControl = new FormControl('', [
+    Validators.required,
+  ]);
+
   requiredPrice = new FormControl('', [
     Validators.required,
   ]);
@@ -129,6 +147,8 @@ export class CreateAccommodationComponent implements OnInit {
   ngOnInit(): void {
     
     this.tomorrowDate.setDate(this.currentDate.getDate() + 1);
+    this.tomorrowDate1.setDate(this.currentDate1.getDate() + 1);
+
   }
 
   public onFileSelected(event: Event): void {

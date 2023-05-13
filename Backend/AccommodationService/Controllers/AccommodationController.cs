@@ -53,5 +53,13 @@ namespace AccommodationService.Controllers
 
    
         }
+
+        [HttpGet("{location}/{guests}/{startDate}/{endDate}")]
+        public ActionResult GetAllAccommodationsBySearch(string location, int guests, DateTime startDate, DateTime endDate)
+        {
+
+            return Ok(_accommodationService.GetAllAccommodationsBySearch(location, guests, startDate, endDate));
+
+        }
     }
 }
