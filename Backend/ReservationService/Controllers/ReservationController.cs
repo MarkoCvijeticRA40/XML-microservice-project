@@ -5,7 +5,7 @@ using ReservationService.Repository;
 using ReservationService.Service;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AccommodationService.Controllers
+namespace ReservationService.Controllers
 {
 
     [ApiController]

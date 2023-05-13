@@ -48,3 +48,4 @@ C:\Users\lazar\OneDrive\Desktop\fakultet\XML-projekti\XML-microservici projekat\
 C:\Users\lazar\OneDrive\Desktop\fakultet\XML-projekti\XML-microservici projekat\XML-microservice-project\Backend\ReservationService\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\lazar\OneDrive\Desktop\fakultet\XML-projekti\XML-microservici projekat\XML-microservice-project\Backend\ReservationService\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\lazar\OneDrive\Desktop\fakultet\XML-projekti\XML-microservici projekat\XML-microservice-project\Backend\ReservationService\obj\Debug\net6.0\ReservationService.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\lazar\OneDrive\Desktop\fakultet\XML-projekti\XML-microservici projekat\XML-microservice-project\Backend\ReservationService\bin\Debug\net6.0\Grpc.Core.Api.dll
