@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Accommodation } from 'src/app/model/accommodation';
 import { AccommodationService } from 'src/app/service/accommodation.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-create-accommodation',
@@ -13,13 +14,15 @@ export class CreateAccommodationComponent implements OnInit {
 
   facilities: string[] = ['Parking', 'Wi-Fi', 'Aircondition', 'Spa', 'Gym', 'Restaurant'];
 
-  constructor(private accommodationService: AccommodationService, private router: Router) { }
+  constructor(private userService: UserService, private accommodationService: AccommodationService, private router: Router) { }
 
   public accommodation: Accommodation = new Accommodation();
   public currentDate: Date = new Date();
   public tomorrowDate : Date = new Date();
   public currentDate1: Date = new Date();
   public tomorrowDate1 : Date = new Date();
+  public id: any;
+
   hour : number = 0 ;
   hour1 : number = 0 ;
   minute : number = 0;
@@ -76,6 +79,8 @@ export class CreateAccommodationComponent implements OnInit {
     console.log(this.accommodation.reservationType)    
 
     if(this.isInputValid()){
+      console.log(this.id);
+      this.accommodation.hostId = this.id;
       this.accommodationService.createAccommodation(this.accommodation).subscribe(res => {
         alert("You have successfully created accommodation !");
       })
@@ -145,6 +150,8 @@ export class CreateAccommodationComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+    this.id = this.userService.getCurrentUserId();
     
     this.tomorrowDate.setDate(this.currentDate.getDate() + 1);
     this.tomorrowDate1.setDate(this.currentDate1.getDate() + 1);
@@ -163,5 +170,6 @@ export class CreateAccommodationComponent implements OnInit {
       };
     }
   }
+
 
 }

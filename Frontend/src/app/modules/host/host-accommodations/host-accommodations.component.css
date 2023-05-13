@@ -1,17 +1,15 @@
 .container {
-    width: 85%;
-    margin: auto;
-    margin-top: 20px;
-    border-radius: 3px;
-    border: #DCD6CC 2px slategray;
-    background-color: white;
-    border-color:  rgb(35, 104, 233);
-    border-width: 3px;
-    border-radius: 20px;
-    padding: 5px;
-    background-color: rgb(153, 189, 198);
-    display: flex;
-    flex-direction: column;
+    width: 80%;
+      margin: auto;
+      margin-top: 20px;
+      border-radius: 3px;
+      border: #DCD6CC 2px slategray;
+      background-color: white;
+      border-color:  rgb(35, 104, 233);
+      border-width: 3px;
+      border-radius: 20px;
+      padding: 5px;
+      background-color: rgb(153, 189, 198);
   }
   
   table {
@@ -19,33 +17,24 @@
     background-color: rgb(153, 189, 198);
   
   }
-
-  td{
-    font-size: 16px;
-
+  
+  h2{
+    color: white;
+    font-size: 26px;
+    margin-top: 10px;
+    margin-left: 20px;
   }
-
-  .tickets{
-    width: 30px;
-    height: 30px;
-    margin-left: -20px;
-}
-
+  
+  
   .table-title {
     padding-bottom: 20px;
     padding-top: 20px;
     padding-left: 20px;
-    font-size: 20px;
   
   }
   
   .cell-center {
     text-align: center;
-  }
-
-  th{
-    font-size: 14px;
-    color: black;
   }
   
   .clickable:hover {
@@ -62,13 +51,6 @@
   
   .table-header {
     display: flex;
-  }
-
-  h2{
-    color: white;
-    font-size: 26px;
-    margin-top: 10px;
-    margin-left: 20px;
   }
   
   p {
@@ -130,9 +112,53 @@
   .gradeBtn {
     margin-left: 670px;
   }
+
+  .ime {
+    font-size: 30px;
+  }
   
-  td {
-    cursor: pointer;
+  th{
+    font-size: 22px;
+    color: black;
+  }
+
+  .locationFont {
+    font-size: 22px;
+    vertical-align: bottom;
+    }
+
+  .location {
+    background-image: url("/assets/images/location.png");
+    width: 25px;
+    height: 25px;
+    background-size: cover;
+  }
+
+  .ostalo {
+    font-size: 18px;
+  }
+
+  .photo-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #createAccommodation {
+    margin-left: 1000px;
+  }
+
+  .search {
+    width: 40%;
+    margin-left: 157px;
+    margin-top: 50px;
+    display: flex;
+    background-color: rgb(160, 159, 159);
+  }
+
+  .filter-search {
+    display: flex;
+    margin-left: 150px;
+    margin-right: 150px;
   }
 
   .search-form {
@@ -163,6 +189,11 @@
     background-color: rgb(4, 92, 113);
     border-radius: 20px;
   }
+  
 
   
+  
+
+
+
   

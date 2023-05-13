@@ -14,6 +14,8 @@ export class Accommodation {
     price: number = 0;
     reservationType: ReservationType = ReservationType.Autoautomatically;
     grade: number = 0;
+    hostId: string = '';
+
   
     constructor(obj?: any) {
       if (obj) {
@@ -29,6 +31,7 @@ export class Accommodation {
         this.price = obj.price;
         this.reservationType = obj.reservationType;
         this.grade = obj.grade;
+        this.hostId = obj.hostId;
       }
     }
   }

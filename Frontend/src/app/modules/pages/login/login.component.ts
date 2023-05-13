@@ -37,8 +37,16 @@ export class LoginComponent implements OnInit {
       this.accessToken = res;
       this.userService.getCurrentUser().subscribe(user => {
           this.currentUser = user;
-          console.log(this.currentUser);
-              this.router.navigate(['/register/user']);
+
+          if (this.currentUser.role == 'Guest') {
+            this.router.navigate(['/guest']);
+          }
+
+          else if(this.currentUser.role == 'Host') {
+            this.router.navigate(['/host/profil']);
+          }
+          else {
+          }
             
         });
     });

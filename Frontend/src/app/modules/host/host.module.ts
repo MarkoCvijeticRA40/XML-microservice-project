@@ -17,22 +17,18 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatDialogModule } from '@angular/material/dialog';
 
-
 import { HostComponent } from './host/host.component';
-import { BuyingTicketsComponent } from './buying-tickets/buying-tickets.component';
-import { TableAvailableFlightsComponent } from './table-available-flights/table-available-flights.component';
-import { TicketInformationComponent } from './ticket-information/ticket-information.component';
-import { TakenFlightsComponent } from './taken-flights/taken-flights.component';
 import { ProfileComponent } from '../pages/profile/profile.component';
+import { CreateAccommodationComponent } from './create-accommodation/create-accommodation.component';
+import { HostAccommodationsComponent } from './host-accommodations/host-accommodations.component';
 
 
 const routes: Routes = [
   { 
     path: '', component: HostComponent, children: [
-    { path: 'availableFlights', component: TableAvailableFlightsComponent },
-    { path: 'buyingTickets/forFlight/:id', component: BuyingTicketsComponent },
-    { path: 'takenFlights', component: TakenFlightsComponent },
-
+      { path: 'hostAccommodations', component: HostAccommodationsComponent },
+      { path: 'createAccommodation', component: CreateAccommodationComponent },
+      { path: 'profil', component: ProfileComponent },
 
     ]
   }
@@ -40,11 +36,9 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    BuyingTicketsComponent,
     HostComponent,
-    TableAvailableFlightsComponent,
-    TicketInformationComponent,
-    TakenFlightsComponent,
+    CreateAccommodationComponent,
+    HostAccommodationsComponent,
   ],
   imports: [
     CommonModule,
