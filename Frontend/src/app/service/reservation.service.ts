@@ -11,7 +11,7 @@ import { Reservation } from '../model/reservation.model';
 })
 export class ReservationService {
 
-  apiHost: string = 'http://localhost:16178/api/reservation/';
+  apiHost: string = 'http://localhost:16179/api/reservation/';
   headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(private http: HttpClient) { }
@@ -22,6 +22,10 @@ export class ReservationService {
   }
 
   getGuestReservations(id: any): Observable<Reservation[]> {
+    return this.http.get<Reservation[]>(this.apiHost+ 'undealeted/guest/' + id, {headers: this.headers});
+  }
+
+  getUndealetedGuestReservedReservations(id: any): Observable<Reservation[]> {
     return this.http.get<Reservation[]>(this.apiHost+ 'guest/' + id, {headers: this.headers});
   }
 
