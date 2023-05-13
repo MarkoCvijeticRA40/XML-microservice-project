@@ -1,4 +1,4 @@
-import { Reservation } from "./reservation";
+import { ReservationType } from "./reservation.type";
 
 export class Accommodation {
 
@@ -12,7 +12,7 @@ export class Accommodation {
     startDate: Date = new Date();
     endDate: Date = new Date();
     price: number = 0;
-    reservationType: Reservation = Reservation.Autoautomatically;
+    reservationType: ReservationType = ReservationType.Autoautomatically;
     grade: number = 0;
   
     constructor(obj?: any) {

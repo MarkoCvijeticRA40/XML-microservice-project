@@ -25,5 +25,6 @@
 	<PackageReference Include="Grpc.AspNetCore" Version="2.32.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.30.0" />
 	  <Protobuf Include="Protos\accommodation.proto" GrpcServices="Client" />
+	  <Protobuf Include="Protos\user.proto" GrpcServices="Server" />
   </ItemGroup>
 </Project>

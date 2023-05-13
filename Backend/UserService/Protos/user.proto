@@ -1,0 +1,29 @@
+﻿syntax = "proto3";
+
+package ProtoService1;
+
+enum Role {
+  UNAUTHENTICATED_USER = 0;
+  HOST = 1;
+  GUEST = 2;
+}
+
+service UserGrpc {
+	rpc GetUserInfo(UserRequest) returns (UserResponse);
+}
+
+message UserRequest {
+	string Id = 1;
+}
+
+message UserResponse { 
+  
+  string username = 1;
+  string name = 2;
+  string last_name = 3;
+  Role role = 4;
+  string password = 5;
+  string email = 6;
+  string place_of_living = 7;
+	
+}
