@@ -21,14 +21,14 @@ export class ReservationsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    //this.id = this.userService.getCurrentUserId();
-    this.id = "1"
+    this.id = this.userService.getCurrentUserId();
+    
     this.loadGuestReservations()
   }
 
 
   public loadGuestReservations(){
-      this.reservationService.getGuestReservations(this.id).subscribe(res => {
+      this.reservationService.getUndealetedGuestReservedReservations(this.id).subscribe(res => {
       this.dataSource.data = res
     })
   }
