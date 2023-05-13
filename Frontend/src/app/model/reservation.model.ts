@@ -7,6 +7,9 @@ export class Reservation {
     accommodationId: string = "";
     approved : boolean = false;
     deleted : boolean = false;
+    numberOfCancelation: number = 0; 
+
+
     
 
     constructor(obj?: any) {
@@ -18,6 +21,7 @@ export class Reservation {
         this.accommodationId = obj.accommodationId;
         this.deleted = obj.pendingApproval;
         this.approved = obj.approved;
+        this.numberOfCancelation = obj.numberOfCancelation;
       }
     }
 

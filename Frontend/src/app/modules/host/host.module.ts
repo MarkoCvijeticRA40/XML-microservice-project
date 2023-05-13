@@ -24,14 +24,13 @@ import { TableAvailableFlightsComponent } from './table-available-flights/table-
 import { TicketInformationComponent } from './ticket-information/ticket-information.component';
 import { TakenFlightsComponent } from './taken-flights/taken-flights.component';
 import { ProfileComponent } from '../pages/profile/profile.component';
+import { ApproveReservationComponent } from './approve-reservation/approve-reservation.component';
 
 
 const routes: Routes = [
   { 
     path: '', component: HostComponent, children: [
-    { path: 'availableFlights', component: TableAvailableFlightsComponent },
-    { path: 'buyingTickets/forFlight/:id', component: BuyingTicketsComponent },
-    { path: 'takenFlights', component: TakenFlightsComponent },
+     { path: 'approve/reservation', component:  ApproveReservationComponent },
 
 
     ]
@@ -45,6 +44,7 @@ const routes: Routes = [
     TableAvailableFlightsComponent,
     TicketInformationComponent,
     TakenFlightsComponent,
+    ApproveReservationComponent,
   ],
   imports: [
     CommonModule,
