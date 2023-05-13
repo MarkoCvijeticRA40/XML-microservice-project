@@ -17,5 +17,7 @@ namespace AccommodationService.DTO
         public double Price { get; set; }
         public String ReservationType { get; set; }
         public double Grade { get; set; }
+        public string HostId { get; set; }
+
     }
 }

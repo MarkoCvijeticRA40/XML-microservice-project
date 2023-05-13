@@ -29,6 +29,7 @@ namespace AccommodationService.Service
 
         public IEnumerable<Accommodation> GetAll()
         {
+            /*
             //Ovako se poziva mikroservis,obrisite slobodono kad b
             /*
             string id = "6426ea62c3414f9576ca5a43";
@@ -37,6 +38,7 @@ namespace AccommodationService.Service
             var user = client.GetUserInfo(new UserRequest { Id = id });
             */
             //
+            */
             return _accommodationRepository.GetAll();
         }
 

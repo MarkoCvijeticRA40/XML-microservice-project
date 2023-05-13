@@ -21,6 +21,7 @@ namespace AccommodationService.Model
         public double Price { get; set; }
         public ReservationType ReservationType { get; set; }
         public double Grade { get; set; }
+        public string HostId { get; set; }
 
 
     }

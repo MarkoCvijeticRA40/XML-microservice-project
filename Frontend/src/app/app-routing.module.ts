@@ -8,14 +8,14 @@ const routes: Routes = [
     loadChildren: () => import('./modules/pages/pages.module').then(m => m.PagesModule),
   },
   {
-    path: 'admin',
-    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
+    path: 'guest',
+    loadChildren: () => import('./modules/guest/guest.module').then(m => m.GuestModule),
     //canActivate:[RoleGuardService], data : {expectedRole : 'Admin'}
   },
   {
     path: 'host',
     loadChildren: () => import('./modules/host/host.module').then(m => m.HostModule),
-    canActivate:[RoleGuardService], data : {expectedRole : 'OrdinaryUser'}
+    //canActivate:[RoleGuardService], data : {expectedRole : 'Host'}
   }
 ];
 

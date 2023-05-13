@@ -21,6 +21,7 @@ namespace AccommodationService.Mappers
             accommodationDTO.EndDate = accommodation.EndDate;
             accommodationDTO.Price = accommodation.Price;
             accommodationDTO.Grade = accommodation.Grade;
+            accommodationDTO.HostId = accommodation.HostId;
 
             if (accommodation.ReservationType == ReservationType.Autoautomatically)
             {
@@ -54,6 +55,8 @@ namespace AccommodationService.Mappers
                 accommodationDTO.EndDate = accommodation.EndDate;
                 accommodationDTO.Price = accommodation.Price;
                 accommodationDTO.Grade = accommodation.Grade;
+                accommodationDTO.HostId = accommodation.HostId;
+
 
                 if (accommodation.ReservationType == ReservationType.Autoautomatically)
                 {
@@ -84,6 +87,8 @@ namespace AccommodationService.Mappers
             accommodation.EndDate = accommodationDTO.EndDate;
             accommodation.Price = accommodationDTO.Price;
             accommodation.Grade = accommodationDTO.Grade;
+            accommodation.HostId = accommodationDTO.HostId;
+
 
             if (accommodationDTO.ReservationType.Equals("Automatically"))
             {
@@ -116,6 +121,8 @@ namespace AccommodationService.Mappers
                 accommodation.EndDate = accommodationDTO.EndDate;
                 accommodation.Price = accommodationDTO.Price;
                 accommodation.Grade = accommodationDTO.Grade;
+                accommodation.HostId = accommodationDTO.HostId;
+
                 if (accommodationDTO.ReservationType.Equals("Automatically"))
                 {
                     accommodation.ReservationType = ReservationType.Autoautomatically;
