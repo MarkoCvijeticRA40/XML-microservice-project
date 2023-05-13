@@ -20,7 +20,7 @@ namespace AccommodationService.Service
 
         public ServiceAccommodation(IAccommodationRepository repository)
         {
-            _accommodationRepository = repository;
+            _accommodationRepository = repository;     
         }
         public void Create(Accommodation accommodation)
         {

@@ -46,7 +46,7 @@ const routes: Routes = [
     RegisterComponent,
     PagesComponent,
     UnauthorComponent,
-    ProfileComponent
+    ProfileComponent,
     UnauthorComponent,
     AccommodationComponent,
     CreateAccommodationComponent
