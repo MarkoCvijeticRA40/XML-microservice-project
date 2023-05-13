@@ -1,0 +1,26 @@
+﻿syntax = "proto3";
+
+package ProtoService2;
+
+import "google/protobuf/timestamp.proto";
+
+service ReservationGrpc {
+	rpc GetReservationInfo(ReservationRequest) returns (ReservationResponse);
+}
+
+message ReservationRequest {
+	string Id = 1;
+}
+
+message ReservationResponse {
+  
+  int32 capacity = 1; 
+  google.protobuf.Timestamp start_date = 2;
+  google.protobuf.Timestamp end_date = 3;
+  bool approved = 4;
+  bool deleted = 5;
+  string accomodation_id = 6;
+  string guest_id = 7;
+  int32 number_of_cancelation = 8;
+
+}

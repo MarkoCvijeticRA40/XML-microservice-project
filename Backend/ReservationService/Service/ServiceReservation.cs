@@ -3,13 +3,32 @@ using ReservationService.Repository;
 using Microsoft.Extensions.Hosting;
 using System.Collections.Generic;
 using System.Linq;
+using Grpc.Core;
+using ProtoService;
+using Reservation = ReservationService.Model.Reservation;
+using ProtoService1;
 
 namespace ReservationService.Service
 {
     public class ServiceReservation : IReservationService
     {
         private readonly IReservationRepository _reservationRepository;
-      //  private readonly IAccommodationRepository _accomondationRepository;
+        //  private readonly IAccommodationRepository _accomondationRepository;
+
+        /*
+            Ovako se dobavlja smestaj
+            string id = "123456789123456789123456";
+            var channel = new Channel("localhost", 4111, ChannelCredentials.Insecure);
+            var client = new AccommodationGrpc.AccommodationGrpcClient(channel);
+            var accommodation = client.GetAccommodationInfo(new AccommodationRequest { Id = id });
+
+            Ovako se dobavlja user
+            string id1 = "645f76ba5b45418b5fddca8f";
+            var channel1 = new Channel("localhost", 4112, ChannelCredentials.Insecure);
+            var client1 = new UserGrpc.UserGrpcClient(channel1);
+            var user = client1.GetUserInfo(new UserRequest { Id = id1 });
+        */
+
 
 
         public ServiceReservation(IReservationRepository reservationRepository/*, IAccommodationRepository accomondationRepository*/)
@@ -17,6 +36,11 @@ namespace ReservationService.Service
             _reservationRepository = reservationRepository;
           //  _accomondationRepository = accomondationRepository;
 
+        }
+
+        public IEnumerable<Reservation> GetAll()
+        {
+            return _reservationRepository.GetAll();
         }
 
         public void CancelReservation(string id)
@@ -70,13 +94,7 @@ namespace ReservationService.Service
             Reservation reservation = _reservationRepository.GetById(id);
             DeleteLogicaly(reservation);
             
-        }
-
-
-        public IEnumerable<Reservation> GetAll()
-        {
-            return _reservationRepository.GetAll();
-        }
+        }      
 
         public Reservation GetById(string id)
         {

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Milica\\MIKRO\\XML-microservice-project\\Backend\\Backend\\Gateway.csproj": {}
+    "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\Backend\\Gateway.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Milica\\MIKRO\\XML-microservice-project\\Backend\\Backend\\Gateway.csproj": {
+    "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\Backend\\Gateway.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Milica\\MIKRO\\XML-microservice-project\\Backend\\Backend\\Gateway.csproj",
+        "projectUniqueName": "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\Backend\\Gateway.csproj",
         "projectName": "Gateway",
-        "projectPath": "C:\\Users\\Milica\\MIKRO\\XML-microservice-project\\Backend\\Backend\\Gateway.csproj",
-        "packagesPath": "C:\\Users\\Milica\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Milica\\MIKRO\\XML-microservice-project\\Backend\\Backend\\obj\\",
+        "projectPath": "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\Backend\\Gateway.csproj",
+        "packagesPath": "C:\\Users\\marko\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Milica\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\marko\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -51,7 +51,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -63,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

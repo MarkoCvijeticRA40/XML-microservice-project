@@ -10,16 +10,10 @@ namespace AccommodationService.Repository
 
         public AccommodationRepository()
         {
-            /* Konekcija koju cemo posle koristiti kada dokerizujemo
-            var client = new MongoClient("mongodb://root:password@mongo:27017");
-            var mongoDatabase = client.GetDatabase("mydatabase");
-            _accommodation = mongoDatabase.GetCollection<Accommodation>("myaccommodations");*/
-
             var client = new MongoClient("mongodb://localhost:27017");
             var mongoDatabase = client.GetDatabase("mydatabase1");
             _accommodation = mongoDatabase.GetCollection<Accommodation>("myaccommodations"); 
         }
-
 
 
         public void Create(Accommodation accommodation)

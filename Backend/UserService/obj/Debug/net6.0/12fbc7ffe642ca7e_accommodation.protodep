@@ -1,3 +1,3 @@
 obj\Debug\net6.0\Protos/Accommodation.cs \
-obj\Debug\net6.0\Protos/AccommodationGrpc.cs: C:/Users/Milica/.nuget/packages/grpc.tools/2.54.0/build/native/include/google/protobuf/timestamp.proto\
+obj\Debug\net6.0\Protos/AccommodationGrpc.cs: C:/Users/marko/.nuget/packages/grpc.tools/2.54.0/build/native/include/google/protobuf/timestamp.proto\
  Protos/accommodation.proto
