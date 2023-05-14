@@ -150,5 +150,17 @@ namespace UserService.Repository
             var filter = Builders<User>.Filter.Eq(u => u.Id, user.Id);
             _users.ReplaceOne(filter, user);
         }
+
+        public void Delete(string id)
+        {
+            var filter = Builders<User>.Filter.Eq(u => u.Id, id);
+            _users.DeleteOne(filter);
+        }
+
+        public void Delete(User user)
+        {
+            var filter = Builders<User>.Filter.Eq(u => u.Id, user.Id);
+            _users.DeleteOne(filter);
+        }
     }
 }

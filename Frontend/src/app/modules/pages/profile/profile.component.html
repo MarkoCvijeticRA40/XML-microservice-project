@@ -63,8 +63,16 @@
           </mat-error>
           </mat-form-field><br>
 
-          <button mat-stroked-button (click)="editProfile()"> 
-           Save changes
-        </button>
+          <div mat-dialog-actions style="width: 50%; float:left; " >
+            <button mat-button mat-dialog-close (click)="deleteProfile()" [disabled]="!enabled">Delete Profile</button>
+          </div>
+         
+
+          <div mat-dialog-actions style="width: 50%; float:right" align="end">
+            <button mat-stroked-button (click)="editProfile()"> 
+              Save changes
+           </button>
+          </div>
+          
     </form> 
     </body>
