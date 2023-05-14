@@ -2397,19 +2397,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lazar\\.nuget\\packages\\": {}
+    "C:\\Users\\marko\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lazar\\OneDrive\\Desktop\\fakultet\\XML-projekti\\XML-microservici projekat\\XML-microservice-project\\Backend\\UserService\\UserService.csproj",
+      "projectUniqueName": "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\UserService\\UserService.csproj",
       "projectName": "UserService",
-      "projectPath": "C:\\Users\\lazar\\OneDrive\\Desktop\\fakultet\\XML-projekti\\XML-microservici projekat\\XML-microservice-project\\Backend\\UserService\\UserService.csproj",
-      "packagesPath": "C:\\Users\\lazar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lazar\\OneDrive\\Desktop\\fakultet\\XML-projekti\\XML-microservici projekat\\XML-microservice-project\\Backend\\UserService\\obj\\",
+      "projectPath": "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\UserService\\UserService.csproj",
+      "packagesPath": "C:\\Users\\marko\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\UserService\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\lazar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\marko\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2493,7 +2493,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

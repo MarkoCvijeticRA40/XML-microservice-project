@@ -102,6 +102,7 @@ namespace UserService.Service
 
         public void Update(User user)
         {
+            user.Password = CreateHashPassword(user.Password);
             _userRepository.Update(user);
         }
 
