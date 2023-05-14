@@ -26,7 +26,11 @@ export class ReservationService {
   }
 
   getUndealetedGuestReservedReservations(id: any): Observable<Reservation[]> {
-    return this.http.get<Reservation[]>(this.apiHost+ '/guest/' + id, {headers: this.headers});
+    return this.http.get<Reservation[]>(this.apiHost+ '/undealeted/guest/' + id, {headers: this.headers});
+  }
+
+  getUndealetedHostUnreservedReservations(id: any): Observable<Reservation[]> {
+    return this.http.get<Reservation[]>(this.apiHost+ '/undealeted/host/' + id, {headers: this.headers});
   }
 
 

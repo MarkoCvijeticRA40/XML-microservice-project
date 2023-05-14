@@ -40,6 +40,7 @@ namespace UserService.Service
 
         public IEnumerable<User> GetAll()
         {
+            /*
             string id1 = "645f76ba5b45418b5fddca84";
             var channel1 = new Channel("localhost", 4113, ChannelCredentials.Insecure);
             var client1 = new ReservationGrpc.ReservationGrpcClient(channel1);
@@ -50,6 +51,7 @@ namespace UserService.Service
             var client = new AccommodationGrpc.AccommodationGrpcClient(channel);
             var accommodation = client.GetAccommodationInfo(new AccommodationRequest { Id = id });
 
+            */
             return _userRepository.GetAll();
         }
 

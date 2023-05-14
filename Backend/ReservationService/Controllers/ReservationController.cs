@@ -44,7 +44,11 @@ namespace ReservationService.Controllers
             return Ok(_mapper.ToDTO(_reservationService.getAllUndealitedGuestReservedReservationsInFuture(id).ToList()));
         }
 
-
+        [HttpGet("undealeted/host/{id}")]
+        public ActionResult GetAllUndealetedHostunreservedReservedReservations(string id)
+        {
+            return Ok(_mapper.ToDTO(_reservationService.getAllUndeletedUnaprovedHostReservationsInFuture(id).ToList()));
+        }
 
 
         [HttpPost]

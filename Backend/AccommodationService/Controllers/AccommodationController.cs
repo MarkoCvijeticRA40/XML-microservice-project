@@ -35,11 +35,12 @@ namespace AccommodationService.Controllers
 
         [HttpGet]
         public ActionResult GetAllAccommodations()
-        {
+        {   /*
             string id = "645f76ba5b45418b5fddca84";
             var channel = new Channel("localhost", 4113, ChannelCredentials.Insecure);
             var client = new ReservationGrpc.ReservationGrpcClient(channel);
             var accommodation = client.GetReservationInfo(new ReservationRequest { Id = id });
+            */
 
             return Ok(_mapper.ToDTO(_accommodationService.GetAll().ToList()));
         }

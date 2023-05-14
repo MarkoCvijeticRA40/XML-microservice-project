@@ -43,7 +43,9 @@ namespace AccommodationService.Service
                 StartDate = Google.Protobuf.WellKnownTypes.Timestamp.FromDateTime(accommodation.StartDate),
                 EndDate = Google.Protobuf.WellKnownTypes.Timestamp.FromDateTime(accommodation.EndDate),
                 Price = accommodation.Price,
-                Grade = accommodation.Grade
+                ReservationType = (Reservation)accommodation.ReservationType,
+                Grade = accommodation.Grade,
+                HostId = accommodation.HostId
             };
 
             // Check if the Reservation property exists in the accommodation object
