@@ -8,6 +8,7 @@ namespace ReservationService.Service
 
         public List<Reservation> getAllGuestReservations(string guestId);
 
+        public List<Reservation> getAllUndealitedGuestReservedReservationsInFuture(string guestId);
 
 
         void Create(Reservation reservation);

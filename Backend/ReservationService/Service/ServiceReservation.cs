@@ -135,6 +135,12 @@ namespace ReservationService.Service
             }
         }
 
- 
+        public List<Reservation> getAllUndealitedGuestReservedReservationsInFuture(string guestId)
+        {
+            List<Reservation> reservations = (List<Reservation>)_reservationRepository.GetAll();
+            return reservations
+            .Where(r => r.GuestId == guestId && !r.Deleted && r.Approved  && r.StartDate.Date > DateTime.Today.Date)
+            .ToList();
+        }
     }
 }

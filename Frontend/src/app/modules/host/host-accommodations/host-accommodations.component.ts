@@ -3,37 +3,50 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Accommodation } from 'src/app/model/accommodation';
 import { AccommodationService } from 'src/app/service/accommodation.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
-  selector: 'app-accommodation',
-  templateUrl: './accommodation.component.html',
-  styleUrls: ['./accommodation.component.css']
+  selector: 'app-host-accommodations',
+  templateUrl: './host-accommodations.component.html',
+  styleUrls: ['./host-accommodations.component.css']
 })
-export class AccommodationComponent implements OnInit {
+export class HostAccommodationsComponent implements OnInit {
 
-  public dataSource = new MatTableDataSource<Accommodation>();
   public accommodations: Accommodation[] = [];
-
   location : string = '';
   guests: number = 0;
   startDate: Date = new Date();
   endDate: Date = new Date();
+  public id: any;
 
   searchedAccommodations: Accommodation[] = [];
   searchPerformed = false;
 
-  constructor(private accommodationService: AccommodationService, private router: Router) { }
+  constructor(private userService: UserService, private accommodationService: AccommodationService, private router: Router) { }
 
   ngOnInit(): void {
+    this.id = this.userService.getCurrentUserId();
+
     this.loadAccommodations()
   }
 
   public loadAccommodations(){
     this.accommodationService.getAccommodations().subscribe(res => {
-      this.dataSource.data = res
-      this.accommodations = res
+      let result = Object.values(JSON.parse(JSON.stringify(res)));
+
+      result.forEach((element: any) => {
+        var app = new Accommodation(element);
+        if(app.hostId == this.id){
+          this.accommodations.push(app);
+        }
+      });
+
     })
 
+  }
+
+  public addAccommodation() {
+    this.router.navigate(['/createAccommodation']);
   }
 
   private isInputValid(): boolean {
@@ -64,5 +77,6 @@ export class AccommodationComponent implements OnInit {
       alert("You must fill in all fields!");
     }
   }   
+
 
 }

@@ -12,11 +12,13 @@ import {UserService} from "../../../service/user.service";
   styleUrls: ['./host.component.css']
 })
 export class HostComponent implements OnInit {
-  
+
   constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
-    this.router.navigate(['/availableFlights']);
+    this.router.navigate(['approve/reservation']);
+    this.router.navigate(['/hostAccommodations']);
+
   }
 
   public home(){

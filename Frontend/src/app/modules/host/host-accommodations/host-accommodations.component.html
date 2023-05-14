@@ -1,0 +1,76 @@
+
+<div class="container">
+
+    <form (submit)="onSearch()" class="search-form">
+      <label for="date">Start date:</label>
+      <input type="date" name="date" [(ngModel)]="startDate">
+  
+      <label for="date1">End date:</label>
+      <input type="date" name="date1" [(ngModel)]="endDate">
+    
+      <label for="departure">Departure location:</label>
+      <input type="text" name="location" [(ngModel)]="location">
+    
+      <label for="numPassengers">Number of guests:</label>
+      <input type="number" name="numPassengers" [(ngModel)]="guests">
+    
+      <button type="submit" class="searchButton">Search</button>
+  </form>
+  
+    <div class="table-header">
+      <h2>Accommodations: </h2>
+  
+      <button id="createAccommodation" class="add-button" type="button" mat-mini-fab matTooltip="New accommodation" matTooltipPosition="right" (click)="addAccommodation()">
+          <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  
+    <table>
+      <ng-container *ngFor="let accommodation of accommodations">
+        <tr>
+          <td>
+            <div class="ime">
+              <td><b>{{accommodation.name}}</b></td>
+            </div>
+  
+            <div class="locationFont">
+              <td><button mat-icon-button class="location"disabled> </button></td>
+              <td> {{ accommodation.location }}</td>
+            </div>
+  
+            <div class="ostalo">
+              <td>* {{ accommodation.facilities }}</td>
+            </div>
+  
+            <div class="ostalo">
+              <td>* {{ accommodation.startDate | date : 'short' }} - {{ accommodation.endDate | date : 'short' }}</td>
+            </div>
+  
+            <div class="ostalo">
+              <td>* Min capacity: {{ accommodation.minCapacity }}, Max capacity: {{ accommodation.maxCapacity }}</td>
+            </div>
+            <br>
+  
+            <div *ngIf="searchPerformed" class="ostalo">
+              <td>* Total price: {{ accommodation.price * guests}}, Price per person: {{ accommodation.price }}</td>
+            </div>
+  
+            <div class="photo-container">
+              <ng-container *ngFor="let photo of accommodation.photos; let i=index">
+                <img src="{{ photo }}" alt="Accommodation photo" [ngStyle]="{ 
+                  'width.px': (i == 0 || i == 1 || i == 2) ? 400 : (i == 3 || i == 4) ? 600 : 0, 
+                  'height.px': (i == 0 || i == 1 || i == 2) ? 250 : (i == 3 || i == 4) ? 300 : 0 ,
+                  'margin-right.px': (i == 0 || i == 1 || i == 2 || i == 3 || i == 4) ? 10 : 0,
+                  'margin-bottom.px': (i == 2) ? 10 : 0
+                }">
+              </ng-container>
+            </div>
+            <br>
+            
+          </td>
+  
+        </tr>
+      </ng-container>
+    </table>
+    
+  

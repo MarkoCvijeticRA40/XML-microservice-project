@@ -1,17 +1,15 @@
 .container {
-    width: 85%;
-    margin: auto;
-    margin-top: 20px;
-    border-radius: 3px;
-    border: #DCD6CC 2px slategray;
-    background-color: white;
-    border-color:  rgb(35, 104, 233);
-    border-width: 3px;
-    border-radius: 20px;
-    padding: 5px;
-    background-color: rgb(153, 189, 198);
-    display: flex;
-    flex-direction: column;
+    width: 53%;
+      margin: auto;
+      margin-top: 20px;
+      border-radius: 3px;
+      border: #DCD6CC 2px slategray;
+      background-color: white;
+      border-color:  rgb(35, 104, 233);
+      border-width: 3px;
+      border-radius: 20px;
+      padding: 5px;
+      background-color: rgb(153, 189, 198);
   }
   
   table {
@@ -19,18 +17,15 @@
     background-color: rgb(153, 189, 198);
   
   }
-
-  td{
-    font-size: 16px;
-
+  
+  h2{
+    color: white;
+    font-size: 26px;
+    margin-top: 10px;
+    margin-left: 20px;
   }
-
-  .tickets{
-    width: 30px;
-    height: 30px;
-    margin-left: -20px;
-}
-
+  
+  
   .table-title {
     padding-bottom: 20px;
     padding-top: 20px;
@@ -42,19 +37,6 @@
   .cell-center {
     text-align: center;
   }
-
-  th{
-    font-size: 14px;
-    color: black;
-  }
-
-   h2{
-    color: white;
-    font-size: 26px;
-    margin-top: 10px;
-    margin-left: 20px;
-  }
-  
   
   .clickable:hover {
     font-weight: bold;
@@ -110,7 +92,6 @@
     border-radius: 10px;
   }
   
-  
   .line {
     margin-left: 10px;
     margin-right: 10px;
@@ -136,35 +117,9 @@
   td {
     cursor: pointer;
   }
-
-  .search-form {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin-bottom : 20px;
-    left: 0;
-    right: 0;
-  }
   
-  .search-form label {
-    margin-right: 5px;
-    margin-bottom: 2px;
-    font-weight: bold;
+  th{
+    font-size: 14px;
+    color: black;
   }
-  
-  .search-form input {
-    padding: 5px;
-    margin-bottom: 2px;
-    flex: 1;
-    max-width: 120px;
-  }
-
-  .searchButton {
-    color: white;
-    background-color: rgb(4, 92, 113);
-    border-radius: 20px;
-  }
-
-  
   

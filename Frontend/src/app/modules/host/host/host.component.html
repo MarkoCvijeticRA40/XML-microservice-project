@@ -9,23 +9,22 @@
     <button class="home" (click)="home()">
       <h2>Host</h2>
     </button>
-    
+
       <button mat-icon-button class = "logoutButton" matTooltip="Log out">
         <mat-icon (click)="logout()">logout</mat-icon>
       </button>
 
-      <button mat-icon-button class = "logoutButton" matTooltip="Log out">
-        <mat-icon (click)="logout()">Edit Profile</mat-icon>
-      </button>
-      
     </mat-toolbar-row>
   </mat-toolbar>
 
   <mat-sidenav-container>
     <mat-sidenav #sidebarmenu>
       <mat-nav-list>
-        <a mat-list-item [routerLink]="'availableFlights'"> Home </a>
-        <a mat-list-item [routerLink]="'takenFlights'"> Taken Flights </a>
+
+        <a mat-list-item [routerLink]="'approve/reservation'"> Home </a>
+        <a mat-list-item [routerLink]="'hostAccommodations'"> Home </a>
+        <a mat-list-item [routerLink]="'profil'"> Profile </a>
+        <a mat-list-item [routerLink]="'hostAccommodations'">Host Accommodations </a>
 
       </mat-nav-list>
     </mat-sidenav>

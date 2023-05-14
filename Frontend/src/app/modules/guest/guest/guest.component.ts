@@ -16,11 +16,12 @@ export class GuestComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    this.router.navigate(['accommodation']);
+
   }
 
 
   public home(){
-    this.router.navigate(['reservations']);
+    this.router.navigate(['accommodation']);
   }
 }
