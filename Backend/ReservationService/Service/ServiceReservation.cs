@@ -220,6 +220,26 @@ namespace ReservationService.Service
             .ToList();
         }
 
+        public List<Reservation> getHostCheck(string hostId)
+        {
+            List<Reservation> res = (List<Reservation>)_reservationRepository.GetAll();
+            List<Reservation> reservations = res.Where(r => !r.Deleted && r.Approved && r.StartDate.Date >= DateTime.Today.Date)
+            .ToList();
 
+            List<Reservation> returnReservations = new List<Reservation>();
+            foreach (Reservation r in reservations)
+            {
+                var channel = new Channel("localhost", 4111, ChannelCredentials.Insecure);
+                var client = new AccommodationGrpc.AccommodationGrpcClient(channel);
+                var accommodation = client.GetAccommodationInfo(new AccommodationRequest { Id = r.AccomodationId });
+
+                if (accommodation.HostId == hostId)
+                {
+                    returnReservations.Add(r);
+                }
+            }
+
+            return returnReservations;
+        }
     }
 }

@@ -54,7 +54,7 @@ export class ReserveAccommodationComponent implements OnInit {
    /* if(this.reservation.startDate.getDate ==  this.currentDate.getDate){
       alert("Start date must be grater than today !");
     }else*/ if(this.reservation.endDate ==  this.currentDate){
-      alert("End date must be grater than tommorow !");
+      alert("End date must be grater than today !");
     }else if(this.reservation.capacity<1){
       alert("Number of people must be positive !");
     }else if(this.reservation.startDate > this.reservation.endDate){

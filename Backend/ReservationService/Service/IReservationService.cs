@@ -12,6 +12,11 @@ namespace ReservationService.Service
 
         public List<Reservation> getAllUndeletedUnaprovedHostReservationsInFuture(string hostId);
 
+
+        public List<Reservation> getHostCheck(string hostId);
+
+
+
         public List<Reservation> getReservationsByAccommodationId(string id);
 
         string Create(Reservation reservation);

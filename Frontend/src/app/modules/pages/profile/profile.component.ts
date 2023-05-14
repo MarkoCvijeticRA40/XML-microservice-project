@@ -60,27 +60,13 @@ export class ProfileComponent implements OnInit {
     }
 
     else if(this.role == 'Host') {
-      //this.router.navigate(['/profil']);
-      this.reservationService.getUndealetedHostUnreservedReservations(this.user.id).subscribe(res => {
+      this.reservationService.getCheckHost(this.user.id).subscribe(res => {
         if(res.length == 0){
-
-          this.accommodationService.getAccommodations().subscribe(res => {
-            let result = Object.values(JSON.parse(JSON.stringify(res)));
-            result.forEach((element: any) => {
-              var app = new Accommodation(element);
-              if(app.hostId == this.id){
-                this.accommodations.push(app);
-              }
-            });
-            //u accommodations su mi svi hostovi smestaj
-
-          })
-
           this.enabled = true;
         }else{
           this.enabled = false;
         }
-    }); 
+    });  
     }
 
 

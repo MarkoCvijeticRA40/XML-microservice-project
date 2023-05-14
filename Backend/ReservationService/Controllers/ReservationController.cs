@@ -50,6 +50,12 @@ namespace ReservationService.Controllers
             return Ok(_mapper.ToDTO(_reservationService.getAllUndeletedUnaprovedHostReservationsInFuture(id).ToList()));
         }
 
+        [HttpGet("check/host/{id}")]
+        public ActionResult GetCheckHost(string id)
+        {
+            return Ok(_mapper.ToDTO(_reservationService.getHostCheck(id).ToList()));
+        }
+
 
         [HttpPost]
         public ActionResult Create(ReservationDTO reservationDTO)
