@@ -1,6 +1,7 @@
 ﻿using MongoDB.Driver;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Cryptography;
+using System.Text;
 using UserService.Model;
 
 namespace UserService.Repository
