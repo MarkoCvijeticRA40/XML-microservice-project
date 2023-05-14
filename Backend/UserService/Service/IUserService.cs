@@ -12,5 +12,8 @@ namespace UserService.Service
         public User GetByEmail(String email);
         public User WhoIAm(string token);
         public void Update(User user);
+        void Delete(string id);
+
+        void Delete(User user);
     }
 }

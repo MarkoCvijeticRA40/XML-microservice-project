@@ -1,6 +1,6 @@
 .container {
     width: 400px;
-    height: 550px;
+    height: 600px;
     margin: auto;
     margin-top: 50px;
     border-radius: 3px;
@@ -20,4 +20,5 @@ button {
     color: white;
     background-color: rgb(4, 92, 113);
     border-radius: 20px;
+    margin : 30px;    
 }

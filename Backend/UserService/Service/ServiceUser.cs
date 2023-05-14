@@ -104,5 +104,15 @@ namespace UserService.Service
         {
             _userRepository.Update(user);
         }
+
+        public void Delete(string id)
+        {
+            _userRepository.Delete(id);
+        }
+
+        public void Delete(User user)
+        {
+            _userRepository.Delete(user);
+        }
     }
 }

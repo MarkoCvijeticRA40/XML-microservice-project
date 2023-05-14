@@ -76,6 +76,10 @@ export class UserService {
       return this.router.parseUrl('pages/login');
     }
   }
+
+  deleteUser(id: any): Observable<any> {
+    return this.http.delete<any>(this.apiHost + 'api/User/' + id, {headers: this.headers});
+  }
 }
 
 
