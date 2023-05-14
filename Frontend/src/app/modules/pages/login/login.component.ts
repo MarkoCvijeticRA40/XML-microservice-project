@@ -37,8 +37,8 @@ export class LoginComponent implements OnInit {
       this.accessToken = res;
       this.userService.getCurrentUser().subscribe(user => {
           this.currentUser = user;
-<<<<<<< HEAD
 
+          console.log(this.currentUser);
           if (this.currentUser.role == 'Guest') {
             this.router.navigate(['/guest']);
           }
@@ -49,13 +49,6 @@ export class LoginComponent implements OnInit {
           else {
           }
             
-=======
-          console.log(this.currentUser);
-         
-          if (this.currentUser.role === "Guest") {
-            this.router.navigate(['/reservations']);
-          }
->>>>>>> c3979516290e3ee7f2bcaa256ca914ce52ffebed
         });
     });
   }

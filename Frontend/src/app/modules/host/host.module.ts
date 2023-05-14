@@ -39,9 +39,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     HostComponent,
-    TableAvailableFlightsComponent,
-    TicketInformationComponent,
-    TakenFlightsComponent,
     ApproveReservationComponent,
     CreateAccommodationComponent,
     HostAccommodationsComponent,

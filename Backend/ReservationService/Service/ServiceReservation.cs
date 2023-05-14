@@ -66,9 +66,18 @@ namespace ReservationService.Service
             .ToList();
         }
 
-        public void Create(Reservation reservation)
+        public string Create(Reservation reservation)
         {
+            List<Reservation> reservations = GetOverlapingReservations(reservation);
+            if (reservations.Count != 0)
+            {
+                return "Accomodation is already defined at this time !";
+            }
+
+            //check count
+            //check time of Accomodation
             
+
             /*
             if (_accomondationRepository.GetById(reservation.AccomodationId).ReservationType == Enums.ReservationType.Autoautomatically)
             {
@@ -83,10 +92,24 @@ namespace ReservationService.Service
                 reservation.Deleted = false;
             }
             */
+            reservation.NumberOfCancelation = GetNumberOfCancelation(reservation.GuestId);
             _reservationRepository.Create(reservation);
+            return "Your accommodation reservation is waitnig to be approved !";
         }
 
 
+        public List<Reservation> GetOverlapingReservations(Reservation reservation)
+        {
+            return _reservationRepository.GetAll().Where(r => (r.AccomodationId == reservation.AccomodationId) && !r.Deleted && r.Approved && (((r.StartDate < reservation.EndDate) && (r.StartDate > reservation.StartDate)) || ((r.EndDate < reservation.EndDate) && (r.EndDate > reservation.StartDate)) || ((reservation.StartDate < r.EndDate) && (reservation.StartDate > r.StartDate)) || ((reservation.EndDate < r.EndDate) && (reservation.EndDate > r.StartDate)) || ((r.EndDate.Date == reservation.EndDate.Date) && (r.EndDate.Date == reservation.StartDate.Date)))).ToList();
+
+        }
+
+        public int GetNumberOfCancelation(string guestId)
+        {
+            List<Reservation> reservations = getAllGuestReservations(guestId);
+            if( reservations.Count == 0 ) { return 0; }
+            return reservations[0].NumberOfCancelation;
+        } 
 
 
         public void DisapproveReservation(string id)

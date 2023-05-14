@@ -13,7 +13,7 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class ApproveReservationComponent implements OnInit {
 
-   public dataSource = new MatTableDataSource<Reservation>();
+  public dataSource = new MatTableDataSource<Reservation>();
   public displayedColumns = ['capacity' , 'startDate' , 'endDate' , 'numberOfCancelation', 'delete' ];
   
   constructor( private userService: UserService, private reservationService: ReservationService, private router: Router) { }
