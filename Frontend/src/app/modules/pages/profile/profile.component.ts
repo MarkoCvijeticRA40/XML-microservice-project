@@ -5,6 +5,8 @@ import { UserService } from 'src/app/service/user.service';
 import { ReservationService } from 'src/app/service/reservation.service';
 import { Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
+import { Accommodation } from 'src/app/model/accommodation';
+import { AccommodationService } from 'src/app/service/accommodation.service';
 
 @Component({
   selector: 'app-profile',
@@ -19,14 +21,17 @@ export class ProfileComponent implements OnInit {
   public user2: User = new User();
   public role: any = null;
   public enabled : boolean = false;
+  public id: any;
+  public accommodations: Accommodation[] = [];
 
-  constructor( private reservationService: ReservationService, private userService: UserService, private router: Router) { }
-
+  constructor( private reservationService: ReservationService, private accommodationService: AccommodationService, private userService: UserService, private router: Router) { }
 
 
   ngOnInit() {
 
     this.loadUserData();
+    this.id = this.userService.getCurrentUserId();
+
   }
 
   loadUserData() {
@@ -55,7 +60,27 @@ export class ProfileComponent implements OnInit {
     }
 
     else if(this.role == 'Host') {
-      this.router.navigate(['/host/profil']);
+      //this.router.navigate(['/profil']);
+      this.reservationService.getUndealetedHostUnreservedReservations(this.user.id).subscribe(res => {
+        if(res.length == 0){
+
+          this.accommodationService.getAccommodations().subscribe(res => {
+            let result = Object.values(JSON.parse(JSON.stringify(res)));
+            result.forEach((element: any) => {
+              var app = new Accommodation(element);
+              if(app.hostId == this.id){
+                this.accommodations.push(app);
+              }
+            });
+            //u accommodations su mi svi hostovi smestaj
+
+          })
+
+          this.enabled = true;
+        }else{
+          this.enabled = false;
+        }
+    }); 
     }
 
 
@@ -89,6 +114,18 @@ export class ProfileComponent implements OnInit {
 
     this.userService.deleteUser(this.user.id).subscribe(res => {
         alert("Vas nalog je obrisan !")
+        if(this.user.role == "Host"){
+
+          this.accommodations.forEach((element: any) => {
+            var app = new Accommodation(element);
+            this.accommodationService.deleteAccommodation(element.id).subscribe(res => {
+              alert("Svi smestaji od obrisanog hosta su obrisani")
+            })
+            
+          });
+
+        }
+
         this.router.navigate(['/accommodations']);
     });
 
@@ -131,9 +168,6 @@ export class ProfileComponent implements OnInit {
     Validators.required,
   ]);
 
-  requiredRole = new FormControl('', [
-    Validators.required,
-  ]);
   
 
   requiredPlaceOfLivingControl = new FormControl('', [

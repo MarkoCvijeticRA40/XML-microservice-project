@@ -16,7 +16,7 @@ export class GuestComponent implements OnInit {
   }
 
   ngOnInit(): void {
- //   this.router.navigate(['accommodation']);
+    this.router.navigate(['accommodation']);
 
   }
 

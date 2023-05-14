@@ -37,6 +37,8 @@ export class ReservationService {
     return this.http.get<Reservation[]>(this.apiHost+ '/undealeted/host/' + id, {headers: this.headers});
   }
 
+  
+
   getAllResByAccId(id: any): Observable<Reservation[]> {
     return this.http.get<Reservation[]>(this.apiHost+ '/reservationsAcc/' + id, {headers: this.headers});
   }
