@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Security.Cryptography.X509Certificates;
+using System.Text.RegularExpressions;
 using AccommodationService.Enums;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
@@ -22,6 +23,8 @@ namespace AccommodationService.Model
         public ReservationType ReservationType { get; set; }
         public double Grade { get; set; }
         public string HostId { get; set; }
+
+        
 
 
     }

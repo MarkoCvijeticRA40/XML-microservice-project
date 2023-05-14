@@ -125,5 +125,18 @@ namespace UserService.Controller
         }
 
 
+        [HttpDelete("{id}")]
+        public ActionResult Delete(string id)
+        {
+            var user = _userService.GetById(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            _userService.Delete(user);
+            return NoContent();
+        }
+
     }
 }

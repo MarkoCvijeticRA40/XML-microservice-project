@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../hospital/model/user.model';
+import { ReservationType } from 'src/app/model/reservation.type';
 import { UserService } from 'src/app/service/user.service';
+import { ReservationService } from 'src/app/service/reservation.service';
 import { Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 
@@ -15,13 +17,15 @@ export class ProfileComponent implements OnInit {
 
   public user: User = new User();
   public user2: User = new User();
-  
+  public role: any = null;
+  public enabled : boolean = false;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor( private reservationService: ReservationService, private userService: UserService, private router: Router) { }
 
 
 
   ngOnInit() {
+
     this.loadUserData();
   }
 
@@ -32,10 +36,33 @@ export class ProfileComponent implements OnInit {
      console.log(this.user);
      this.user.lastName = user.lastName
      this.user.password = '';
-     
+     this.role = user.role;
+        this.enableDisableButton();
      
     });
   }
+
+
+  enableDisableButton(){
+    if (this.role == 'Guest') {
+          this.reservationService.getUndealetedGuestReservedReservations(this.user.id).subscribe(res => {
+              if(res.length == 0){
+                this.enabled = true;
+              }else{
+                this.enabled = false;
+              }
+          });  
+    }
+
+    else if(this.role == 'Host') {
+      this.router.navigate(['/host/profil']);
+    }
+
+
+
+  }
+
+
 
   public editProfile() {
     if (this.isInputValid()) {
@@ -57,6 +84,17 @@ export class ProfileComponent implements OnInit {
     }
   
   }
+
+  public deleteProfile(){
+
+    this.userService.deleteUser(this.user.id).subscribe(res => {
+        alert("Vas nalog je obrisan !")
+        this.router.navigate(['/accommodations']);
+    });
+
+
+  }
+
 
   private isInputValid(): boolean {
     return this.user.username != ''
