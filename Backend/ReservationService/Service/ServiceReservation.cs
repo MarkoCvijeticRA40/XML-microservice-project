@@ -74,25 +74,40 @@ namespace ReservationService.Service
                 return "Accomodation is already defined at this time !";
             }
 
-            //check count
-            //check time of Accomodation
-            
+            var channel = new Channel("localhost", 4111, ChannelCredentials.Insecure);
+            var client = new AccommodationGrpc.AccommodationGrpcClient(channel);
+            var accommodation = client.GetAccommodationInfo(new AccommodationRequest { Id = reservation.AccomodationId });
 
-            /*
-            if (_accomondationRepository.GetById(reservation.AccomodationId).ReservationType == Enums.ReservationType.Autoautomatically)
+       
+            
+            if(accommodation.MinCapacity > reservation.Capacity)
             {
 
+                return "Minimum capacity of accommodation is not satisfied !";
+            }else if (accommodation.MaxCapacity < reservation.Capacity)
+            {
+
+                return "Accomodation can not contain this much capacity !";
+            }else if(accommodation.StartDate.ToDateTime().Date > reservation.StartDate.Date || accommodation.EndDate.ToDateTime().Date < reservation.EndDate.Date)
+            {
+                return "Accomodation is not avalible at this time !";
+            }
+
+            reservation.NumberOfCancelation = GetNumberOfCancelation(reservation.GuestId);
+
+            if (accommodation.ReservationType == 0)
+            {
                 reservation.Approved = true;
                 reservation.Deleted = false;
-            }
-            else
-            {
+                _reservationRepository.Create(reservation);
+                return "Your accommodation reservation is approved !";
 
-                reservation.Approved = false;
-                reservation.Deleted = false;
             }
-            */
-            reservation.NumberOfCancelation = GetNumberOfCancelation(reservation.GuestId);
+
+            
+            reservation.Approved = false;
+            reservation.Deleted = false;
+            
             _reservationRepository.Create(reservation);
             return "Your accommodation reservation is waitnig to be approved !";
         }
@@ -151,7 +166,7 @@ namespace ReservationService.Service
 
             foreach(Reservation r in reservations)
             {
-                if ((r.AccomodationId ==reservation.AccomodationId)&&!r.Deleted && !r.Approved &&(((r.StartDate > reservation.StartDate) && (r.StartDate < reservation.EndDate)) || ((r.EndDate > reservation.StartDate) && (r.EndDate < reservation.EndDate))))
+                if ((r.AccomodationId ==reservation.AccomodationId)&&!r.Deleted && !r.Approved && (((r.StartDate < reservation.EndDate) && (r.StartDate > reservation.StartDate)) || ((r.EndDate < reservation.EndDate) && (r.EndDate > reservation.StartDate)) || ((reservation.StartDate < r.EndDate) && (reservation.StartDate > r.StartDate)) || ((reservation.EndDate < r.EndDate) && (reservation.EndDate > r.StartDate)) || ((r.EndDate.Date == reservation.EndDate.Date) && (r.EndDate.Date == reservation.StartDate.Date))))
                 {
                     DeleteLogicaly(r);
                 }
@@ -165,5 +180,37 @@ namespace ReservationService.Service
             .Where(r => r.GuestId == guestId && !r.Deleted && r.Approved  && r.StartDate.Date > DateTime.Today.Date)
             .ToList();
         }
+
+        public List<Reservation> getAllUndeletedUnaprovedHostReservationsInFuture(string hostId)
+        {
+            List<Reservation> reservations = getAllUndeletedUnaprovedReservationsInFuture();
+            List<Reservation> returnReservations = new List<Reservation> ();
+            foreach(Reservation r in reservations)
+            {
+                var channel = new Channel("localhost", 4111, ChannelCredentials.Insecure);
+                var client = new AccommodationGrpc.AccommodationGrpcClient(channel);
+                var accommodation = client.GetAccommodationInfo(new AccommodationRequest { Id = r.AccomodationId });
+
+                if(accommodation.HostId == hostId)
+                {
+                    returnReservations.Add(r);
+                }
+            }
+
+            return returnReservations;
+
+
+        }
+
+        public List<Reservation> getAllUndeletedUnaprovedReservationsInFuture()
+        {
+            List<Reservation> reservations = (List<Reservation>)_reservationRepository.GetAll();
+            return reservations
+            .Where(r => !r.Deleted && !r.Approved && r.StartDate.Date >= DateTime.Today.Date)
+            .ToList();
+        }
+
+
+
     }
 }

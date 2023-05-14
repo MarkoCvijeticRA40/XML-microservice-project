@@ -26,23 +26,24 @@ namespace ProtoService {
           string.Concat(
             "ChpQcm90b3MvYWNjb21tb2RhdGlvbi5wcm90bxIMUHJvdG9TZXJ2aWNlGh9n",
             "b29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIiIKFEFjY29tbW9kYXRp",
-            "b25SZXF1ZXN0EgoKAklkGAEgASgJIskCChVBY2NvbW1vZGF0aW9uUmVzcG9u",
+            "b25SZXF1ZXN0EgoKAklkGAEgASgJItkCChVBY2NvbW1vZGF0aW9uUmVzcG9u",
             "c2USDwoHZGVsZXRlZBgBIAEoCBIMCgRuYW1lGAIgASgJEhAKCGxvY2F0aW9u",
             "GAMgASgJEhIKCmZhY2lsaXRpZXMYBCADKAkSDgoGcGhvdG9zGAUgASgJEhQK",
             "DG1pbl9jYXBhY2l0eRgGIAEoBRIUCgxtYXhfY2FwYWNpdHkYByABKAUSLgoK",
             "c3RhcnRfZGF0ZRgIIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAS",
             "LAoIZW5kX2RhdGUYCSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1w",
             "Eg0KBXByaWNlGAogASgBEjMKEHJlc2VydmF0aW9uX3R5cGUYCyABKA4yGS5Q",
-            "cm90b1NlcnZpY2UuUmVzZXJ2YXRpb24SDQoFZ3JhZGUYDCABKAEqOAoLUmVz",
-            "ZXJ2YXRpb24SFgoSQVVUT19BVVRPTUFUSUNBTExZEAASEQoNV0lUSF9BUFBS",
-            "T1ZBTBABMnQKEUFjY29tbW9kYXRpb25HcnBjEl8KFEdldEFjY29tbW9kYXRp",
-            "b25JbmZvEiIuUHJvdG9TZXJ2aWNlLkFjY29tbW9kYXRpb25SZXF1ZXN0GiMu",
-            "UHJvdG9TZXJ2aWNlLkFjY29tbW9kYXRpb25SZXNwb25zZWIGcHJvdG8z"));
+            "cm90b1NlcnZpY2UuUmVzZXJ2YXRpb24SDQoFZ3JhZGUYDCABKAESDgoGaG9z",
+            "dElkGA0gASgJKjgKC1Jlc2VydmF0aW9uEhYKEkFVVE9fQVVUT01BVElDQUxM",
+            "WRAAEhEKDVdJVEhfQVBQUk9WQUwQATJ0ChFBY2NvbW1vZGF0aW9uR3JwYxJf",
+            "ChRHZXRBY2NvbW1vZGF0aW9uSW5mbxIiLlByb3RvU2VydmljZS5BY2NvbW1v",
+            "ZGF0aW9uUmVxdWVzdBojLlByb3RvU2VydmljZS5BY2NvbW1vZGF0aW9uUmVz",
+            "cG9uc2ViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ProtoService.Reservation), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ProtoService.AccommodationRequest), global::ProtoService.AccommodationRequest.Parser, new[]{ "Id" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ProtoService.AccommodationResponse), global::ProtoService.AccommodationResponse.Parser, new[]{ "Deleted", "Name", "Location", "Facilities", "Photos", "MinCapacity", "MaxCapacity", "StartDate", "EndDate", "Price", "ReservationType", "Grade" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::ProtoService.AccommodationResponse), global::ProtoService.AccommodationResponse.Parser, new[]{ "Deleted", "Name", "Location", "Facilities", "Photos", "MinCapacity", "MaxCapacity", "StartDate", "EndDate", "Price", "ReservationType", "Grade", "HostId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -292,6 +293,7 @@ namespace ProtoService {
       price_ = other.price_;
       reservationType_ = other.reservationType_;
       grade_ = other.grade_;
+      hostId_ = other.hostId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -444,6 +446,18 @@ namespace ProtoService {
       }
     }
 
+    /// <summary>Field number for the "hostId" field.</summary>
+    public const int HostIdFieldNumber = 13;
+    private string hostId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string HostId {
+      get { return hostId_; }
+      set {
+        hostId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -471,6 +485,7 @@ namespace ProtoService {
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Price, other.Price)) return false;
       if (ReservationType != other.ReservationType) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Grade, other.Grade)) return false;
+      if (HostId != other.HostId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -490,6 +505,7 @@ namespace ProtoService {
       if (Price != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Price);
       if (ReservationType != global::ProtoService.Reservation.AutoAutomatically) hash ^= ReservationType.GetHashCode();
       if (Grade != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Grade);
+      if (HostId.Length != 0) hash ^= HostId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -553,6 +569,10 @@ namespace ProtoService {
         output.WriteRawTag(97);
         output.WriteDouble(Grade);
       }
+      if (HostId.Length != 0) {
+        output.WriteRawTag(106);
+        output.WriteString(HostId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -608,6 +628,10 @@ namespace ProtoService {
         output.WriteRawTag(97);
         output.WriteDouble(Grade);
       }
+      if (HostId.Length != 0) {
+        output.WriteRawTag(106);
+        output.WriteString(HostId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -651,6 +675,9 @@ namespace ProtoService {
       }
       if (Grade != 0D) {
         size += 1 + 8;
+      }
+      if (HostId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(HostId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -703,6 +730,9 @@ namespace ProtoService {
       }
       if (other.Grade != 0D) {
         Grade = other.Grade;
+      }
+      if (other.HostId.Length != 0) {
+        HostId = other.HostId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -773,6 +803,10 @@ namespace ProtoService {
             Grade = input.ReadDouble();
             break;
           }
+          case 106: {
+            HostId = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -840,6 +874,10 @@ namespace ProtoService {
           }
           case 97: {
             Grade = input.ReadDouble();
+            break;
+          }
+          case 106: {
+            HostId = input.ReadString();
             break;
           }
         }

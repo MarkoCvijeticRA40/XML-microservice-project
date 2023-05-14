@@ -10,6 +10,9 @@ namespace ReservationService.Service
 
         public List<Reservation> getAllUndealitedGuestReservedReservationsInFuture(string guestId);
 
+        public List<Reservation> getAllUndeletedUnaprovedHostReservationsInFuture(string hostId);
+
+
 
         string Create(Reservation reservation);
         void Update(Reservation reservation);

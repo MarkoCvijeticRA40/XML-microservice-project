@@ -23,9 +23,9 @@ export class ReserveAccommodationComponent implements OnInit {
   public currentDate : Date = new Date();
 
   ngOnInit(): void {
-         
+        this.currentDate = new Date()
         this.tomorrowDate.setDate(this.currentDate.getDate() + 1);
-      //  this.reservation.guestId = this.userService.getCurrentUserId()
+        this.reservation.guestId = this.userService.getCurrentUserId()
         this.route.params.subscribe((params: Params) => {
         this.reservation.accomodationId = this.accomodationId
         
@@ -34,42 +34,37 @@ export class ReserveAccommodationComponent implements OnInit {
 
 
   public reserveAccommodation(): void{
-    
-    this.reservationService.createReservation(this.reservation).subscribe(res => {
-      alert(res)
-    })
-    /*
-    this.reservationService.createReservation(this.reservation).subscribe(res => {
-      alert(res)
-    })*/
-      /*
-      if(this.isInputValid()){
-        this.reservationService.createReservation(this.reservation).subscribe()
+    if(this.isInputValid()){
+        this.reservationService.createReservation(this.reservation).subscribe(res => {
+          alert(res)
+        })
           
       }else{
+      
         this.messages()
         
-      }*/
+      }
       
 
   }
 
 
   public messages(): void{
-    if(this.reservation.startDate.getDate ==  this.currentDate.getDate){
-      alert("Start date must be grater than tommorow !");
-    }else if(this.reservation.endDate.getDate ==  this.currentDate.getDate){
+ 
+   /* if(this.reservation.startDate.getDate ==  this.currentDate.getDate){
+      alert("Start date must be grater than today !");
+    }else*/ if(this.reservation.endDate ==  this.currentDate){
       alert("End date must be grater than tommorow !");
     }else if(this.reservation.capacity<1){
       alert("Number of people must be positive !");
-    }else if(this.reservation.startDate.getDate > this.reservation.endDate.getDate){
-      alert("End date must be after star date !");
+    }else if(this.reservation.startDate > this.reservation.endDate){
+      alert("End date must be after start date !");
     }
   }
 
 
   private isInputValid(): boolean {
-    return this.reservation.startDate.getDate >  this.currentDate.getDate && this.reservation.endDate.getDate >  this.currentDate.getDate && this.reservation.capacity>1 && this.reservation.startDate.getDate < this.reservation.endDate.getDate;
+    return this.reservation.startDate >=  this.currentDate && this.reservation.endDate >  this.currentDate && this.reservation.capacity>0 && this.reservation.startDate < this.reservation.endDate;
 
   }
 

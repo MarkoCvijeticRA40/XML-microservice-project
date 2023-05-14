@@ -31,5 +31,6 @@ message AccommodationResponse {
   double price = 10;
   Reservation reservation_type = 11;
   double grade = 12;
+  string hostId = 13;
 
 }
