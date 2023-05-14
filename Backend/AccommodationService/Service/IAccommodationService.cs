@@ -11,6 +11,8 @@ namespace AccommodationService.Service
 
         List<Accommodation> GetAllAccommodationsBySearch(string location, int guests, DateTime startDate, DateTime endDate);
 
+        public void Update(Accommodation accommodation);
+
 
     }
 }

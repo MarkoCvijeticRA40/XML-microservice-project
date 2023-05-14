@@ -21,6 +21,8 @@ import { ProfileComponent } from '../pages/profile/profile.component';
 import { ApproveReservationComponent } from './approve-reservation/approve-reservation.component';
 import { CreateAccommodationComponent } from './create-accommodation/create-accommodation.component';
 import { HostAccommodationsComponent } from './host-accommodations/host-accommodations.component';
+import { ChangeDateAccommodationComponent } from './change-date-accommodation/change-date-accommodation.component';
+import { ChangePriceAccommodationComponent } from './change-price-accommodation/change-price-accommodation.component';
 
 
 const routes: Routes = [
@@ -42,6 +44,8 @@ const routes: Routes = [
     ApproveReservationComponent,
     CreateAccommodationComponent,
     HostAccommodationsComponent,
+    ChangeDateAccommodationComponent,
+    ChangePriceAccommodationComponent,
     ],
   imports: [
     CommonModule,

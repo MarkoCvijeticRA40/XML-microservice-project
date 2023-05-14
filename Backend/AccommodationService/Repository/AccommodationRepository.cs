@@ -15,6 +15,12 @@ namespace AccommodationService.Repository
             _accommodation = mongoDatabase.GetCollection<Accommodation>("myaccommodations"); 
         }
 
+        public void Update(Accommodation accommodation)
+        {
+            var filter = Builders<Accommodation>.Filter.Eq(u => u.Id, accommodation.Id);
+            _accommodation.ReplaceOne(filter, accommodation);
+        }
+
 
         public void Create(Accommodation accommodation)
         {

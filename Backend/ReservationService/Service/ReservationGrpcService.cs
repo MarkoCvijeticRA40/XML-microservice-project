@@ -1,4 +1,5 @@
-﻿using Grpc.Core;
+﻿using Google.Protobuf.WellKnownTypes;
+using Grpc.Core;
 using ProtoService2;
 using ReservationService.Model;
 using ReservationService.Repository;
@@ -19,6 +20,7 @@ namespace ReservationService.Service
         {
             reservationRepository = repository;
         }
+
 
         public override Task<ReservationResponse> GetReservationInfo(ReservationRequest request, ServerCallContext context)
         {

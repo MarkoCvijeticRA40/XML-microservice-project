@@ -8,7 +8,7 @@
       <label for="date1">End date:</label>
       <input type="date" name="date1" [(ngModel)]="endDate">
     
-      <label for="departure">Departure location:</label>
+      <label for="departure">Location:</label>
       <input type="text" name="location" [(ngModel)]="location">
     
       <label for="numPassengers">Number of guests:</label>
@@ -31,6 +31,8 @@
           <td>
             <div class="ime">
               <td><b>{{accommodation.name}}</b></td>
+              <td><button mat-icon-button (click)="changeDate(accommodation)" class="satButton"> </button></td>
+              <td><button mat-icon-button (click)="changePrice(accommodation)" class="priceButton"> </button></td>
             </div>
   
             <div class="locationFont">
