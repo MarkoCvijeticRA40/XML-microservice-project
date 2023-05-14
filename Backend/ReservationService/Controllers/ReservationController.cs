@@ -132,7 +132,15 @@ namespace ReservationService.Controllers
 
         }
 
-    
+
+        [HttpGet("reservationsAcc/{id}")]
+        public ActionResult getReservationsByAccommodationId(string id)
+        {
+
+            return Ok(_mapper.ToDTO(_reservationService.getReservationsByAccommodationId(id).ToList()));
+        }
+
+
 
 
 

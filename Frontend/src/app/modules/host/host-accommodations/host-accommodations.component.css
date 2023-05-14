@@ -189,6 +189,37 @@
     background-color: rgb(4, 92, 113);
     border-radius: 20px;
   }
+
+  .satButton {
+    background-image: url("/assets/images/sat.png");
+    width: 28px;
+    height: 40px;
+    background-size: cover;
+
+    padding: 10px 20px;
+    background-color: rgb(4, 92, 113);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .priceButton {
+    background-image: url("/assets/images/pr.png");
+    width: 28px;
+    height: 40px;
+    background-size: cover;
+
+    padding: 10px 20px;
+    background-color: rgb(4, 92, 113);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
   
 
   

@@ -26,9 +26,20 @@
     <ng-container *ngFor="let accommodation of accommodations">
       <tr>
         <td>
-          <div class="ime">
-            <td><b>{{accommodation.name}}</b></td>
+
+          <div class="container1">
+
+            <div class="left-div">
+              <div class="ime">
+                <td><b>{{accommodation.name}}</b></td>
+              </div>
+            </div>
+            <div class="right-div">
+              <button (click)="reserve(accommodation)" class="reservationButton">Reserve</button>
+            </div>
+
           </div>
+
 
           <div class="locationFont">
             <td><button mat-icon-button class="location"disabled> </button></td>
@@ -62,12 +73,9 @@
               }">
             </ng-container>
           </div>
+
           <br>
           
-
-        </td>
-        <td>
-          <button (click)="reserve(accommodation)" class="reservationButton">Reserve</button>
         </td>
 
       </tr>
