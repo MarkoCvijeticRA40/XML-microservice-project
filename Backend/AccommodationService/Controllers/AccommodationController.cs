@@ -76,5 +76,36 @@ namespace AccommodationService.Controllers
             return Ok(_accommodationService.GetAllAccommodationsBySearch(location, guests, startDate, endDate));
 
         }
+
+        [HttpPut("{id}")]
+        public ActionResult Update(string id, AccommodationDTO accommodationdto)
+        {
+
+            Accommodation accommodation = _mapper.ToModel(accommodationdto);
+
+            accommodation.Id = id;
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (id != accommodation.Id)
+            {
+                return BadRequest();
+            }
+
+            try
+            {
+                _accommodationService.Update(accommodation);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+
+            return Ok(accommodation);
+        }
+
     }
 }

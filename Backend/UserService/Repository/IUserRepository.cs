@@ -14,6 +14,11 @@ namespace UserService.Repository
         public User GetByEmail(String email);
         public User WhoIAm(string token);
         void Update(User user);
+
+        void Delete(string id);
+
+        void Delete(User user);
+
     }
 }
 

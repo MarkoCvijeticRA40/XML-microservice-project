@@ -207,6 +207,25 @@
   
   .reservationButton:hover {
     background-color: rgb(2, 57, 70);
+    float: right;
+
+  }
+
+  .left-div {
+    width: 50%;
+    /* ostatak stilova za div-ove */
+  }
+
+  .right-div{
+    width: 50%;
+    text-align: right;
+    margin-right: 100px;
+
+  }
+
+  .container1 {
+    display: flex;
+    flex-direction: row;
   }
   
 

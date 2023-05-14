@@ -25,12 +25,20 @@ export class ReservationService {
     return this.http.get<Reservation[]>(this.apiHost+ '/undealeted/guest/' + id, {headers: this.headers});
   }
 
+   getReservationsByAccommodationId(id: any): Observable<Reservation[]> {
+    return this.http.get<Reservation[]>(this.apiHost+ '/reservationsAcc/' + id, {headers: this.headers});
+  }
+
   getUndealetedGuestReservedReservations(id: any): Observable<Reservation[]> {
     return this.http.get<Reservation[]>(this.apiHost+ '/undealeted/guest/' + id, {headers: this.headers});
   }
 
   getUndealetedHostUnreservedReservations(id: any): Observable<Reservation[]> {
     return this.http.get<Reservation[]>(this.apiHost+ '/undealeted/host/' + id, {headers: this.headers});
+  }
+
+  getAllResByAccId(id: any): Observable<Reservation[]> {
+    return this.http.get<Reservation[]>(this.apiHost+ '/reservationsAcc/' + id, {headers: this.headers});
   }
 
 
@@ -50,7 +58,6 @@ export class ReservationService {
   createReservation(reservation: any): Observable<any> {
     return this.http.post(this.apiHost , reservation , { responseType: 'text' });
   }
-
   
 
 }

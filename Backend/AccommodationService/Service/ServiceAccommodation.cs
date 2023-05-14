@@ -1,7 +1,6 @@
 ﻿using AccommodationService.Model;
 using AccommodationService.Repository;
 using Grpc.Core;
-using ProtoService1;
 using ProtoService2;
 
 namespace AccommodationService.Service
@@ -26,8 +25,23 @@ namespace AccommodationService.Service
 
         public ServiceAccommodation(IAccommodationRepository repository)
         {
-            _accommodationRepository = repository;     
+            _accommodationRepository = repository;
         }
+
+        public void Update(Accommodation accommodation)
+        {
+            DateTime start = accommodation.StartDate;
+            DateTime end = accommodation.EndDate;
+
+            DateTime newstart = new DateTime(start.Year, start.Month, start.Day + 1, 13, start.Minute, start.Second);
+            DateTime newend = new DateTime(end.Year, end.Month, end.Day + 1, 14, end.Minute, end.Second);
+
+            accommodation.StartDate = newstart;
+            accommodation.EndDate = newend;
+
+            _accommodationRepository.Update(accommodation);
+        }
+
         public void Create(Accommodation accommodation)
         {
             _accommodationRepository.Create(accommodation);
@@ -43,28 +57,29 @@ namespace AccommodationService.Service
             return _accommodationRepository.GetById(id);
         }
 
-        public List<Accommodation> GetAllAccommodationsBySearch(string location, int guests, DateTime startDate, DateTime endDate)
+
+    public List<Accommodation> GetAllAccommodationsBySearch(string location, int guests, DateTime startDate, DateTime endDate)
+    {
+        List<Accommodation> accommodations = new List<Accommodation>();
+        foreach (Accommodation accommodation in GetAll())
         {
-            List<Accommodation> accommodations = new List<Accommodation>();
-            foreach (Accommodation accommodation in GetAll())
+
+            DateTime sSearch = new DateTime(startDate.Year, startDate.Month, startDate.Day, 1, 1, 1);
+            DateTime sAcc = new DateTime(accommodation.StartDate.Year, accommodation.StartDate.Month, accommodation.StartDate.Day, 1, 1, 1);
+
+            DateTime eSearch = new DateTime(endDate.Year, endDate.Month, endDate.Day, 1, 1, 1);
+            DateTime eAcc = new DateTime(accommodation.EndDate.Year, accommodation.EndDate.Month, accommodation.EndDate.Day, 1, 1, 1);
+
+            int pocetak = DateTime.Compare(sSearch, sAcc);
+            int kraj = DateTime.Compare(eSearch, eAcc);
+
+
+            if (pocetak >= 0 && kraj <= 0 && accommodation.Location.Equals(location))
             {
-
-                DateTime sSearch = new DateTime(startDate.Year, startDate.Month, startDate.Day, 1, 1, 1);
-                DateTime sAcc = new DateTime(accommodation.StartDate.Year, accommodation.StartDate.Month, accommodation.StartDate.Day, 1, 1, 1);
-
-                DateTime eSearch = new DateTime(endDate.Year, endDate.Month, endDate.Day, 1, 1, 1);
-                DateTime eAcc = new DateTime(accommodation.EndDate.Year, accommodation.EndDate.Month, accommodation.EndDate.Day, 1, 1, 1);
-
-                int pocetak = DateTime.Compare(sSearch, sAcc);
-                int kraj = DateTime.Compare(eSearch, eAcc);
-
-
-                if (pocetak >= 0 && kraj <= 0 && accommodation.Location.Equals(location) && accommodation.MinCapacity <= guests && guests <= accommodation.MaxCapacity)
-                {
-                    accommodations.Add(accommodation);
-                }
+                accommodations.Add(accommodation);
             }
-            return accommodations;
         }
+        return accommodations;
     }
+}
 }

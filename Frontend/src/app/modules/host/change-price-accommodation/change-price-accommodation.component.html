@@ -1,0 +1,50 @@
+<body class="background-image">
+
+  <form>
+    <h1><b>Change Price accommodation:</b></h1>
+
+      <mat-form-field class="example-full-width">
+
+          <input matInput [matDatepicker]="pickerStart" [matDatepickerFilter]="myFilter" [min]="tomorrowDate" placeholder="Start date" [formControl]="requiredStartDateControl" [(ngModel)]="accommodation.startDate">
+          <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+          <mat-datepicker #pickerStart></mat-datepicker>
+          <mat-error *ngIf="requiredStartDateControl.hasError('required')">
+            Start date is <strong>required</strong>
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+
+          <input matInput [matDatepicker]="pickerEnd" [matDatepickerFilter]="myFilter" [min]="tomorrowDate" placeholder="End date" [formControl]="requiredEndDateControl" [(ngModel)]="accommodation.endDate">
+          <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+         
+          <mat-datepicker #pickerEnd></mat-datepicker>
+          <mat-error *ngIf="requiredEndDateControl.hasError('required')">
+              End date is <strong>required</strong>
+          </mat-error>
+      </mat-form-field>
+
+      
+      <mat-form-field class="example-full-width" >
+        <input matInput placeholder="Price " [formControl]="requiredCapacity" [(ngModel)]="accommodationCP.price" pattern="[0-9]+(\.[0-9]+)?" >
+        <mat-error *ngIf="requiredCapacity.hasError('required')">
+          Price <strong>required</strong>
+        </mat-error>
+      </mat-form-field><br>
+     
+      <div mat-dialog-actions style="width: 50%; float:left">
+          <button mat-button mat-dialog-close (click)="back()">Cancel</button>
+      </div>
+       
+  
+       <div mat-dialog-actions style="width: 50%; float:right" align="end">
+          <button mat-button mat-dialog-close cdkFocusInitial (click)="changeAccommodation()">Submit</button>
+      </div>
+
+  </form> 
+</body>
+
+
+
+
+

@@ -7,6 +7,8 @@ using Grpc.Core;
 using ProtoService;
 using Reservation = ReservationService.Model.Reservation;
 using ProtoService1;
+using Google.Protobuf.WellKnownTypes;
+using ProtoService2;
 
 namespace ReservationService.Service
 {
@@ -63,6 +65,14 @@ namespace ReservationService.Service
             List<Reservation> reservations = (List<Reservation>)_reservationRepository.GetAll();
             return reservations
             .Where(r => r.GuestId == guestId)
+            .ToList();
+        }
+
+        public List<Reservation> getReservationsByAccommodationId(string id)
+        {
+            List<Reservation> reservations = (List<Reservation>)_reservationRepository.GetAll();
+            return reservations
+            .Where(r => r.AccomodationId == id)
             .ToList();
         }
 
@@ -209,7 +219,6 @@ namespace ReservationService.Service
             .Where(r => !r.Deleted && !r.Approved && r.StartDate.Date >= DateTime.Today.Date)
             .ToList();
         }
-
 
 
     }

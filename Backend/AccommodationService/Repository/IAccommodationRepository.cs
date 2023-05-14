@@ -8,6 +8,8 @@ namespace AccommodationService.Repository
         void Create(Accommodation user);
         public Accommodation GetById(string id);
         public Boolean IsAccommodationExist(String id);
+        void Update(Accommodation accommodation);
+
     }
 }
 
