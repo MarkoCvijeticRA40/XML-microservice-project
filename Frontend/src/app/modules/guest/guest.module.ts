@@ -18,7 +18,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ReserveAccommodationComponent } from './reserve-accommodation/reserve-accommodation.component';
 import { ProfileComponent } from '../pages/profile/profile.component';
-import { AccommodationComponent } from '../pages/accommodation/accommodation.component';
+import { AccommodationComponent } from './accommodation/accommodation.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -28,6 +29,7 @@ const routes: Routes = [
       { path: 'reservations', component: ReservationsComponent},
       { path: 'guestProfil', component: ProfileComponent },
       { path: 'accommodation', component: AccommodationComponent},
+      { path: 'reserve/accommodation/:id', component: ReserveAccommodationComponent},
 
 
     ]
@@ -39,7 +41,8 @@ const routes: Routes = [
   declarations: [
     GuestComponent,
     ReservationsComponent,
-    ReserveAccommodationComponent
+    ReserveAccommodationComponent,
+    AccommodationComponent
   ],
   imports: [
     CommonModule,
@@ -60,7 +63,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     MatRadioModule,
     MatDatepickerModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDialogModule,
   ],
   providers: [
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}

@@ -38,7 +38,7 @@ namespace AccommodationService.Service
             var user = client.GetUserInfo(new UserRequest { Id = id });
             */
             //
-            */
+            
             return _accommodationRepository.GetAll();
         }
 

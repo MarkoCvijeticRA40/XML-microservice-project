@@ -50,6 +50,7 @@ namespace ReservationService.Controllers
         [HttpPost]
         public ActionResult Create(ReservationDTO reservationDTO)
         {
+            
             Reservation reservation = _mapper.ToModel(reservationDTO);
 
             if (!ModelState.IsValid)
@@ -57,10 +58,10 @@ namespace ReservationService.Controllers
                 return BadRequest(ModelState);
             }
 
-            _reservationService.Create(reservation);
+            string message = _reservationService.Create(reservation);
 
-
-            return CreatedAtAction("GetById", new { id = reservation.Id }, reservation);
+            return Ok(message);
+           // return CreatedAtAction("GetById", new { id = reservation.Id }, reservation);
 
         }
 
@@ -127,6 +128,7 @@ namespace ReservationService.Controllers
 
         }
 
+    
 
 
 
