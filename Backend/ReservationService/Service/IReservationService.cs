@@ -11,7 +11,7 @@ namespace ReservationService.Service
         public List<Reservation> getAllUndealitedGuestReservedReservationsInFuture(string guestId);
 
 
-        void Create(Reservation reservation);
+        string Create(Reservation reservation);
         void Update(Reservation reservation);
 
         void DeleteLogicaly(Reservation reservation);

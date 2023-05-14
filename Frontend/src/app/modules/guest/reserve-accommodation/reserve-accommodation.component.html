@@ -1,1 +1,46 @@
-<p>reserve-accommodation works!</p>
+<body class="background-image">
+
+    <form>
+        <h1><b>Buying tickets for flight</b></h1>
+
+        <mat-form-field class="example-full-width" >
+            <input matInput placeholder="Capacity " [formControl]="requiredCapacity" [(ngModel)]="reservation.capacity" pattern="[0-9]+(\.[0-9]+)?" >
+            <mat-error *ngIf="requiredCapacity.hasError('required')">
+              Capacity <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br>
+
+        <mat-form-field class="example-full-width">
+
+            <input matInput [matDatepicker]="pickerStart"  [min]="tomorrowDate" placeholder="Start date" [formControl]="requiredStartDateControl" [(ngModel)]="reservation.startDate">
+            <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+            <mat-datepicker #pickerStart></mat-datepicker>
+            <mat-error *ngIf="requiredStartDateControl.hasError('required')">
+              Start date is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+
+            <input matInput [matDatepicker]="pickerEnd"  [min]="tomorrowDate" placeholder="End date" [formControl]="requiredEndDateControl" [(ngModel)]="reservation.endDate">
+            <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+           
+            <mat-datepicker #pickerEnd></mat-datepicker>
+            <mat-error *ngIf="requiredEndDateControl.hasError('required')">
+                End date is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+       
+        <div mat-dialog-actions style="width: 50%; float:left">
+            <button mat-button mat-dialog-close (click)="back()">Cancel</button>
+        </div>
+         
+    
+         <div mat-dialog-actions style="width: 50%; float:right" align="end">
+            <button mat-button mat-dialog-close cdkFocusInitial (click)="reserveAccommodation()">Submit</button>
+        </div>
+
+    </form> 
+</body>
+
+
