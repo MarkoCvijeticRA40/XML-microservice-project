@@ -1,9 +1,8 @@
-﻿using System.Text.RegularExpressions;
-using AccommodationService.Model;
+﻿using AccommodationService.Model;
 using AccommodationService.Repository;
 using Grpc.Core;
-using Grpc.Net.Client;
 using ProtoService1;
+using ProtoService2;
 
 namespace AccommodationService.Service
 {
@@ -11,11 +10,18 @@ namespace AccommodationService.Service
     {
         private readonly IAccommodationRepository _accommodationRepository;
 
-        /* Ovako se poziva mikroservis kada zelite da dobavite usera
-        string id = "string";
-        var channel = new Channel("localhost", 4111, ChannelCredentials.Insecure);
-        var client = new UserGrpc.UserGrpcClient(channel);
-        var user = client.GetUserInfo(new UserRequest { Id = id });   
+        /*
+            Ovako se dobavlja rezervacija
+            string id1 = "645f76ba5b45418b5fddca84";
+            var channel1 = new Channel("localhost", 4113, ChannelCredentials.Insecure);
+            var client1 = new ReservationGrpc.ReservationGrpcClient(channel1);
+            var reservation = client1.GetReservationInfo(new ReservationRequest { Id = id1 });
+
+            Ovako se dobavlja user
+            string id = "645f76ba5b45418b5fddca8f";
+            var channel = new Channel("localhost", 4112, ChannelCredentials.Insecure);
+            var client = new UserGrpc.UserGrpcClient(channel);
+            var user = client.GetUserInfo(new UserRequest { Id = id });
         */
 
         public ServiceAccommodation(IAccommodationRepository repository)
@@ -29,16 +35,6 @@ namespace AccommodationService.Service
 
         public IEnumerable<Accommodation> GetAll()
         {
-            /*
-            //Ovako se poziva mikroservis,obrisite slobodono kad b
-            /*
-            string id = "6426ea62c3414f9576ca5a43";
-            var channel = new Channel("localhost", 4112, ChannelCredentials.Insecure);
-            var client = new UserGrpc.UserGrpcClient(channel);
-            var user = client.GetUserInfo(new UserRequest { Id = id });
-            */
-            //
-            
             return _accommodationRepository.GetAll();
         }
 

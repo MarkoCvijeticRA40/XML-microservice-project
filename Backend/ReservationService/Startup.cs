@@ -7,7 +7,8 @@ using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
 using System.Threading.Channels;
-
+using Grpc.Core;
+using ProtoService2;
 
 namespace ReservationService
 {
@@ -24,21 +25,10 @@ namespace ReservationService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
-            /*
-            services.AddScoped<IAccommodationRepository, AccommodationRepository>();
-            services.AddScoped<IAccommodationService, ServiceAccommodation>();
-            services.AddScoped<IGenericMapper<Accommodation, AccommodationDTO>, AccommodationMapper>();
             services.AddGrpc();
-
-          
-            */
             services.AddScoped<IReservationRepository, ReservationRepository>();
             services.AddScoped<IReservationService, ServiceReservation>();
             services.AddScoped<IGenericMapper<Reservation, ReservationDTO>, ReservationMapper>();
-
-
-
 
             // Add Swagger
             services.AddSwaggerGen(c =>
@@ -62,7 +52,7 @@ namespace ReservationService
             
         }
 
-    //    private Server server;
+        private Server server;
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IHostApplicationLifetime applicationLifetime)
@@ -91,34 +81,28 @@ namespace ReservationService
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-           //     endpoints.MapGrpcService<AccommodationGrpcService>();
+                endpoints.MapGrpcService<ReservationGrpcService>();
             });
             
-            /*
+            
             server = new Server
             {
-                Services = { AccommodationGrpc.BindService(new AccommodationGrpcService()) },
-                Ports = { new ServerPort("localhost", 4111, ServerCredentials.Insecure) }
+                Services = { ReservationGrpc.BindService(new ReservationGrpcService()) },
+                Ports = { new ServerPort("localhost", 4113, ServerCredentials.Insecure) }
             };
             server.Start();
 
             applicationLifetime.ApplicationStopping.Register(OnShutdown);
-            */
+            
         }
         
         private void OnShutdown()
         {
-            /*
+            
             if (server != null)
             {
                 server.ShutdownAsync().Wait();
-            }*/
-
+            }
         }
-
-
-
     }
-
-
 }

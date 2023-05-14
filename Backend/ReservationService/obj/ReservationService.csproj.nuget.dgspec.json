@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lazar\\OneDrive\\Desktop\\fakultet\\XML-projekti\\XML-microservici projekat\\XML-microservice-project\\Backend\\ReservationService\\ReservationService.csproj": {}
+    "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\ReservationService\\ReservationService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lazar\\OneDrive\\Desktop\\fakultet\\XML-projekti\\XML-microservici projekat\\XML-microservice-project\\Backend\\ReservationService\\ReservationService.csproj": {
+    "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\ReservationService\\ReservationService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lazar\\OneDrive\\Desktop\\fakultet\\XML-projekti\\XML-microservici projekat\\XML-microservice-project\\Backend\\ReservationService\\ReservationService.csproj",
+        "projectUniqueName": "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\ReservationService\\ReservationService.csproj",
         "projectName": "ReservationService",
-        "projectPath": "C:\\Users\\lazar\\OneDrive\\Desktop\\fakultet\\XML-projekti\\XML-microservici projekat\\XML-microservice-project\\Backend\\ReservationService\\ReservationService.csproj",
-        "packagesPath": "C:\\Users\\lazar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lazar\\OneDrive\\Desktop\\fakultet\\XML-projekti\\XML-microservici projekat\\XML-microservice-project\\Backend\\ReservationService\\obj\\",
+        "projectPath": "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\ReservationService\\ReservationService.csproj",
+        "packagesPath": "C:\\Users\\marko\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\marko\\Desktop\\XML-microservice-project\\Backend\\ReservationService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lazar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\marko\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,28 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.23.0, )"
+            },
+            "Grpc": {
+              "target": "Package",
+              "version": "[2.46.6, )"
+            },
+            "Grpc.AspNetCore": {
+              "target": "Package",
+              "version": "[2.53.0, )"
+            },
+            "Grpc.Net.Client": {
+              "target": "Package",
+              "version": "[2.53.0, )"
+            },
+            "Grpc.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.54.0, )"
+            },
             "MongoDB.Bson": {
               "target": "Package",
               "version": "[2.19.1, )"
@@ -72,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

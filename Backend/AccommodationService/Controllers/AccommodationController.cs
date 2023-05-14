@@ -4,7 +4,9 @@ using AccommodationService.Mappers;
 using AccommodationService.Model;
 using AccommodationService.Repository;
 using AccommodationService.Service;
+using Grpc.Core;
 using Microsoft.AspNetCore.Mvc;
+using ProtoService2;
 
 namespace AccommodationService.Controllers
 {
@@ -17,6 +19,13 @@ namespace AccommodationService.Controllers
         private readonly IAccommodationRepository _accommodationRepository;
         private readonly IGenericMapper<Accommodation, AccommodationDTO> _mapper;
 
+        /* 
+        string id = "645f76ba5b45418b5fddca84";
+        var channel = new Channel("localhost", 4113, ChannelCredentials.Insecure);
+        var client = new AccommodationGrpc.AccommodationGrpcClient(channel);
+        var accommodation = client.GetAccommodationInfo(new AccommodationRequest { Id = id }); 
+        */
+
         public AccommodationController(IAccommodationRepository accommodationRepository, IAccommodationService accommodationService, IGenericMapper<Accommodation, AccommodationDTO> accommodationMapper)
         {
             _accommodationService = accommodationService;
@@ -27,6 +36,11 @@ namespace AccommodationService.Controllers
         [HttpGet]
         public ActionResult GetAllAccommodations()
         {
+            string id = "645f76ba5b45418b5fddca84";
+            var channel = new Channel("localhost", 4113, ChannelCredentials.Insecure);
+            var client = new ReservationGrpc.ReservationGrpcClient(channel);
+            var accommodation = client.GetReservationInfo(new ReservationRequest { Id = id });
+
             return Ok(_mapper.ToDTO(_accommodationService.GetAll().ToList()));
         }
 

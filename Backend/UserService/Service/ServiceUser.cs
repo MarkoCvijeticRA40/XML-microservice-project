@@ -1,6 +1,7 @@
 ﻿using Grpc.Core;
 using Grpc.Net.Client;
 using ProtoService;
+using ProtoService2;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using UserService.Model;
@@ -15,11 +16,19 @@ namespace UserService.Service
         private readonly JwtGenerator _jwtGenerator;
         private readonly IAccommodationService _accommodationService;
 
-        /*Ovako se dobavlja accommodation iz Accommodation mikroservisa
-        string id = "12";
-        var channel = new Channel("localhost", 4111, ChannelCredentials.Insecure);
-        var client = new AccommodationGrpc.AccommodationGrpcClient(channel);
-        var accommodation = client.GetAccommodationInfo(new AccommodationRequest { Id = id });   
+        /*
+            Ovako se dobavlja rezervacija
+            string id1 = "645f76ba5b45418b5fddca84";
+            var channel1 = new Channel("localhost", 4113, ChannelCredentials.Insecure);
+            var client1 = new ReservationGrpc.ReservationGrpcClient(channel1);
+            var reservation = client1.GetReservationInfo(new ReservationRequest { Id = id1 });
+
+            Ovako se dobavlja smestaj
+            string id = "123456789123456789123456";
+            var channel = new Channel("localhost", 4111, ChannelCredentials.Insecure);
+            var client = new AccommodationGrpc.AccommodationGrpcClient(channel);
+            var accommodation = client.GetAccommodationInfo(new AccommodationRequest { Id = id });
+        
         */
 
         public ServiceUser(IUserRepository repository,IAccommodationService accommodationService)
@@ -31,6 +40,16 @@ namespace UserService.Service
 
         public IEnumerable<User> GetAll()
         {
+            string id1 = "645f76ba5b45418b5fddca84";
+            var channel1 = new Channel("localhost", 4113, ChannelCredentials.Insecure);
+            var client1 = new ReservationGrpc.ReservationGrpcClient(channel1);
+            var reservation = client1.GetReservationInfo(new ReservationRequest { Id = id1 });
+
+            string id = "123456789123456789123456";
+            var channel = new Channel("localhost", 4112, ChannelCredentials.Insecure);
+            var client = new AccommodationGrpc.AccommodationGrpcClient(channel);
+            var accommodation = client.GetAccommodationInfo(new AccommodationRequest { Id = id });
+
             return _userRepository.GetAll();
         }
 
