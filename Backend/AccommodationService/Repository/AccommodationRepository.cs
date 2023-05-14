@@ -28,6 +28,18 @@ namespace AccommodationService.Repository
 
         }
 
+        public void Delete(string id)
+        {
+            var filter = Builders<Accommodation>.Filter.Eq(u => u.Id, id);
+            _accommodation.DeleteOne(filter);
+        }
+
+        public void Delete(Accommodation accommodation)
+        {
+            var filter = Builders<Accommodation>.Filter.Eq(u => u.Id, accommodation.Id);
+            _accommodation.DeleteOne(filter);
+        }
+
         public IEnumerable<Accommodation> GetAll()
         {
             return _accommodation.Find(_ => true).ToList();

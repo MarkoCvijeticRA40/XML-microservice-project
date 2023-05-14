@@ -57,8 +57,13 @@ namespace AccommodationService.Service
             return _accommodationRepository.GetById(id);
         }
 
+        public void Delete(string id)
+        {
+            _accommodationRepository.Delete(id);
+        }
 
-    public List<Accommodation> GetAllAccommodationsBySearch(string location, int guests, DateTime startDate, DateTime endDate)
+
+        public List<Accommodation> GetAllAccommodationsBySearch(string location, int guests, DateTime startDate, DateTime endDate)
     {
         List<Accommodation> accommodations = new List<Accommodation>();
         foreach (Accommodation accommodation in GetAll())
@@ -81,5 +86,10 @@ namespace AccommodationService.Service
         }
         return accommodations;
     }
-}
+
+        public void Delete(Accommodation accommodation)
+        {
+            _accommodationRepository.Delete(accommodation);
+        }
+    }
 }

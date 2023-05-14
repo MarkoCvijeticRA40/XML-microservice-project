@@ -107,5 +107,18 @@ namespace AccommodationService.Controllers
             return Ok(accommodation);
         }
 
+        [HttpDelete("{id}")]
+        public ActionResult Delete(string id)
+        {
+            var accommodation = _accommodationService.GetById(id);
+            if (accommodation == null)
+            {
+                return NotFound();
+            }
+
+            _accommodationService.Delete(accommodation);
+            return NoContent();
+        }
+
     }
 }

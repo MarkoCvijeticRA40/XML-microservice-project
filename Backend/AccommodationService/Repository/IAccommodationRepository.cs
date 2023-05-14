@@ -9,6 +9,9 @@ namespace AccommodationService.Repository
         public Accommodation GetById(string id);
         public Boolean IsAccommodationExist(String id);
         void Update(Accommodation accommodation);
+        public void Delete(string id);
+        void Delete(Accommodation accommodation);
+
 
     }
 }
