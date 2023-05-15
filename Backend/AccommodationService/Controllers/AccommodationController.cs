@@ -120,5 +120,22 @@ namespace AccommodationService.Controllers
             return NoContent();
         }
 
+        [HttpDelete("delete/host/{id}")]
+        public ActionResult CancelReservation(string id)
+        {
+
+            try
+            {
+                _accommodationService.DeleteHost(id);
+                return NoContent();
+            }
+            catch
+            {
+                return NotFound();
+
+            }
+        }
+
+
     }
 }

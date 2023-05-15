@@ -125,7 +125,7 @@ namespace ReservationService.Service
 
         public List<Reservation> GetOverlapingReservations(Reservation reservation)
         {
-            return _reservationRepository.GetAll().Where(r => (r.AccomodationId == reservation.AccomodationId) && !r.Deleted && r.Approved && (((r.StartDate < reservation.EndDate) && (r.StartDate > reservation.StartDate)) || ((r.EndDate < reservation.EndDate) && (r.EndDate > reservation.StartDate)) || ((reservation.StartDate < r.EndDate) && (reservation.StartDate > r.StartDate)) || ((reservation.EndDate < r.EndDate) && (reservation.EndDate > r.StartDate)) || ((r.EndDate.Date == reservation.EndDate.Date) && (r.EndDate.Date == reservation.StartDate.Date)))).ToList();
+            return _reservationRepository.GetAll().Where(r => (r.AccomodationId == reservation.AccomodationId) && !r.Deleted && r.Approved && ((!(r.StartDate > reservation.EndDate) && !(r.StartDate < reservation.StartDate)) || (!(r.EndDate > reservation.EndDate) && !(r.EndDate < reservation.StartDate)) || (!(reservation.StartDate > r.EndDate) && !(reservation.StartDate < r.StartDate)) || (!(reservation.EndDate > r.EndDate) && !(reservation.EndDate < r.StartDate)))).ToList();
 
         }
 
@@ -176,8 +176,9 @@ namespace ReservationService.Service
 
             foreach(Reservation r in reservations)
             {
-                if ((r.AccomodationId ==reservation.AccomodationId)&&!r.Deleted && !r.Approved && (((r.StartDate < reservation.EndDate) && (r.StartDate > reservation.StartDate)) || ((r.EndDate < reservation.EndDate) && (r.EndDate > reservation.StartDate)) || ((reservation.StartDate < r.EndDate) && (reservation.StartDate > r.StartDate)) || ((reservation.EndDate < r.EndDate) && (reservation.EndDate > r.StartDate)) || ((r.EndDate.Date == reservation.EndDate.Date) && (r.EndDate.Date == reservation.StartDate.Date))))
-                {
+                // if ((r.AccomodationId ==reservation.AccomodationId)&&!r.Deleted && !r.Approved && (((r.StartDate < reservation.EndDate) && (r.StartDate > reservation.StartDate)) || ((r.EndDate < reservation.EndDate) && (r.EndDate > reservation.StartDate)) || ((reservation.StartDate < r.EndDate) && (reservation.StartDate > r.StartDate)) || ((reservation.EndDate < r.EndDate) && (reservation.EndDate > r.StartDate)) || ((r.EndDate.Date == reservation.EndDate.Date) && (r.EndDate.Date == reservation.StartDate.Date))))
+
+                if ((r.AccomodationId == reservation.AccomodationId) && !r.Deleted && !r.Approved && ((!(r.StartDate > reservation.EndDate) && !(r.StartDate < reservation.StartDate)) || (!(r.EndDate > reservation.EndDate) && !(r.EndDate < reservation.StartDate)) || (!(reservation.StartDate > r.EndDate) && !(reservation.StartDate < r.StartDate)) || (!(reservation.EndDate > r.EndDate) && !(reservation.EndDate < r.StartDate)) ))  {
                     DeleteLogicaly(r);
                 }
             }

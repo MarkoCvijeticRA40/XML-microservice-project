@@ -102,12 +102,8 @@ export class ProfileComponent implements OnInit {
         alert("Vas nalog je obrisan !")
         if(this.user.role == "Host"){
 
-          this.accommodations.forEach((element: any) => {
-            var app = new Accommodation(element);
-            this.accommodationService.deleteAccommodation(element.id).subscribe(res => {
-              alert("Svi smestaji od obrisanog hosta su obrisani")
-            })
-            
+          this.accommodationService.deleteHostAccommodations(this.user.id).subscribe(res => {
+            alert("Svi smestaji od obrisanog hosta su obrisani")
           });
 
         }

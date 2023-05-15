@@ -15,6 +15,9 @@ namespace AccommodationService.Service
         void Delete(Accommodation accommodation);
 
 
+        void DeleteHost(string id);
+
+
 
     }
 }

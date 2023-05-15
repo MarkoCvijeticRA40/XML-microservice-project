@@ -51,20 +51,16 @@ export class ReserveAccommodationComponent implements OnInit {
 
   public messages(): void{
  
-   /* if(this.reservation.startDate.getDate ==  this.currentDate.getDate){
-      alert("Start date must be grater than today !");
-    }else*/ if(this.reservation.endDate ==  this.currentDate){
-      alert("End date must be grater than today !");
-    }else if(this.reservation.capacity<1){
+    if(this.reservation.capacity<1){
       alert("Number of people must be positive !");
-    }else if(this.reservation.startDate > this.reservation.endDate){
+    }else if(!(this.reservation.startDate < this.reservation.endDate)){
       alert("End date must be after start date !");
     }
   }
 
 
   private isInputValid(): boolean {
-    return this.reservation.startDate >=  this.currentDate && this.reservation.endDate >  this.currentDate && this.reservation.capacity>0 && this.reservation.startDate < this.reservation.endDate;
+    return this.reservation.capacity>0 && this.reservation.startDate < this.reservation.endDate;
 
   }
 

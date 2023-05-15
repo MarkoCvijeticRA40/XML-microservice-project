@@ -1,6 +1,8 @@
 ﻿using AccommodationService.Model;
 using AccommodationService.Repository;
 using Grpc.Core;
+using Microsoft.AspNetCore.Mvc;
+using ProtoService;
 using ProtoService2;
 
 namespace AccommodationService.Service
@@ -91,5 +93,22 @@ namespace AccommodationService.Service
         {
             _accommodationRepository.Delete(accommodation);
         }
+
+        public void DeleteHost(string id)
+        {
+            List<Accommodation> accom = (List<Accommodation>)GetAll();
+            List<Accommodation> accommodations =  accom.Where(r => r.HostId == id)
+            .ToList();
+
+            foreach(Accommodation a in accommodations)
+            {
+                Delete(a);
+            }
+
+        }
+
+
+     
+
     }
 }

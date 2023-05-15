@@ -29,6 +29,11 @@ export class AccommodationService {
     return this.http.delete<any>(this.apiHost + 'api/accommodation/' + id, {headers: this.headers});
   }
 
+  deleteHostAccommodations(id: any): Observable<any> {
+    return this.http.delete<any>(this.apiHost + 'api/accommodation/delete/host/' + id, {headers: this.headers});
+  }
+
+
   updateAccommodation(accommodation: any): Observable<any> {
     return this.http.put<any>(this.apiHost + 'api/accommodation/' + accommodation.id, accommodation, {headers: this.headers});
   }

@@ -12,7 +12,7 @@
 
         <mat-form-field class="example-full-width">
 
-            <input matInput [matDatepicker]="pickerStart"  [min]="tomorrowDate" placeholder="Start date" [formControl]="requiredStartDateControl" [(ngModel)]="reservation.startDate">
+            <input matInput [matDatepicker]="pickerStart"  [min]="currentDate" placeholder="Start date" [formControl]="requiredStartDateControl" [(ngModel)]="reservation.startDate">
             <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
             <mat-datepicker #pickerStart></mat-datepicker>
             <mat-error *ngIf="requiredStartDateControl.hasError('required')">
